@@ -47,8 +47,8 @@ const App = () => {
       <ItemListContainer/>
       {/* <ItemListContainer2/> */}
       
-      <div>contador importado "ItemCount"</div>
-      <ItemCount/>
+      {/* <div>contador importado "ItemCount"</div>
+      <ItemCount/> */}
     </>
   )
 

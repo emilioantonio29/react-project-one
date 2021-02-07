@@ -30,7 +30,7 @@ import React, {useState, useEffect} from 'react';
                     <p>{cantidad}</p>
                 </div>
                 <div className="">
-                <button onClick={()=>{setCantidad(cantidad + 1)}}>+</button>
+                    <button onClick={()=>{setCantidad(cantidad > 11 ? cantidad : cantidad + 1 )}}>+</button> 
                 </div>
             </div>
         </>
