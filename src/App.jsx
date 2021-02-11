@@ -6,8 +6,10 @@ import ButtonComponent from './components/button/';
 import ItemListContainer from './containers/ItemListContainer';
 import ItemListContainer2 from './containers/ItemListContainer2';
 import ItemCount from './containers/ItemCount';
-
-
+import  {BrowserRouter, Switch, Route} from 'react-router-dom';
+        //engloba la app
+                        //rutas a manejar
+import ItemDetailContainer from './containers/ItemDetailContainer';
 
 
 
@@ -29,7 +31,19 @@ const App = () => {
   //
   return(
     <>
+
+    <BrowserRouter>
       <NavbarComponent/>
+      <Switch>
+        <Route exact path="/">
+          <ItemListContainer/>
+        </Route>
+      </Switch>
+    </BrowserRouter>
+    <ItemDetailContainer/>
+    
+
+      {/* <NavbarComponent/> */}
 
 
 
@@ -44,7 +58,7 @@ const App = () => {
       <ButtonComponent/>
       <ButtonComponent/> */}
 
-      <ItemListContainer/>
+      {/* <ItemListContainer/> */}
       {/* <ItemListContainer2/> */}
       
       {/* <div>contador importado "ItemCount"</div>
