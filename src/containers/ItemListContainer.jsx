@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ItemList from '../components/ItemList/ItemList';
 import ProductList from '../mocks/ProductList';
+import {Link} from 'react-router-dom';
 
 
 
@@ -18,7 +19,7 @@ const ItemListContainer = () =>{
     },[]);     
 
 
-
+    
     return(
         <>
             <div className="contaniner">
@@ -26,6 +27,8 @@ const ItemListContainer = () =>{
                     <h1 className="">Bienvenidos al proyecto React</h1>
                 </div>
                 <ItemList products={products}/>
+                {/* <button onClick={test}>yo</button> */}
+                <Link to={`/ItemDetailContainer`}>test</Link>
             </div>
 
             

@@ -11,6 +11,7 @@ const ItemList = ({products}) =>{
 //         ["Mermelada Frutilla", 250, "Mermelada 100% natural reducida en azucar"],
 //         ["Mermelada Naranja", 280, "Realizada con los mejores productos naturales"]
 //     ]
+
     return(
         <>
             {/* {productos.map((element,index) => {
@@ -27,8 +28,10 @@ const ItemList = ({products}) =>{
                     {products.map((product)=>{
                         return <Item key={product.id} product={product}/>;
                     })}
+
                 </ul>
             </div>
+ 
         </>
     )
 

@@ -5,13 +5,23 @@ import Item2 from '../Item/Item2';
 
 
 
-const ItemDetailList = ({products2}) =>{
+const ItemDetailList = ({products2, productoID}) =>{
 
 
 //    const productos = [
 //         ["Mermelada Frutilla", 250, "Mermelada 100% natural reducida en azucar"],
 //         ["Mermelada Naranja", 280, "Realizada con los mejores productos naturales"]
 //     ]
+
+const test4 = () => {
+    console.log(products2[productoID].id)
+    console.log(productoID)
+    console.log(parseInt(productoID)+1)
+}
+
+
+
+
     return(
         <>
             {/* {productos.map((element,index) => {
@@ -26,12 +36,17 @@ const ItemDetailList = ({products2}) =>{
             <div>
                 <ul>
                     {products2.map((producto)=>{
-                        // return <Item2 key={product.id} product={product}/>;
+                          if(products2[1].id == 2 ){
+                            return <Item2 key={producto.id} producto={producto}/>
 
-                        return <Item2 key={producto.id} producto={producto}/>
+                          }
+                        // return <Item2 key={product.id} product={product}/>;
                     })}
                 </ul>
             </div>
+            <button onClick={test4}> test2</button>
+            
+            
         </>
     )
 

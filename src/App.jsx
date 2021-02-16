@@ -35,12 +35,13 @@ const App = () => {
     <BrowserRouter>
       <NavbarComponent/>
       <Switch>
-        <Route exact path="/">
-          <ItemListContainer/>
-        </Route>
+        <Route exact path="/" component={ItemListContainer}/>
+        <Route path="/ItemDetailContainer/:productoID" component={ItemDetailContainer}/>
+        <Route path="*" children={<div>Not found</div>}/>
       </Switch>
     </BrowserRouter>
-    <ItemDetailContainer/>
+    
+    
     
 
       {/* <NavbarComponent/> */}
