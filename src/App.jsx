@@ -36,7 +36,7 @@ const App = () => {
       <NavbarComponent/>
       <Switch>
         <Route exact path="/" component={ItemListContainer}/>
-        <Route path="/ItemDetailContainer/:productoID" component={ItemDetailContainer}/>
+        <Route exact path="/ItemDetailContainer/:productoID" component={ItemDetailContainer}/>
         <Route path="*" children={<div>Not found</div>}/>
       </Switch>
     </BrowserRouter>

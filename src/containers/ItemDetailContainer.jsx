@@ -5,6 +5,8 @@ import ItemDetailList from '../components/ItemDetailList/ItemDetailList';
 // import ItemDetailList from '../components/ItemDetailList/ItemDetailList';
 import ProductList from '../mocks/ProductList';
 import Item2 from '../components/Item/Item2';
+import Item from '../components/Item/Item';
+import Test from '../components/Item/Test';
 
 
 const ItemDetailContainer = () =>{
@@ -25,13 +27,21 @@ const ItemDetailContainer = () =>{
     // },[productoID]); 
 
     const [products, setProducts] = React.useState([]);
+    const [load, setLoad] = React.useState("CARGANDO . . .");
 
     React.useEffect(() => {
         const myPromise = new Promise ((resolve, reject) => {
-            setTimeout(() => resolve(ProductList), 3000);
+            // setTimeout(() => {
+            //     resolve(ProductList), 3000);
+            // }
+            setTimeout(() => {    
+                resolve(ProductList);
+                setLoad("");    
+            }, 3000);
     });
     
         myPromise.then((result) => setProducts(result));
+
     },[]);    
     
     // const [products2, setProducts] = React.useState([]);
@@ -50,10 +60,11 @@ const ItemDetailContainer = () =>{
     //     }
     // })
 
-
+    
     const test3 = () => {
         console.log(products)
         console.log(productoID)
+        console.log(load)
         // console.log(products2)
     }
 
@@ -64,19 +75,27 @@ const ItemDetailContainer = () =>{
             <h1>ItemID: {productoID}</h1>
             <p>DETALLE DE PRODUCTO DEL ITEMDETAILCONTAINER</p>
             {/* <h1>ItemID: {productoMostrar}</h1> */}
-          
+            <div className="d-flex justify-content-center">
+                <h1>{load}</h1>
+            </div>
+            
             <div>
                 <ul>
-                    {products.map((producto)=>{
+                    {/* {products.map((producto)=>{
                           if(producto.id == productoID){
                             return <Item2 key={producto.id} producto={producto}/>
 
                           }
-                        // return <Item2 key={product.id} product={product}/>;
-                    })}
+                    })} */}
+                    {
+                        products.filter(product => parseInt(product.id) === parseInt(productoID))
+                            .map((producto)=>{
+                                return <Item2 key={producto.id} producto={producto}/>
+                      })
+                        
+                    }
                 </ul>
-            </div>
-
+            </div>  
         </>
     )
 

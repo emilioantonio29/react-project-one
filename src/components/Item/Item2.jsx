@@ -1,7 +1,7 @@
 
 const Item2 = ({producto}) => {
     return <div className="card col-md-6">
-        <img src={producto.imagen} alt=""/>
+        <img src={`../imagenes/${producto.imagen}.png`} alt=""/>
         <h3>{producto.nombre}</h3>
         <p>Precio: {producto.precio} {producto.moneda}</p>
         <p>Stock: {producto.cantidad}</p>

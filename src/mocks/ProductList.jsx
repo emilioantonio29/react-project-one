@@ -7,7 +7,7 @@ const ProductList = [
         "moneda": "$",
         "tipo": "Panes de Jamon",
         "descript": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "imagen": "imagenes/pandejamon.png"
+        "imagen": "pandejamon"
     },
     {
         "id": 2,
@@ -17,7 +17,7 @@ const ProductList = [
         "moneda": "$",
         "tipo": "Panes de Jamon",
         "descript": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "imagen": "imagenes/pandejamon2.png"
+        "imagen": "pandejamon2"
     },
     {
         "id": 3,
@@ -27,7 +27,7 @@ const ProductList = [
         "moneda": "$",
         "tipo": "Panes de Jamon",
         "descript": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "imagen": "imagenes/pandejamon3.png"
+        "imagen": "pandejamon3"
     },
     {
         "id": 4,
@@ -37,7 +37,7 @@ const ProductList = [
         "moneda": "$",
         "tipo": "Golfeados",
         "descript": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "imagen": "imagenes/golfeado1.png"
+        "imagen": "golfeado1"
     },
     {
         "id": 5,
@@ -47,7 +47,7 @@ const ProductList = [
         "moneda": "$",
         "tipo": "Golfeados",
         "descript": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        "imagen": "imagenes/golfeado2.png"
+        "imagen": "golfeado2"
     }
 ]
 
