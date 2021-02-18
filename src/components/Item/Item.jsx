@@ -12,7 +12,7 @@ const Item = ({product}) => {
         <h3>{product.nombre}</h3>
         <p>Precio: {product.precio} {product.moneda}</p>
         <p>Stock: {product.cantidad}</p>
-        <Link to={`/ItemDetailContainer/${product.id}`}><button>Detalle del Producto</button></Link>
+        <Link to={`/ItemDetailContainer/${product.id}`}><button>Comprar</button></Link>
         {/* <button onClick={test}> test2</button> */}
     </div>
     

@@ -33,6 +33,7 @@ const App = () => {
     <>
 
     <BrowserRouter>
+     
       <NavbarComponent/>
       <Switch>
         <Route exact path="/" component={ItemListContainer}/>
