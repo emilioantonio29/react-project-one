@@ -2,53 +2,37 @@ import * as React from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import ItemDetailList from '../components/ItemDetailList/ItemDetailList';
+// import ItemDetailList from '../components/ItemDetailList/ItemDetailList';
 import ProductList from '../mocks/ProductList';
-import Item2 from '../components/Item/Item2';
+import ItemCart from '../components/Item/ItemCart';
 import Item from '../components/Item/Item';
 import Test from '../components/Item/Test';
+import { GlobalContext } from '../context/GlobalContext';
 
 
-const ItemDetailContainer = () =>{
-    const { productoID } = useParams();
-    const [products, setProducts] = React.useState([]);
-    const [load, setLoad] = React.useState("CARGANDO . . .");
-
-    React.useEffect(() => {
-        const myPromise = new Promise ((resolve, reject) => {
-            setTimeout(() => {    
-                resolve(ProductList);
-                setLoad("");    
-            }, 3000);
-    });
+const CartContainer = () =>{
+    const {cart, setCart, cartLine} = React.useContext(GlobalContext);
     
-        myPromise.then((result) => setProducts(result));
 
-    },[]);    
-
+    
     const test3 = () => {
-        console.log(products)
-        console.log(productoID)
-        console.log(load)
+        console.log(cart)
         // console.log(products2)
     }
 
     return(
         <>
-            {/* <button onClick={test3}> test3</button> */}
-
-            <h1>ItemID: {productoID}</h1>
-            <p>DETALLE DE PRODUCTO DEL ITEMDETAILCONTAINER</p>
-            {/* <h1>ItemID: {productoMostrar}</h1> */}
-            <div className="d-flex justify-content-center">
-                <h1>{load}</h1>
-            </div>
-            
+            <button onClick={test3}> ConsoleLog</button>
+            <button onClick={() => {setCart([...cart, {id:2,name:"example"}])}}> Agregar item de prueba al carrito</button>
+            <div>
+                carrito
+            </div>  
+            <h1>ItemID: {cart[0].name}</h1>
             <div>
                 <ul>
                     {
-                        products.filter(product => parseInt(product.id) === parseInt(productoID))
-                            .map((producto)=>{
-                                return <Item2 key={producto.id} producto={producto}/>
+                        cart.map((productCart)=>{
+                                return <ItemCart key={productCart.id} productCart={productCart}/>
                       })
                         
                     }
@@ -59,7 +43,7 @@ const ItemDetailContainer = () =>{
 
 }
 
-export default ItemDetailContainer;
+export default CartContainer;
 
 
 

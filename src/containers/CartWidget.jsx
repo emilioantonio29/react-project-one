@@ -1,6 +1,6 @@
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
-
+import {Link} from 'react-router-dom';
 
   const CartWidget = () =>{
     // const [carrito, setCarrito] = useState([]);
@@ -36,15 +36,17 @@
                   </button>
                  
                   {/* <!-- carrito --> */}
-                  <button type="button" className="btn notification" data-toggle="modal" data-target="#staticBackdrop2"> {/*resetProducto()*/}
-                    {/* <i className="material-icons add_shopping_cart" data-target="#staticBackdrop2">&#xe854;</i> */}
-                    <span className="material-icons sizeC">
-                      shopping_cart
-                    </span>
-                    {/* <span className="material-icons cirC">
-                      lens
-                    </span> */}
-                  </button>
+                  <Link to={`/carrito`}>
+                      <button type="button" className="btn notification" data-toggle="modal" data-target="#staticBackdrop2"> {/*resetProducto()*/}
+                        {/* <i className="material-icons add_shopping_cart" data-target="#staticBackdrop2">&#xe854;</i> */}
+                        <span className="material-icons sizeC">
+                          shopping_cart
+                        </span>
+                        {/* <span className="material-icons cirC">
+                          lens
+                        </span> */}
+                      </button>
+                  </Link>
                 </li>
               </ul>
             </div>

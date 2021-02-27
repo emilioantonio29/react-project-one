@@ -1,15 +1,21 @@
 import ItemCount from "../../containers/ItemCount"
 import React, {useState, useEffect} from 'react';
+import { GlobalContext } from "../../context/GlobalContext";
+
 
 const Item2 = ({producto}) => {
     
     const [cantidad2, setCantidad2] = useState(1);
     const [cantidad, setCantidad] = useState(producto.cantidad);
     const [show, setShow] = useState(true);
+    const {cart, setCart} = React.useContext(GlobalContext);
+    // const cart = React.useContext(GlobalContext);
+    console.log(cart)
     React.useEffect(()=>{
         // consultas a la BD, suscripciones como addeventlistener
         document.title = `${cantidad2}`
         console.log("mounted")
+        // console.log('esto es cart'+cart)
         return () => {
             // remove listener
             // desuscripción BD
@@ -34,6 +40,8 @@ const Item2 = ({producto}) => {
             setCantidad(cantidad - cantidad2)
             setCantidad2(1)
             setShow(false)
+            // setCart(cart.push(producto))
+            
         }else{
             alert("test")
         }
@@ -49,18 +57,25 @@ const Item2 = ({producto}) => {
 
     // }
 
+    // function agregar(){
+    //     setCart(cart.push(producto))
+       
+    // }
+
 
     
     const test3 = () => {
-        console.log(producto.cantidad)
-        console.log(cantidad)
+        // console.log(producto.cantidad)
+        // console.log(cantidad)
+        console.log('esto es cart'+cart)
+        console.log(producto)
         // console.log(products2)
     }
 
     return <div className="card col-md-6">
                     
-        <button onClick={test3}> test3</button>
-
+        {/* <button onClick={test3}> test3</button> */}
+        
         <img src={`../imagenes/${producto.imagen}.png`} alt=""/>
         <h3>{producto.nombre}</h3>
         <p>Precio: {producto.precio} {producto.moneda}</p>

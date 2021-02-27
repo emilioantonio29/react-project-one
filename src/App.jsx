@@ -10,6 +10,10 @@ import  {BrowserRouter, Switch, Route} from 'react-router-dom';
         //engloba la app
                         //rutas a manejar
 import ItemDetailContainer from './containers/ItemDetailContainer';
+import { GlobalContext, GlobalProvider } from './context/GlobalContext';
+import { CartContext } from './context/CartContext';
+import { useState } from 'react';
+import CartContainer from './containers/CartContainer';
 
 
 
@@ -24,20 +28,24 @@ import ItemDetailContainer from './containers/ItemDetailContainer';
 // } 
 
 const App = () => {
+  const [id, setID] = useState(2); //test
+  const [precio, setPrecio] = useState(9999); //test
   // logica antes del return
   const Saludar = () => {
     alert("hola")
 }
-  //
-  return(
-    <>
-
+  
+  // 
+  return( 
+  
+  <GlobalProvider>
+  
     <BrowserRouter>
-     
       <NavbarComponent/>
       <Switch>
         <Route exact path="/" component={ItemListContainer}/>
         <Route exact path="/ItemDetailContainer/:productoID" component={ItemDetailContainer}/>
+        <Route exact path="/carrito" component={CartContainer}/>
         <Route path="*" children={<div>Not found</div>}/>
       </Switch>
     </BrowserRouter>
@@ -65,8 +73,9 @@ const App = () => {
       
       {/* <div>contador importado "ItemCount"</div>
       <ItemCount/> */}
-    </>
-  )
+
+    </GlobalProvider>
+  );
 
 }
 
