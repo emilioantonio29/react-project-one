@@ -4,15 +4,19 @@ import Item2 from './Item2';
 
 
 const ItemCart = ({productCart}) => {
+    const [show, setShow] = React.useState(false);
 
     React.useEffect(()=>{
         console.log("mountedItemCart")
-        console.log(productCart)
+        // console.log("yo")
+        // console.log(productCart.length)
         // console.log(carrito[localStorage.key])
         // console.log(carrito[1])
         // JSON.parse(carrito)
         // console.log(carrito)
         // console.log(Object.values(localStorage))
+        // setShow(false)
+        
         return () => {
             // remove listener
             // desuscripción BD
@@ -27,6 +31,7 @@ const ItemCart = ({productCart}) => {
         // let user = JSON.parse(localStorage.getItem(productCart))
         // console.log(user.idProducto)
         console.log(JSON.parse(productCart).id)
+        // console.log(productCart.length)
     }
 
     const eliminarItem = () => {
@@ -48,7 +53,7 @@ const ItemCart = ({productCart}) => {
         <button onClick={eliminarItem}> eliminarItem</button>
         <button onClick={consoleLogItemCard}> consoleLogItemCard</button>
         {/* <Item2/> */}
-
+        {/* {show ? (<p>hay items</p>) : (<p>NO HAY ITEMS AGREGADOS AL CARRITO</p> )} */}
     </div>
     
 }
