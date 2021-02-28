@@ -83,8 +83,17 @@ const Item2 = ({producto}) => {
         // console.log(producto)
         // console.log(products2)
         // setPrueba([...cart, {id:2,name:"example"}])
-        localStorage.setItem(producto.id, JSON.stringify({"id":producto.id,"nombre":producto.nombre,"precio":producto.precio,"cantidad":producto.cantidad - (cantidad - cantidad2),"moneda":producto.moneda,"tipo":producto.tipo,"descript":producto.descript,"imagen":producto.imagen}))
+        //sirve localStorage.setItem(producto.id, JSON.stringify({id:producto.id,nombre:producto.nombre,precio:producto.precio,cantidad:producto.cantidad - (cantidad - cantidad2),moneda:producto.moneda,tipo:producto.tipo,descript:producto.descript,imagen:producto.imagen}))
+        localStorage.setItem(producto.id, JSON.stringify({idProducto:producto.id,precioProducto:producto.precio,stockDisponible:producto.cantidad,cantidadAgregada:producto.cantidad - (cantidad - cantidad2)}))
+
         // localStorage.setItem(producto.cantidad, JSON.stringify(producto.cantidad - cantidad))
+        // localStorage.setItem(producto.id, JSON.stringify({cantidad:producto.cantidad - (cantidad - cantidad2)}))
+        
+        
+        //sirve localStorage.setItem(producto.id, cantidad - (cantidad - cantidad2))
+
+
+        
     }
     const test4 = () => {
         // console.log(producto.cantidad)

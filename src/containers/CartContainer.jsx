@@ -16,7 +16,7 @@ const CartContainer = () =>{
     const [load, setLoad] = React.useState("CARGANDO . . .");
     const [show, setShow] = React.useState(true);
     const [carrito, setCarrito] = React.useState([]);
-
+    const [carritoS, setCarritoS] = React.useState([]);
     React.useEffect(() => {
         const myPromise = new Promise ((resolve, reject) => {
             setTimeout(() => {    
@@ -30,6 +30,32 @@ const CartContainer = () =>{
     },[]);    
 
     React.useEffect(()=>{
+        // console.log(Object.value(localStorage))
+        for(let i =0; i < localStorage.length; i++){
+            let key = localStorage.key(i);
+            carrito.push((localStorage.getItem(key)))
+        }
+        // console.log(localStorage.key)
+        console.log("yo")
+        console.log(carrito)
+
+
+        let carritoS = carrito.reduce(function(s, a){
+            s.push({name: a});
+            return s;
+          }, [])
+          console.log(carritoS)
+        // setCarrito(Object.values(localStorage));
+        // console.log(carrito);
+        // let arr = carrito.reduce(function(s, a){
+        //     s.push({name: a});
+        //     return s;
+        //   }, []);
+        // console.log("mountedCartContainer")
+        // console.log(arr)
+        // setCarritoS(arr)
+        // console.log(arr)
+        // setCarritoS(arr)
         // consultas a la BD, suscripciones como addeventlistener
         // setCantidad(1)
         // if(localStorage.getItem(producto.id) === null){
@@ -40,21 +66,61 @@ const CartContainer = () =>{
         //     setCantidad(producto.cantidad - variableCarrito.cantidad)
         // }
         // for(let i =0; i < localStorage.length; i++){
+        //     // setCarrito( localStorage.getItem(i))
+        //     // carrito = JSON.parse(str)
         //     // setCarrito([JSON.parse(localStorage.getItem(localStorage.key(i)))])
         //     // console.log(xxx)
         //     // console.log(xxx)
         //     // setCarrito([...carrito, {1}]
         //     // console.log(i)
+        //     // console.log(localStorage.getItem(i))
+        //     // console.log("TS")
+        //     // console.log(i)
+        //     // console.log(JSON.parse(carrito[i]))
+        
         //   }
         // setCarrito([...carrito, {(1)}]
-        console.log("mounted carrito")
-        console.log(localStorage.length)
-        setCarrito(Object.values(localStorage))
-        console.log(carrito)
-        console.log(JSON.parse('{ "name":"John", "age":30, "city":"New York"}'))
+        // console.log("mounted carrito")
+        // console.log(localStorage.length)
+        // setCarrito(Object.values(localStorage))
+        // console.log(Object.values(localStorage))
+        // console.log(carrito)
+        // console.log(carrito)
+        // console.log(JSON.parse('{ "name":"John", "age":30, "city":"New York"} '))
+        console.log([
+            {
+                "id": 1,
+                "nombre": "Pan de Jamon",
+                "precio": 1000,
+                "cantidad": 10,
+                "moneda": "$",
+                "tipo": "Panes de Jamon",
+                "descript": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "imagen": "pandejamon"
+            },
+            {
+                "id": 2,
+                "nombre": "Pan de Jamon con Tocineta",
+                "precio": 1200,
+                "cantidad": 12,
+                "moneda": "$",
+                "tipo": "Panes de Jamon",
+                "descript": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "imagen": "pandejamon2"
+            }]
+
+        )
+
+
+
+        // console.log(JSON.parse(Object.values(localStorage)))
         // console.log(JSON.parse(`${carrito}`))
         // console.log(carrito)
         // console.log(JSON.parse(carrito[1]))
+        // console.log("coño")
+        // console.log(JSON.parse(carrito[0]))
+        // console.log("coño2")
+        // console.log(carrito)
         return () => {
             // remove listener
             // desuscripción BD
@@ -62,19 +128,6 @@ const CartContainer = () =>{
         }
     },[]);
 
-    const allStorage = () =>  {
-
-        var archive = [],
-        keys = Object.keys(localStorage),
-        i = 0, key;
-
-        for (; key = keys[i]; i++) {
-            archive.push( key + '=' + localStorage.getItem(key));
-        }
-
-        // console.log(archive[1])
-        console.log(JSON.parse(archive))
-    }
     
     // let xxx = []
     const test3 = () => {
@@ -98,23 +151,17 @@ const CartContainer = () =>{
         // let variableCarrito = JSON.parse(localStorage.getItem()
         // allStorage()
         // console.log(xxx)
-        console.log(typeof(Object.keys(localStorage)))
-        console.log(Object.keys(localStorage))
-        console.log(typeof(Object.values(localStorage)))
-        console.log(JSON.parse(Object.values(localStorage)))
-        // console.log(stor)
-        let xxx = Object.values(localStorage)
-        console.log(xxx)
-        
+        // console.log(typeof(Object.keys(localStorage)))
+        // console.log(Object.keys(localStorage))
+        // console.log(typeof(Object.values(localStorage)))
+        // console.log(JSON.parse(Object.values(localStorage)))
+        // // console.log(stor)
+        // let xxx = Object.values(localStorage)
+        // console.log(xxx)
+        console.log(carrito)
         
     }
 
-    function talfy(){
-        localStorage.forEach((element, index) => {
-            console.log(`Current index: ${index}`);
-            console.log(element);
-        });
-    }
 
     return(
         <>
@@ -136,11 +183,13 @@ const CartContainer = () =>{
                     {
                         // cart.map((productCart)=>{
                         //         return <ItemCart key={productCart.id} productCart={productCart}/>
-                        // cart.map((productCart)=>{
-                        //     return <ItemCart key={productCart.id} productCart={productCart}/>
-                        // })
+                        carrito.map((productCart)=>{
+                            return <ItemCart key={productCart.id} productCart={productCart}/>
+                        })
                        
-                        <ItemCart />
+                        // <ItemCart  carrito={carritoS}/>
+
+
                         // cart.filter((value, index, categoryArray) => categoryArray.indexOf(value) === index)
                         // .map((productCart)=>{
                         //     return <ItemCart key={productCart.id} productCart={productCart}/>
