@@ -14,6 +14,7 @@ export const GlobalProvider = ({children}) => {
 
     
     return <GlobalContext.Provider value={{cart,setCart,prueba, setPrueba}}>
+
         {children}
     </GlobalContext.Provider>
 }

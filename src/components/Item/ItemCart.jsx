@@ -16,7 +16,8 @@ const ItemCart = ({productCart}) => {
         return () => {
             // remove listener
             // desuscripción BD
-            console.log("unmounted RIP")
+            console.log("unmounted RIPCART")
+        
         }
     },[]);
    

@@ -77,6 +77,14 @@ const CartContainer = () =>{
         //     // desuscripción BD
         //     console.log("unmounted RIP")
         // }
+        return () => {
+            // remove listener
+            // desuscripción BD
+            console.log("unmounted RIPCARTC")
+            setCart([])
+            console.log("esto es cart")
+            console.log(cart)
+        }
     },[]);
 
     
