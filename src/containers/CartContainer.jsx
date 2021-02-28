@@ -30,17 +30,23 @@ const CartContainer = () =>{
     },[]);    
 
     React.useEffect(()=>{
+        // setCart([])
         for(let i =0; i < localStorage.length; i++){
             let key = localStorage.key(i);
+            // console.log(i)
+            if (localStorage.getItem(key) !== null) {
+                    cart.push( localStorage.getItem( key ) ) 
+    
+            }
             // cart.push(JSON.parse(localStorage.getItem(key))) //Objects are not valid as a React child
-            cart.push( localStorage.getItem( key ) ) 
+            // cart.push( localStorage.getItem( key ) ) 
             
         }
         
-        for(let i =0; i < cart.length; i++){
-            // console.log(JSON.parse(cart[i]))
-            carritoS.push(JSON.parse(cart[i]))
-        }
+        // for(let i =0; i < cart.length; i++){
+        //     // console.log(JSON.parse(cart[i]))
+        //     carritoS.push(JSON.parse(cart[i]))
+        // }
         console.log([
             {
                 "id": 1,
@@ -89,7 +95,11 @@ const CartContainer = () =>{
         //     console.log(JSON.parse(cart[i]))
         // }
         // console.log(carritoS.id)
-        console.log(cart)
+        console.log(JSON.parse(cart).id)
+        console.log(cart.length)
+        if(cart.length===0){
+            console.log("tests")
+        }
     }
 
 
