@@ -6,12 +6,14 @@ import ProductList from '../mocks/ProductList';
 import Item2 from '../components/Item/Item2';
 import Item from '../components/Item/Item';
 import Test from '../components/Item/Test';
+import { GlobalContext } from '../context/GlobalContext';
 
 
 const ItemDetailContainer = () =>{
     const { productoID } = useParams();
     const [products, setProducts] = React.useState([]);
     const [load, setLoad] = React.useState("CARGANDO . . .");
+    // const cart = React.useContext(GlobalContext);
 
     React.useEffect(() => {
         const myPromise = new Promise ((resolve, reject) => {
