@@ -31,6 +31,7 @@ const ItemCart = ({productCart}) => {
     const eliminarItem = () => {
 
         localStorage.removeItem(JSON.parse(productCart).id)
+        window.location.reload(false)
     }
 
 
