@@ -83,15 +83,19 @@ const Item2 = ({producto}) => {
         // console.log(producto)
         // console.log(products2)
         // setPrueba([...cart, {id:2,name:"example"}])
-        //sirve localStorage.setItem(producto.id, JSON.stringify({id:producto.id,nombre:producto.nombre,precio:producto.precio,cantidad:producto.cantidad - (cantidad - cantidad2),moneda:producto.moneda,tipo:producto.tipo,descript:producto.descript,imagen:producto.imagen}))
-        localStorage.setItem(producto.id, JSON.stringify({idProducto:producto.id,precioProducto:producto.precio,stockDisponible:producto.cantidad,cantidadAgregada:producto.cantidad - (cantidad - cantidad2)}))
+      localStorage.setItem(producto.id, JSON.stringify({id:producto.id,nombre:producto.nombre,precio:producto.precio,cantidad:producto.cantidad - (cantidad - cantidad2),moneda:producto.moneda,tipo:producto.tipo,descript:producto.descript,imagen:producto.imagen,stock:producto.cantidad-(producto.cantidad - (cantidad - cantidad2))}))
+        // localStorage.setItem(producto.id, JSON.stringify({idProducto:producto.id,precioProducto:producto.precio,stockDisponible:producto.cantidad,cantidadAgregada:producto.cantidad - (cantidad - cantidad2)}))
 
         // localStorage.setItem(producto.cantidad, JSON.stringify(producto.cantidad - cantidad))
         // localStorage.setItem(producto.id, JSON.stringify({cantidad:producto.cantidad - (cantidad - cantidad2)}))
         
-        
-        //sirve localStorage.setItem(producto.id, cantidad - (cantidad - cantidad2))
+        //  localStorage.setItem(producto.id, JSON.stringify([{producto:producto, cantidad:cantidad - (cantidad - cantidad2)}]))
 
+        // localStorage.setItem(producto.id, cantidad - (cantidad - cantidad2))
+        // let prod = JSON.stringify(producto);
+        // let cant = JSON.stringify(cantidad - (cantidad - cantidad2));
+        // let cadena = [prod,cant]
+        // localStorage.setItem(producto.id, prod)
 
         
     }
@@ -102,7 +106,7 @@ const Item2 = ({producto}) => {
         // console.log(producto)
         // console.log(products2)
         console.log(cart)
-        console.log(prueba)
+        console.log("cart")
         console.log(producto)
         localStorage.getItem(producto.id)
         localStorage.getItem("session")
@@ -110,7 +114,7 @@ const Item2 = ({producto}) => {
         let xx = localStorage.getItem(producto.id) 
         console.log(xx)
         let user = JSON.parse(localStorage.getItem(producto.id))
-        console.log(user.cantidad)
+        console.log(user.idProducto)
     }
     
 

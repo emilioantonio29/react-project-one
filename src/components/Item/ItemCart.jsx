@@ -1,5 +1,6 @@
 import * as React from 'react'; 
 import {Link} from 'react-router-dom';
+import Item2 from './Item2';
 
 
 const ItemCart = ({productCart}) => {
@@ -18,25 +19,34 @@ const ItemCart = ({productCart}) => {
             console.log("unmounted RIP")
         }
     },[]);
-
-    const test = () => {
+   
+    const consoleLogItemCard = () => {
         console.log(productCart)
+        // localStorage.getItem("2")
+        // let user = JSON.parse(localStorage.getItem(productCart))
+        // console.log(user.idProducto)
+        console.log(JSON.parse(productCart).id)
     }
-    // for(let i =0; i < localStorage.length; i++){
-    //     // console.log("TS")
-    //     console.log(i)
-    //     // console.log(Object.values(localStorage))
-    //     carrito = JSON.parse(window.localStorage.getItem(i));
-    //   }
-    // console.log(carritoS)
+
+    const eliminarItem = () => {
+
+        localStorage.removeItem(JSON.parse(productCart).id)
+    }
+
 
 
     return <div className="card col-md-6">
         {/* <h3>{products.id}</h3> */}
         {/* <p>ID: {Object.values(localStorage)}</p> */}
-        <p>ID: {productCart}</p>
+        <p>IdProducto: {JSON.parse(productCart).id}</p>
+        <p>nombre: {JSON.parse(productCart).nombre}</p>
+        <p>stock Disponible: {JSON.parse(productCart).stock}</p>
+        <p>Cantidad Agregada: {JSON.parse(productCart).cantidad}</p>
         {/* <p>Stock: {products.producto.nombre}</p> */}
-        <button onClick={test}> test2</button>
+        <button onClick={eliminarItem}> eliminarItem</button>
+        <button onClick={consoleLogItemCard}> consoleLogItemCard</button>
+        {/* <Item2/> */}
+
     </div>
     
 }
