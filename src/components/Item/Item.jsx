@@ -9,10 +9,11 @@ const Item = ({product}) => {
     }
 
     return <div className="card col-md-6">
-        <h3>{product.nombre}</h3>
-        <p>Precio: {product.precio} {product.moneda}</p>
-        <p>Stock: {product.cantidad}</p>
-        <Link to={`/ItemDetailContainer/${product.id}`}><button>Comprar</button></Link>
+        {/* <button onClick={() => {console.log(product.producto)}}>console.log</button> */}
+        <h3>{product.producto.nombre}</h3>
+        <p>Precio: {product.producto.precio} {product.moneda}</p>
+        <p>Stock: {product.producto.cantidad}</p>
+        <Link to={`/ItemDetailContainer/${product.producto.id}`}><button>Comprar</button></Link>
         {/* <button onClick={test}> test2</button> */}
     </div>
     

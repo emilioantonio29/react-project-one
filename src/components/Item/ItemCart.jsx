@@ -1,13 +1,17 @@
 import * as React from 'react'; 
 import {Link} from 'react-router-dom';
 import Item2 from './Item2';
+import { GlobalContext } from "../../context/GlobalContext";
 
 
 const ItemCart = ({productCart}) => {
     const [show, setShow] = React.useState(false);
-
+    const {cart, setCart, globalTest} = React.useContext(GlobalContext);
+    const [productCarts, setProducts] = React.useState([]);
     React.useEffect(()=>{
         console.log("mountedItemCart")
+        // setCart([])
+        globalTest()
         // console.log("yo")
         // console.log(productCart.length)
         // console.log(carrito[localStorage.key])
@@ -16,7 +20,8 @@ const ItemCart = ({productCart}) => {
         // console.log(carrito)
         // console.log(Object.values(localStorage))
         // setShow(false)
-        
+        // globalTest()
+        // productCarts.push(cart)
         return () => {
             // remove listener
             // desuscripción BD
@@ -25,18 +30,20 @@ const ItemCart = ({productCart}) => {
         }
     },[]);
    
-    const consoleLogItemCard = () => {
-        console.log(productCart)
+    const consoleLogItemCard = ({productCart}) => {
+        console.log(cart)
         // localStorage.getItem("2")
         // let user = JSON.parse(localStorage.getItem(productCart))
         // console.log(user.idProducto)
-        console.log(JSON.parse(productCart).id)
+        // console.log(JSON.parse(productCart).id)
         // console.log(productCart.length)
+        // console.log(cart[0])
+        console.log(productCarts)
     }
 
     const eliminarItem = () => {
 
-        localStorage.removeItem(JSON.parse(productCart).id)
+        localStorage.removeItem(JSON.parse(cart).id)
         window.location.reload(false)
     }
 
@@ -45,10 +52,11 @@ const ItemCart = ({productCart}) => {
     return <div className="card col-md-6">
         {/* <h3>{products.id}</h3> */}
         {/* <p>ID: {Object.values(localStorage)}</p> */}
-        <p>IdProducto: {JSON.parse(productCart).id}</p>
-        <p>nombre: {JSON.parse(productCart).nombre}</p>
-        <p>stock Disponible: {JSON.parse(productCart).stock}</p>
-        <p>Cantidad Agregada: {JSON.parse(productCart).cantidad}</p>
+                            {/* <p>IdProducto: {JSON.parse(productCart).id}</p>
+                            <p>nombre: {JSON.parse(productCart).nombre}</p>
+                            <p>stock Disponible: {JSON.parse(productCart).stock}</p>
+                            <p>Cantidad Agregada: {JSON.parse(productCart).cantidad}</p> */}
+       <p>IdProducto: {productCart}</p>
         {/* <p>Stock: {products.producto.nombre}</p> */}
         <button onClick={eliminarItem}> eliminarItem</button>
         <button onClick={consoleLogItemCard}> consoleLogItemCard</button>

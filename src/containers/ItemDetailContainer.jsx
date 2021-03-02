@@ -11,27 +11,30 @@ import { GlobalContext } from '../context/GlobalContext';
 
 const ItemDetailContainer = () =>{
     const { productoID } = useParams();
-    const [products, setProducts] = React.useState([]);
-    const [load, setLoad] = React.useState("CARGANDO . . .");
+    // const [products, setProducts] = React.useState([]);
+    // const [load, setLoad] = React.useState("CARGANDO . . .");
+    const {cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad} = React.useContext(GlobalContext);
+
     // const cart = React.useContext(GlobalContext);
 
-    React.useEffect(() => {
-        const myPromise = new Promise ((resolve, reject) => {
-            setTimeout(() => {    
-                resolve(ProductList);
-                setLoad("");    
-            }, 3000);
-    });
+    // React.useEffect(() => {
+    //     const myPromise = new Promise ((resolve, reject) => {
+    //         setTimeout(() => {    
+    //             resolve(ProductList);
+    //             setLoad("");    
+    //         }, 3000);
+    // });
     
-        myPromise.then((result) => setProducts(result));
+    //     myPromise.then((result) => setProducts(result));
 
-    },[]);    
+    // },[]);    
 
     const test3 = () => {
-        console.log(products)
-        console.log(productoID)
-        console.log(load)
+        // console.log(products)
+        // console.log(productoID)
+        // console.log(load)
         // console.log(products2)
+        console.log(products)
     }
 
     return(
@@ -41,16 +44,20 @@ const ItemDetailContainer = () =>{
             <h1>ItemID: {productoID}</h1>
             <p>DETALLE DE PRODUCTO DEL ITEMDETAILCONTAINER</p>
             {/* <h1>ItemID: {productoMostrar}</h1> */}
-            <div className="d-flex justify-content-center">
+            <button onClick={() => {test3()}}>console.log</button>
+            {/* <button onClick={() => {setCart([...cart, {products}])}}>agre</button> */}
+
+            
+            {/* <div className="d-flex justify-content-center">
                 <h1>{load}</h1>
-            </div>
+            </div> */}
             
             <div>
                 <ul>
                     {
-                        products.filter(product => parseInt(product.id) === parseInt(productoID))
+                        products.filter(product => parseInt(product.producto.id) === parseInt(productoID))
                             .map((producto)=>{
-                                return <Item2 key={producto.id} producto={producto}/>
+                                return <Item2 key={producto.producto.id} producto={producto.producto}/>
                       })
                         
                     }

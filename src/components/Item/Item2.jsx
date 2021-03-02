@@ -1,16 +1,18 @@
 import ItemCount from "../../containers/ItemCount"
 import React, {useState, useEffect} from 'react';
 import { GlobalContext } from "../../context/GlobalContext";
+import {Link} from 'react-router-dom';
 
 
 const Item2 = ({producto}) => {
     
     const [cantidad2, setCantidad2] = useState(1);
     const [cantidad, setCantidad] = useState(producto.cantidad)
+    // const [producto, setproducto] = React.useState([]);
 
     const [show, setShow] = useState(true);
-    const {cart, setCart} = React.useContext(GlobalContext);
-    const {prueba, setPrueba} = React.useContext(GlobalContext);
+    const {cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad} = React.useContext(GlobalContext);
+    // const {prueba, setPrueba} = React.useContext(GlobalContext);
     // const cart = React.useContext(GlobalContext);
     console.log(cart)
 
@@ -18,11 +20,14 @@ const Item2 = ({producto}) => {
         // consultas a la BD, suscripciones como addeventlistener
         document.title = `${cantidad2}`
         console.log("mounted cantidad2")
+        console.log(producto.id)
+        setPrueba(producto)
         // console.log('esto es cart'+cart)
         return () => {
             // remove listener
             // desuscripción BD
-            console.log("unmounted RIP")
+            console.log("unmounted RIP ITEM2")
+            // globalTest()
         }
     },[cantidad2]);
 
@@ -36,7 +41,9 @@ const Item2 = ({producto}) => {
             console.log("localNull")
         }else{
             let variableCarrito = JSON.parse(localStorage.getItem(producto.id))
-            setCantidad(producto.cantidad - variableCarrito.cantidad)
+            // alert(variableCarrito[3])
+            setCantidad(producto.cantidad - variableCarrito[3])
+            // setCantidad("SIN STOCK")
         }
         return () => {
             // remove listener
@@ -51,11 +58,28 @@ const Item2 = ({producto}) => {
             setCantidad2(1)
             setShow(false)
             // setCart(cart.push(producto))
-            setCart([...cart, {producto}])
+            // setCart([...cart, {producto}])
             test3()
-            alert(producto.cantidad - cantidad)
+            // alert(producto.cantidad - cantidad)
+            setCart([...cart, JSON.parse(localStorage.getItem(producto.id))])
+            
         }else{
             alert("test")
+        }
+    } 
+    function agregarCarrito2(){
+        if(cantidad2 <= cantidad){
+            setCantidad(cantidad - cantidad2)
+            setCantidad2(1)
+            setShow(false)
+            // setCart(cart.push(producto))
+            // setCart([...cart, {producto}])
+            test3()
+            // alert(producto.cantidad - cantidad)
+            // setCart([...cart, [producto.id,producto.nombre]])
+            globalTest()
+        }else{
+            alert("No hay mas Stock")
         }
     } 
 
@@ -81,11 +105,34 @@ const Item2 = ({producto}) => {
         // console.log(cantidad)
         // console.log('esto es cart'+cart)
         // console.log(producto)
-        // console.log(products2)
+        // console.log(producto2)
         // setPrueba([...cart, {id:2,name:"example"}])
-      localStorage.setItem(producto.id, JSON.stringify({id:producto.id,nombre:producto.nombre,precio:producto.precio,cantidad:producto.cantidad - (cantidad - cantidad2),moneda:producto.moneda,tipo:producto.tipo,descript:producto.descript,imagen:producto.imagen,stock:producto.cantidad-(producto.cantidad - (cantidad - cantidad2))}))
-      
-        // localStorage.setItem(producto.id, JSON.stringify({idProducto:producto.id,precioProducto:producto.precio,stockDisponible:producto.cantidad,cantidadAgregada:producto.cantidad - (cantidad - cantidad2)}))
+    //  sirve localStorage.setItem(producto.id, JSON.stringify({id:producto.id,nombre:producto.nombre,precio:producto.precio,cantidad:producto.cantidad - (cantidad - cantidad2),moneda:producto.moneda,tipo:producto.tipo,descript:producto.descript,imagen:producto.imagen,stock:producto.cantidad-(producto.cantidad - (cantidad - cantidad2))}))
+    //   localStorage.setItem(producto.id, JSON.stringify([{
+    //     id:producto.id,
+    //     nombre:producto.nombre,
+    //     precio:producto.precio,
+    //     cantidad:producto.cantidad - (cantidad - cantidad2),
+    //     moneda:producto.moneda,
+    //     tipo:producto.tipo,
+    //     descript:producto.descript,
+    //     imagen:producto.imagen,
+    //     stock:producto.cantidad-(producto.cantidad - (cantidad - cantidad2))
+    //   }]))
+        localStorage.setItem(producto.id, JSON.stringify([
+            producto.id,
+            producto.nombre,
+            producto.precio,
+            producto.cantidad - (cantidad - cantidad2),
+            producto.moneda,
+            producto.tipo,
+            producto.descript,
+            producto.imagen,
+            producto.cantidad-(producto.cantidad - (cantidad - cantidad2))
+        ]))
+    //   stock:producto.cantidad-(producto.cantidad - (cantidad - cantidad2)
+    //   cantidad:producto.cantidad - (cantidad - cantidad2)
+        // localStorage.setItem(producto.id, JSON.stringify({idproducto:producto.id,precioproducto:producto.precio,stockDisponible:producto.cantidad,cantidadAgregada:producto.cantidad - (cantidad - cantidad2)}))
 
         // localStorage.setItem(producto.cantidad, JSON.stringify(producto.cantidad - cantidad))
         // localStorage.setItem(producto.id, JSON.stringify({cantidad:producto.cantidad - (cantidad - cantidad2)}))
@@ -105,22 +152,28 @@ const Item2 = ({producto}) => {
         // console.log(cantidad)
         // console.log('esto es cart'+cart)
         // console.log(producto)
-        // console.log(products2)
-        console.log(cart)
-        console.log("cart")
-        console.log(producto)
-        localStorage.getItem(producto.id)
-        localStorage.getItem("session")
-        console.log(cantidad - cantidad2)
-        let xx = localStorage.getItem(producto.id) 
-        console.log(xx)
-        let user = JSON.parse(localStorage.getItem(producto.id))
-        console.log(user.idProducto)
+        // console.log(producto2)
+        // console.log(typeof(cart))
+        console.log(JSON.parse(localStorage.getItem(producto.id))[4])
+        // console.log("cart")
+        // console.log(producto)
+        // localStorage.getItem(producto.id)
+        // localStorage.getItem("session")
+        // console.log(cantidad - cantidad2)
+        // let xx = localStorage.getItem(producto.id) 
+        // console.log(xx)
+        // let user = JSON.parse(localStorage.getItem(producto.id))
+        // console.log(user.idproducto)
+        // globalTest()
     }
     
 
     return <div className="card col-md-6">
-                    
+        <Link to={`/`}>
+            <button>volver</button>
+        </Link>
+        <button onClick={() => {console.log(producto.id)}}>console.log</button>
+            
         <button onClick={test3}> Push</button>
         <button onClick={test4}> consoleLog</button>
         
@@ -157,8 +210,10 @@ const Item2 = ({producto}) => {
                     {/* <button onClick={()=>{setCantidad(cantidad2 < producto.cantidad + 1 ? cantidad - cantidad2 : cantidad2)}}>Agregar al Carrito</button>  */}
                     {/* <button onClick={()=>{agregarCarrito()}}>Agregar al Carrito</button>  */}
                     {/* {show ? (<button onClick={()=>{agregarCarrito()}}>Agregar al Carrito</button> ) : (<button className="btn btn-success" onClick={()=>{alert("proximo paso; agregar elementos al carrito")}}>Ir a Comprar</button>)} */}
-                    {show ? (<button onClick={()=>{agregarCarrito()}}>Agregar al Carrito</button> ) : (<button className="btn btn-success" onClick={()=>{alert("proximo paso; agregar elementos al carrito")}}>Ir a Comprar</button>)}
-                    <button onClick={() => {setCart([...cart, {producto}])}}> Agregar item de prueba al carrito</button>
+                    {/* {show ? (<button onClick={()=>{agregarCarrito()}}>Agregar al Carrito</button> ) : (<button className="btn btn-success" onClick={()=>{alert("proximo paso; agregar elementos al carrito")}}>Ir a Comprar</button>)} */}
+                    {/* <button onClick={() => {setCart([...cart, [producto.id,producto.nombre]])}}> Agregar item de prueba al carrito</button> */}
+                    <button onClick={() => {{agregarCarrito2()}}}> Agregar item de prueba al carrito</button>
+
                     <button onClick={() => {console.log(cart)}}>console.log</button>
                 </div>
                 <div>

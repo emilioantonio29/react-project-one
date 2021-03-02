@@ -11,89 +11,51 @@ import { GlobalContext } from '../context/GlobalContext';
 
 
 const CartContainer = () =>{
-    const {cart, setCart} = React.useContext(GlobalContext);
-    const [products, setProducts] = React.useState([]);
-    const [load, setLoad] = React.useState("CARGANDO . . .");
+    const {cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2,setCart2,firstAsync} = React.useContext(GlobalContext);
+    // const [products, setProducts] = React.useState([]);
+    // const [load, setLoad] = React.useState("CARGANDO . . .");
     const [show, setShow] = React.useState(true);
     const [carrito, setCarrito] = React.useState([]);
     const [carritoS, setCarritoS] = React.useState([]);
-    React.useEffect(() => {
-        const myPromise = new Promise ((resolve, reject) => {
-            setTimeout(() => {    
-                resolve(ProductList);
-                setLoad("");    
-            }, 3000);
-    });
+    // React.useEffect(() => {
+    //     const myPromise = new Promise ((resolve, reject) => {
+    //         setTimeout(() => {    
+    //             resolve(ProductList);
+    //             setLoad("");    
+    //         }, 3000);
+    // });
     
-        myPromise.then((result) => setProducts(result));
+    //     myPromise.then((result) => setProducts(result));
 
-    },[]);    
+    // },[]);    
 
     React.useEffect(()=>{
-        // setCart([])
-        for(let i =0; i < localStorage.length; i++){
-            let key = localStorage.key(i);
-            // console.log(i)
-            if (localStorage.getItem(key) !== null) {
-                    cart.push( localStorage.getItem( key ) ) 
-    
-            }
-            // cart.push(JSON.parse(localStorage.getItem(key))) //Objects are not valid as a React child
-            // cart.push( localStorage.getItem( key ) ) 
-            
-        }
+        // console.log("soy el cart")
+        // firstAsync()
+        // const myPromise = new Promise ((res, reject) => {
+        //     setTimeout(() => {    
+        //         res("its done");
+        //         // setLoad("");    
+        //     }, 1500);
+        // });
+        // let result = await promise; 
+        // myPromise.then((result) => alert(result));
         
-        // for(let i =0; i < cart.length; i++){
-        //     // console.log(JSON.parse(cart[i]))
-        //     carritoS.push(JSON.parse(cart[i]))
-        // }
-        console.log([
-            {
-                "id": 1,
-                "nombre": "Pan de Jamon",
-                "precio": 1000,
-                "cantidad": 10,
-                "moneda": "$",
-                "tipo": "Panes de Jamon",
-                "descript": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "imagen": "pandejamon"
-            },
-            {
-                "id": 2,
-                "nombre": "Pan de Jamon con Tocineta",
-                "precio": 1200,
-                "cantidad": 12,
-                "moneda": "$",
-                "tipo": "Panes de Jamon",
-                "descript": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                "imagen": "pandejamon2"
-            }]
-
-        )
-        // //test
-        // console.log(cart)
-        // return () => {
-        //     // remove listener
-        //     // desuscripción BD
-        //     console.log("unmounted RIP")
-        // }
+        console.log("soy el cart")
+        // globalTest()
         return () => {
-            // remove listener
-            // desuscripción BD
-            console.log("unmounted RIPCARTC")
-            setCart([])
-            console.log("esto es cart")
-            console.log(cart)
+
+            // console.log(cart)
         }
     },[]);
 
     
     const ConsoleLog = () => {
         
-        for(let i =0; i < localStorage.length; i++){
-            console.log((JSON.parse(localStorage.getItem(localStorage.key(i)))))
-            setCarritoS([...carritoS, (JSON.parse(localStorage.getItem(localStorage.key(i))))])
-          }
+        // for(let i =0; i < localStorage.length; i++){
+        //     console.log((JSON.parse(localStorage.getItem(localStorage.key(i)))))
+        //     setCarritoS([...carritoS, (JSON.parse(localStorage.getItem(localStorage.key(i))))])
+        //   }
 
     }
     const ConsoleLogCar = () => {
@@ -103,11 +65,12 @@ const CartContainer = () =>{
         //     console.log(JSON.parse(cart[i]))
         // }
         // console.log(carritoS.id)
-        console.log(JSON.parse(cart).id)
-        console.log(cart.length)
-        if(cart.length===0){
-            console.log("tests")
-        }
+        // console.log(JSON.parse(cart).id)
+        // console.log(cart.length)
+        // if(cart.length===0){
+        //     console.log("tests")
+        // }
+        console.log(cart)
     }
 
 
@@ -135,7 +98,7 @@ const CartContainer = () =>{
                             return <ItemCart key={productCart} productCart={productCart}/>
                         })
                        
-                        // <ItemCart  carrito={carritoS}/>
+                        // <ItemCart  />
 
 
                         // cart.filter((value, index, categoryArray) => categoryArray.indexOf(value) === index)
