@@ -11,6 +11,18 @@ export const GlobalProvider = ({children}) => {
     const [cart, setCart] = useState([])
     const [cart2, setCart2] = useState([])
     const [prueba, setPrueba] = useState([])
+    const globalTest3 = () => {
+       
+        setCart([])
+    }
+    const globalTest4 = () => {
+        for(let i =0; i < localStorage.length; i++){
+            let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
+            cart.push(key)
+        }
+
+    }
+    
     
     const globalTest = () => {
         console.log("soy el global")
@@ -53,7 +65,7 @@ export const GlobalProvider = ({children}) => {
             // setCarritoS([...carritoS, (JSON.parse(localStorage.getItem(localStorage.key(i))))])
             // alert(key)
             // setCart([...cart, [key]])
-            alert(key)
+            // alert(key)
             // setCart([...cart, [key]])
             cart.push(key)
         }
@@ -83,11 +95,20 @@ export const GlobalProvider = ({children}) => {
         myPromise.then((result) => setProducts(result));
 
     },[]);   
+    React.useEffect(()=>{
+        // consultas a la BD, suscripciones como addeventlistener
+        console.log("im glibal")
+        return () => {
+
+            console.log("unmounted RIP GLOBAL")
+
+        }
+    },[]);
 
     // console.log("soy el global")
 
     
-    return <GlobalContext.Provider value={{cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2, setCart2,firstAsync}}>
+    return <GlobalContext.Provider value={{cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2, setCart2,firstAsync,globalTest3,globalTest4}}>
 
         {children}
     </GlobalContext.Provider>

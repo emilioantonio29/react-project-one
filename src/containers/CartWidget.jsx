@@ -1,24 +1,21 @@
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
+import * as React from 'react';
 import {Link} from 'react-router-dom';
 
   const CartWidget = () =>{
-    // const [carrito, setCarrito] = useState([]);
 
-    // useEffect(()=>{
-    //     // consultas a la BD, suscripciones como addeventlistener
-    //     console.log("mounted")
-    //     return () => {
-    //         // remove listener
-    //         // desuscripción BD
-    //         console.log("unmounted RIP")
-    //     }
-    // },[]) 
-    // [] filtro para saber cuando se ejecuta el useEffect
-    // corchete vacio: Se ejecuta el useEffect en el onMount
 
-    // se vuelve a renderizar, validaciones
-    // console.log("por Renderizar")
+    React.useEffect(()=>{
+      // consultas a la BD, suscripciones como addeventlistener
+      console.log("im cartIcon")
+      return () => {
+
+          console.log("unmounted widget")
+
+      }
+  },[]);
+
     return(
         <>
             <div className="ml-auto">

@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 const Item = ({product}) => {
 
     const test = () => {
-        console.log(product.id)
+        console.log(product.producto.id)
     }
 
     return <div className="card col-md-6">

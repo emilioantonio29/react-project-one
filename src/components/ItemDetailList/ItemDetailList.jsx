@@ -14,9 +14,9 @@ const ItemDetailList = ({products2, productoID}) =>{
 //     ]
 
 const test4 = () => {
-    console.log(products2[productoID].id)
-    console.log(productoID)
-    console.log(parseInt(productoID)+1)
+    // console.log(products2[productoID].id)
+    alert(products2)
+    // console.log(parseInt(productoID)+1)
 }
 
 
@@ -44,7 +44,7 @@ const test4 = () => {
                     })}
                 </ul>
             </div>
-            <button onClick={test4}> test2</button>
+            <button onClick={test4}> test22</button>
             
             
         </>

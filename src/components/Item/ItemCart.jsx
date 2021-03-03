@@ -6,31 +6,31 @@ import { GlobalContext } from "../../context/GlobalContext";
 
 const ItemCart = ({productCart}) => {
     const [show, setShow] = React.useState(false);
-    const {cart, setCart, globalTest} = React.useContext(GlobalContext);
+    const {cart, setCart, globalTest,globalTest4,globalTest3} = React.useContext(GlobalContext);
     const [productCarts, setProducts] = React.useState([]);
-    React.useEffect(()=>{
-        console.log("mountedItemCart")
-        // setCart([])
-        globalTest()
-        // console.log("yo")
-        // console.log(productCart.length)
-        // console.log(carrito[localStorage.key])
-        // console.log(carrito[1])
-        // JSON.parse(carrito)
-        // console.log(carrito)
-        // console.log(Object.values(localStorage))
-        // setShow(false)
-        // globalTest()
-        // productCarts.push(cart)
-        return () => {
-            // remove listener
-            // desuscripción BD
-            console.log("unmounted RIPCART")
+    // React.useEffect(()=>{
+    //     console.log("mountedItemCart")
+    //     // setCart([])
+    //     // globalTest4()
+    //     // console.log("yo")
+    //     // console.log(productCart.length)
+    //     // console.log(carrito[localStorage.key])
+    //     // console.log(carrito[1])
+    //     // JSON.parse(carrito)
+    //     // console.log(carrito)
+    //     // console.log(Object.values(localStorage))
+    //     // setShow(false)
+    //     // globalTest()
+    //     // productCarts.push(cart)
+    //     return () => {
+    //         // remove listener
+    //         // desuscripción BD
+    //         console.log("unmounted RIPCART")
         
-        }
-    },[]);
+    //     }
+    // },[]);
    
-    const consoleLogItemCard = ({productCart}) => {
+    const consoleLogItemCard = () => {
         console.log(cart)
         // localStorage.getItem("2")
         // let user = JSON.parse(localStorage.getItem(productCart))
@@ -39,24 +39,28 @@ const ItemCart = ({productCart}) => {
         // console.log(productCart.length)
         // console.log(cart[0])
         console.log(productCarts)
+        console.log(JSON.parse(localStorage.getItem(productCart[0]))[0])
     }
 
     const eliminarItem = () => {
 
-        localStorage.removeItem(JSON.parse(cart).id)
+        localStorage.removeItem(JSON.parse(localStorage.getItem(productCart[0]))[0])
+        // window.location.reload(false)
+        globalTest3()
+        globalTest4()
         window.location.reload(false)
     }
 
 
 
     return <div className="card col-md-6">
-        {/* <h3>{products.id}</h3> */}
+        <h3>{productCart[1]}</h3>
         {/* <p>ID: {Object.values(localStorage)}</p> */}
-                            {/* <p>IdProducto: {JSON.parse(productCart).id}</p>
-                            <p>nombre: {JSON.parse(productCart).nombre}</p>
-                            <p>stock Disponible: {JSON.parse(productCart).stock}</p>
-                            <p>Cantidad Agregada: {JSON.parse(productCart).cantidad}</p> */}
-       <p>IdProducto: {productCart}</p>
+        {/* <p>IdProducto: {productCart}</p>
+        <p>nombre: {productCart}</p> */}
+        <p>stock Disponible: {productCart[3]}</p>
+        <p>Cantidad Agregada: {productCart[8]}</p>
+        {/* <p>IdProducto: {productCart}</p> */}
         {/* <p>Stock: {products.producto.nombre}</p> */}
         <button onClick={eliminarItem}> eliminarItem</button>
         <button onClick={consoleLogItemCard}> consoleLogItemCard</button>

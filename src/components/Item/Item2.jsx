@@ -77,7 +77,7 @@ const Item2 = ({producto}) => {
             test3()
             // alert(producto.cantidad - cantidad)
             // setCart([...cart, [producto.id,producto.nombre]])
-            globalTest()
+            // globalTest()
         }else{
             alert("No hay mas Stock")
         }
@@ -123,12 +123,12 @@ const Item2 = ({producto}) => {
             producto.id,
             producto.nombre,
             producto.precio,
-            producto.cantidad - (cantidad - cantidad2),
+            producto.cantidad - (cantidad - cantidad2),//cantidad agregada al carrito
             producto.moneda,
             producto.tipo,
             producto.descript,
             producto.imagen,
-            producto.cantidad-(producto.cantidad - (cantidad - cantidad2))
+            producto.cantidad-(producto.cantidad - (cantidad - cantidad2))//stock disponible
         ]))
     //   stock:producto.cantidad-(producto.cantidad - (cantidad - cantidad2)
     //   cantidad:producto.cantidad - (cantidad - cantidad2)
@@ -169,13 +169,13 @@ const Item2 = ({producto}) => {
     
 
     return <div className="card col-md-6">
-        <Link to={`/`}>
+        {/* <Link to={`/`}>
             <button>volver</button>
-        </Link>
-        <button onClick={() => {console.log(producto.id)}}>console.log</button>
+        </Link> */}
+        {/* <button onClick={() => {console.log(producto.id)}}>console.log</button>
             
         <button onClick={test3}> Push</button>
-        <button onClick={test4}> consoleLog</button>
+        <button onClick={test4}> consoleLog</button> */}
         
         <img src={`../imagenes/${producto.imagen}.png`} alt=""/>
         <h3>{producto.nombre}</h3>
@@ -214,7 +214,7 @@ const Item2 = ({producto}) => {
                     {/* <button onClick={() => {setCart([...cart, [producto.id,producto.nombre]])}}> Agregar item de prueba al carrito</button> */}
                     <button onClick={() => {{agregarCarrito2()}}}> Agregar item de prueba al carrito</button>
 
-                    <button onClick={() => {console.log(cart)}}>console.log</button>
+                    {/* <button onClick={() => {console.log(cart)}}>console.log</button> */}
                 </div>
                 <div>
                      {show ? ("" ) : (<p>Items Agregados al carrito: {producto.cantidad - cantidad}</p> )}

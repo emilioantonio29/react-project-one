@@ -7,6 +7,7 @@ import Item2 from '../components/Item/Item2';
 import Item from '../components/Item/Item';
 import Test from '../components/Item/Test';
 import { GlobalContext } from '../context/GlobalContext';
+import {Link} from 'react-router-dom';
 
 
 const ItemDetailContainer = () =>{
@@ -28,6 +29,15 @@ const ItemDetailContainer = () =>{
     //     myPromise.then((result) => setProducts(result));
 
     // },[]);    
+    React.useEffect(()=>{
+        // consultas a la BD, suscripciones como addeventlistener
+        // console.log("im glibal")
+        return () => {
+
+            console.log("unmounted RIP Detail")
+            window.location.reload(false)
+        }
+    },[]);
 
     const test3 = () => {
         // console.log(products)
@@ -39,12 +49,16 @@ const ItemDetailContainer = () =>{
 
     return(
         <>
+
             {/* <button onClick={test3}> test3</button> */}
 
             <h1>ItemID: {productoID}</h1>
             <p>DETALLE DE PRODUCTO DEL ITEMDETAILCONTAINER</p>
+            <Link to={`/`}>
+            <button>volver</button>
+             </Link>
             {/* <h1>ItemID: {productoMostrar}</h1> */}
-            <button onClick={() => {test3()}}>console.log</button>
+            {/* <button onClick={() => {test3()}}>console.log</button> */}
             {/* <button onClick={() => {setCart([...cart, {products}])}}>agre</button> */}
 
             

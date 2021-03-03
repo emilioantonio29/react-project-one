@@ -11,7 +11,7 @@ import { GlobalContext } from '../context/GlobalContext';
 
 
 const CartContainer = () =>{
-    const {cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2,setCart2,firstAsync} = React.useContext(GlobalContext);
+    const {cart,setCart,firstAsync,globalTest3,globalTest4} = React.useContext(GlobalContext);
     // const [products, setProducts] = React.useState([]);
     // const [load, setLoad] = React.useState("CARGANDO . . .");
     const [show, setShow] = React.useState(true);
@@ -30,24 +30,25 @@ const CartContainer = () =>{
     // },[]);    
 
     React.useEffect(()=>{
-        // console.log("soy el cart")
-        // firstAsync()
-        // const myPromise = new Promise ((res, reject) => {
-        //     setTimeout(() => {    
-        //         res("its done");
-        //         // setLoad("");    
-        //     }, 1500);
-        // });
-        // let result = await promise; 
-        // myPromise.then((result) => alert(result));
-        
+        // window.location.reload(false)
+        globalTest4()
         console.log("soy el cart")
         // globalTest()
+        
         return () => {
 
-            // console.log(cart)
+            console.log("soy el cart unmon")
+            globalTest3()
         }
     },[]);
+    // React.useEffect(() => {
+    //     const fetchProducts = async () => {
+    //       const products = await globalTest4()
+    //     //   setFilteredProducts(products)
+    //     //   setProducts(products)
+    //     }
+    //     console.log(products)
+    //   }, [])
 
     
     const ConsoleLog = () => {
@@ -71,15 +72,16 @@ const CartContainer = () =>{
         //     console.log("tests")
         // }
         console.log(cart)
+        // console.log(productCart)
     }
 
 
     return(
         <>
-            <button onClick={ConsoleLog}> ConsoleLog</button>
-            <button onClick={ConsoleLogCar}> ConsoleLogcar</button>
+            {/* <button onClick={ConsoleLog}> ConsoleLog</button>
+            <button onClick={ConsoleLogCar}> ConsoleLogcar</button> */}
             {/* <button onClick={() => {setCart([...cart, {id:2,name:"example"}])}}> Agregar item de prueba al carrito</button> */}
-            <button onClick={() => {setCart([...cart, {id:2,name:"example"}])}}> Agregar item de prueba al carrito</button>
+            {/* <button onClick={() => {setCart([...cart, {id:2,name:"example"}])}}> Agregar item de prueba al carrito</button> */}
 
             <div>
                 carrito
@@ -91,10 +93,12 @@ const CartContainer = () =>{
             </div>
             <div>
                 <ul>
-                    {
+                    {   
                         // cart.map((productCart)=>{
                         //         return <ItemCart key={productCart.id} productCart={productCart}/>
                         cart.map((productCart)=>{
+                            console.log("test")
+                            console.log("cart")
                             return <ItemCart key={productCart} productCart={productCart}/>
                         })
                        

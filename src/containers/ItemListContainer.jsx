@@ -8,13 +8,15 @@ import { CartContext } from '../context/CartContext';
 
 
 
+
 const ItemListContainer = () =>{
+    const {cart,setCart,prueba, setPrueba, globalTest,globalTest2,cart2,setCart2,firstAsync,globalTest3,globalTest4} = React.useContext(GlobalContext);
 
     const [products, setProducts] = React.useState([]);
     const [load, setLoad] = React.useState("CARGANDO . . .");
     // const {cart, setCart} = React.useContext(GlobalContext);
-    const cart = React.useContext(GlobalContext);
-    console.log(cart)
+    // const cart = React.useContext(GlobalContext);
+    // console.log(cart)
     React.useEffect(() => {
         const myPromise = new Promise ((resolve, reject) => {
             // setTimeout(() => resolve(ProductList), 3000);
@@ -26,6 +28,16 @@ const ItemListContainer = () =>{
     
         myPromise.then((result) => setProducts(result));
     },[]);     
+    React.useEffect(()=>{
+        // consultas a la BD, suscripciones como addeventlistener
+        console.log("ItemListContainer")
+        return () => {
+
+            console.log("ItemListContainer unmon")
+            // globalTest4()
+            window.location.reload(false)
+        }
+    },[]);
 
 
     
@@ -36,7 +48,7 @@ const ItemListContainer = () =>{
                 <div className="d-flex justify-content-center">
                     <h1 className="">Bienvenidos al proyecto React</h1>
                 </div>
-                <ItemList products={products}/>
+                <ItemList products={products} key={products}/>
                 {/* <button onClick={test}>yo</button> */}
                 <Link to={`/ItemDetailContainer`}>test</Link>
             </div>
