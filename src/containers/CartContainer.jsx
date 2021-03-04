@@ -101,6 +101,8 @@ const CartContainer = () =>{
                             console.log("cart")
                             return <ItemCart key={productCart} productCart={productCart}/>
                         })
+                        
+                     
                        
                         // <ItemCart  />
 
@@ -112,7 +114,9 @@ const CartContainer = () =>{
                         
                     }
                 </ul>
+          
             </div>  
+           
         </>
     )
 

@@ -128,7 +128,9 @@ const Item2 = ({producto}) => {
             producto.tipo,
             producto.descript,
             producto.imagen,
-            producto.cantidad-(producto.cantidad - (cantidad - cantidad2))//stock disponible
+            producto.cantidad-(producto.cantidad - (cantidad - cantidad2)),//stock disponible
+            producto.cantidad //stock real
+            
         ]))
     //   stock:producto.cantidad-(producto.cantidad - (cantidad - cantidad2)
     //   cantidad:producto.cantidad - (cantidad - cantidad2)
@@ -154,7 +156,8 @@ const Item2 = ({producto}) => {
         // console.log(producto)
         // console.log(producto2)
         // console.log(typeof(cart))
-        console.log(JSON.parse(localStorage.getItem(producto.id))[4])
+        // console.log(JSON.parse(localStorage.getItem(producto.id))[4])
+
         // console.log("cart")
         // console.log(producto)
         // localStorage.getItem(producto.id)
@@ -165,6 +168,7 @@ const Item2 = ({producto}) => {
         // let user = JSON.parse(localStorage.getItem(producto.id))
         // console.log(user.idproducto)
         // globalTest()
+        console.log(producto)
     }
     
 
@@ -174,9 +178,14 @@ const Item2 = ({producto}) => {
         </Link> */}
         {/* <button onClick={() => {console.log(producto.id)}}>console.log</button>
             
-        <button onClick={test3}> Push</button>
-        <button onClick={test4}> consoleLog</button> */}
+        <button onClick={test3}> Push</button> */}
+        {/* <button onClick={test4}> consoleLogg</button> */}
         
+        <p>Stock: {cantidad}</p>
+        <p>{cantidad2}</p>
+        <p>{producto.cantidad - cantidad}</p>
+        <br/>
+
         <img src={`../imagenes/${producto.imagen}.png`} alt=""/>
         <h3>{producto.nombre}</h3>
         <p>Precio: {producto.precio} {producto.moneda}</p>
