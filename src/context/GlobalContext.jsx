@@ -11,6 +11,7 @@ export const GlobalProvider = ({children}) => {
     const [cart, setCart] = useState([])
     const [cart2, setCart2] = useState([])
     const [prueba, setPrueba] = useState([])
+    const [total, setTotal] = useState(0)
     const globalTest3 = () => {
        
         setCart([])
@@ -108,7 +109,7 @@ export const GlobalProvider = ({children}) => {
     // console.log("soy el global")
 
     
-    return <GlobalContext.Provider value={{cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2, setCart2,firstAsync,globalTest3,globalTest4}}>
+    return <GlobalContext.Provider value={{cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2, setCart2,firstAsync,globalTest3,globalTest4,total, setTotal}}>
 
         {children}
     </GlobalContext.Provider>

@@ -11,12 +11,13 @@ import { GlobalContext } from '../context/GlobalContext';
 
 
 const CartContainer = () =>{
-    const {cart,setCart,firstAsync,globalTest3,globalTest4} = React.useContext(GlobalContext);
+    const {cart,setCart,firstAsync,globalTest3,globalTest4,total, setTotal} = React.useContext(GlobalContext);
     // const [products, setProducts] = React.useState([]);
     // const [load, setLoad] = React.useState("CARGANDO . . .");
     const [show, setShow] = React.useState(true);
     const [carrito, setCarrito] = React.useState([]);
     const [carritoS, setCarritoS] = React.useState([]);
+    
     // React.useEffect(() => {
     //     const myPromise = new Promise ((resolve, reject) => {
     //         setTimeout(() => {    
@@ -33,14 +34,38 @@ const CartContainer = () =>{
         // window.location.reload(false)
         globalTest4()
         console.log("soy el cart")
+        let total2 = 0
+        for(let i =0; i < localStorage.length; i++){
+            let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
+            console.log(key[0])
+            total2 = total2 + ((key[2])*(key[3]))
+            // total = total + key
+        }
+        setTotal(total2)
+        console.log(total2)
+        document.title = `${total}`
         // globalTest()
-        
+        // let total2 = 0
+        // for(let i =0; i < localStorage.length; i++){
+        //     let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
+        //     console.log(key[0])
+        //     total2 = total2 + ((key[2])*(key[3]))
+        //     // total = total + key
+        // }
+        // setTotal(total2)
         return () => {
 
             console.log("soy el cart unmon")
             globalTest3()
         }
     },[]);
+
+
+
+
+
+
+
     // React.useEffect(() => {
     //     const fetchProducts = async () => {
     //       const products = await globalTest4()
@@ -71,8 +96,24 @@ const CartContainer = () =>{
         // if(cart.length===0){
         //     console.log("tests")
         // }
-        console.log(cart)
-        // console.log(productCart)
+        // let total2 = 0
+        // for(let i =0; i < localStorage.length; i++){
+        //     let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
+        //     console.log(key[0])
+        //     total2 = total2 + ((key[2])*(key[3]))
+        //     // total = total + key
+        // }
+        // setTotal(total2)
+
+        console.log(total)
+    }
+    const eliminarTodo = () => {
+        localStorage.clear()
+        // localStorage.removeItem(JSON.parse(localStorage.getItem()))
+
+        globalTest3()
+        globalTest4()
+        window.location.reload(false)
     }
 
 
@@ -80,6 +121,7 @@ const CartContainer = () =>{
         <>
             {/* <button onClick={ConsoleLog}> ConsoleLog</button>
             <button onClick={ConsoleLogCar}> ConsoleLogcar</button> */}
+            {/* <h1>{total}</h1> */}
             {/* <button onClick={() => {setCart([...cart, {id:2,name:"example"}])}}> Agregar item de prueba al carrito</button> */}
             {/* <button onClick={() => {setCart([...cart, {id:2,name:"example"}])}}> Agregar item de prueba al carrito</button> */}
 
@@ -114,9 +156,11 @@ const CartContainer = () =>{
                         
                     }
                 </ul>
+
           
             </div>  
-           
+            <h1>TOTAL: {total}</h1>
+            <button onClick={eliminarTodo}> VaciarCarrito</button>
         </>
     )
 

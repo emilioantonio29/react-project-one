@@ -1,41 +1,79 @@
-import React, {useState, useEffect} from 'react';
+import * as React from 'react'; 
+import {Link} from 'react-router-dom';
+import Item2 from './Item2';
 import { GlobalContext } from "../../context/GlobalContext";
+import Test from '../Item/Test'
 
 
-const Test = ({producto}) => {
+const ItemCart = ({productTotal}) => {
+
+
+
+    const [show, setShow] = React.useState(false);
+    const {cart, setCart, globalTest,globalTest4,globalTest3,prueba, setPrueba} = React.useContext(GlobalContext);
+
+
+    const [cantidad2, setCantidad2] = React.useState(1);
+    const [cantidad, setCantidad] = React.useState(productTotal[9])//stock
+    const[total,setTotal] = React.useState(0);
     
-    const [cantidad2, setCantidad2] = useState(1);
-    const [cantidad, setCantidad] = useState(producto.cantidad)
-    const [show, setShow] = useState(true);
-    const {cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad} = React.useContext(GlobalContext);
-
     React.useEffect(()=>{
         document.title = `${cantidad2}`
-        console.log("mounted cantidad2")
-        console.log(producto.id)
-        setPrueba(producto)
         //
         document.title = `${cantidad}`
         console.log("mounted cantidad")
-        if(localStorage.getItem(producto.id) === null){
-            setCantidad(producto.cantidad)
+        if(localStorage.getItem(productTotal[0]) === null){
+            setCantidad(productTotal[9])
             console.log("localNull")
         }else{
-            let variableCarrito = JSON.parse(localStorage.getItem(producto.id))
-            setCantidad(producto.cantidad - variableCarrito[3])
+            let variableCarrito = JSON.parse(localStorage.getItem(productTotal[0]))
+            setCantidad(productTotal[9] - variableCarrito[3])
         }
+
+
+
         return () => {
             console.log("unmounted RIP ----")
         }
     },[cantidad2]);
+   
+    const consoleLogItemCard = () => {
+        // console.log(cart)
+        // localStorage.getItem("2")
+        // let user = JSON.parse(localStorage.getItem(productTotal))
+        // console.log(user.idProducto)
+        // console.log(JSON.parse(productTotal).id)
+        // console.log(productTotal.length)
+        // console.log(cart[0])
+        console.log(cart)
+        
+        for(let i =0; i < cart.length; i++){
+            console.log(cart[i][2])
+            
+        }
+        // console.log(JSON.parse(localStorage.getItem(productTotal[0]))[0])
+        // console.log(productTotal[9])
+        // console.log(cantidad+" "+cantidad2)
+        // console.log(productTotal[9]-cantidad)
+        // console.log(typeof(productTotal[2]))
+    }
 
+    const eliminarItem = () => {
+
+        localStorage.removeItem(JSON.parse(localStorage.getItem(productTotal[0]))[0])
+        // window.location.reload(false)
+        globalTest3()
+        globalTest4()
+        window.location.reload(false)
+    }
+    ////////////////TEST
     function agregarCarrito(){
         if(cantidad2 <= cantidad){
             setCantidad(cantidad - cantidad2)
             setCantidad2(1)
             setShow(false)
             addLocalStorage()
-            setCart([...cart, JSON.parse(localStorage.getItem(producto.id))])
+            setCart([...cart, JSON.parse(localStorage.getItem(productTotal[0]))])
             
         }else{
             alert("test")
@@ -51,6 +89,16 @@ const Test = ({producto}) => {
             alert("No hay mas Stock")
         }
     } 
+    function agregarCarrito3(){
+        if(productTotal[9]-cantidad>1 ){
+            setCantidad(cantidad + cantidad2)
+            setCantidad2(1)
+            setShow(false)
+            addLocalStorage2()
+        }else{
+            // alert("No hay mas Stock")
+        }
+    } 
 
     function sumaCantidad(){
         if(cantidad2 <= cantidad - 1){
@@ -59,65 +107,63 @@ const Test = ({producto}) => {
     }
  
     const addLocalStorage = () => {
-        localStorage.setItem(producto.id, JSON.stringify([
-            producto.id,
-            producto.nombre,
-            producto.precio,
-            producto.cantidad - (cantidad - cantidad2),//cantidad agregada al carrito
-            producto.moneda,
-            producto.tipo,
-            producto.descript,
-            producto.imagen,
-            producto.cantidad-(producto.cantidad - (cantidad - cantidad2)),
-            producto.cantidad//stock disponible
+        localStorage.setItem(productTotal[0], JSON.stringify([
+            productTotal[0],
+            productTotal[1],
+            productTotal[2],
+            productTotal[9] - (cantidad - cantidad2),//cantidad agregada al carrito
+            productTotal[4],
+            productTotal[5],
+            productTotal[6],
+            productTotal[7],
+            productTotal[3]-(productTotal[3] - (cantidad - cantidad2)),
+            productTotal[9]//stock disponible
         ]))
         
     }
-    const test4 = () => {
-        console.log(JSON.parse(localStorage.getItem(producto.id))[4])
+    const addLocalStorage2 = () => {
+        localStorage.setItem(productTotal[0], JSON.stringify([
+            productTotal[0],
+            productTotal[1],
+            productTotal[2],
+            productTotal[9] - (cantidad + cantidad2),//cantidad agregada al carrito
+            productTotal[4],
+            productTotal[5],
+            productTotal[6],
+            productTotal[7],
+            productTotal[3]-(productTotal[3] - (cantidad + cantidad2)),
+            productTotal[9]//stock disponible
+        ]))
+        
     }
-    
+    // const test4 = () => {
+    //     console.log(JSON.parse(localStorage.getItem(producto.id))[4])
+    // }
+
 
     return <div className="card col-md-6">
+        
 
-        <div className="d-flex justify-content-between">
-            {show ? (
-                <div className="d-flex align-items-center justify-content-between cajaCount">
-                    <div>
-                        <button onClick={()=>{setCantidad2(cantidad2 < 2 ? cantidad2 : cantidad2 - 1 )}}>-</button> 
-                    </div>
-                    <div>
-                        <p>{cantidad2}</p>
-                    </div>
-                    <div className="">
-                        <button onClick={()=>{sumaCantidad()}}>+</button> 
-                    </div>      
-                </div>
-            ) : ("")} 
+        <h1>s</h1>
+        <button onClick={consoleLogItemCard}> consoleLogItemCard</button>
 
-            <div className="d-flex justify-content-end">
-                {/* <button type="button" onClick={() => {setShow(!show);}}>Seguir Agregando al carrito {show ? 'Div 2' : 'Div 1'}</button> */}
-                {show ? ("" ) : (<button type="button" onClick={() => {setShow(!show);}}>Seguir Agregando al carrito {show ? 'Div 2' : 'Div 1'}</button>)}
-
-            </div>
-        </div>    
-            <div className="d-flex justify-content-between">   
-                <div className="">
-                    {/* <button onClick={()=>{setCantidad(cantidad2 < producto.cantidad + 1 ? cantidad - cantidad2 : cantidad2)}}>Agregar al Carrito</button>  */}
-                    {/* <button onClick={()=>{agregarCarrito()}}>Agregar al Carrito</button>  */}
-                    {/* {show ? (<button onClick={()=>{agregarCarrito()}}>Agregar al Carrito</button> ) : (<button className="btn btn-success" onClick={()=>{alert("proximo paso; agregar elementos al carrito")}}>Ir a Comprar</button>)} */}
-                    {/* {show ? (<button onClick={()=>{agregarCarrito()}}>Agregar al Carrito</button> ) : (<button className="btn btn-success" onClick={()=>{alert("proximo paso; agregar elementos al carrito")}}>Ir a Comprar</button>)} */}
-                    {/* <button onClick={() => {setCart([...cart, [producto.id,producto.nombre]])}}> Agregar item de prueba al carrito</button> */}
-                    <button onClick={() => {{agregarCarrito2()}}}> Agregar item de prueba al carrito</button>
-                    {/* <button onClick={() => {console.log(cart)}}>console.log</button> */}
-                </div>
-                <div>
-                     {show ? ("" ) : (<p>Items Agregados al carrito: {producto.cantidad - cantidad}</p> )}
-                </div>
-            </div>
+        {/* <Item2/> */}
+        {/* {show ? (<p>hay items</p>) : (<p>NO HAY ITEMS AGREGADOS AL CARRITO</p> )} */}
+        
+        
     </div>
+    
     
 }
 
-export default Test;
+export default ItemCart;
+
+// gold
+// var arr = ["124857202", "500255104", "78573M104"];
+// var res = arr.reduce(function(s, a){
+//     s.push({name: a});
+//     return s;
+//   }, [])
+  
+// console.log(res);
 

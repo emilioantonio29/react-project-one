@@ -7,12 +7,12 @@ import Test from '../Item/Test'
 
 const ItemCart = ({productCart}) => {
     const [show, setShow] = React.useState(false);
-    const {cart, setCart, globalTest,globalTest4,globalTest3,prueba, setPrueba} = React.useContext(GlobalContext);
+    const {cart, setCart, globalTest,globalTest4,globalTest3,prueba, setPrueba, total,setTotal} = React.useContext(GlobalContext);
     const [productCarts, setProducts] = React.useState([]);
 
     const [cantidad2, setCantidad2] = React.useState(1);
     const [cantidad, setCantidad] = React.useState(productCart[9])//stock
-    const[total,setTotal] = React.useState(0);
+   
     
     React.useEffect(()=>{
         document.title = `${cantidad2}`
@@ -28,13 +28,13 @@ const ItemCart = ({productCart}) => {
         }
 
 
-
         return () => {
             console.log("unmounted RIP ----")
         }
     },[cantidad2]);
    
     const consoleLogItemCard = () => {
+        console.log(total)
         // console.log(cart)
         // localStorage.getItem("2")
         // let user = JSON.parse(localStorage.getItem(productCart))
@@ -44,9 +44,7 @@ const ItemCart = ({productCart}) => {
         // console.log(cart[0])
         console.log(cart)
         
-        for(let i =0; i < cart.length; i++){
-            console.log(cart[i][2])
-        }
+
         // console.log(JSON.parse(localStorage.getItem(productCart[0]))[0])
         // console.log(productCart[9])
         // console.log(cantidad+" "+cantidad2)
@@ -115,6 +113,15 @@ const ItemCart = ({productCart}) => {
             productCart[3]-(productCart[3] - (cantidad - cantidad2)),
             productCart[9]//stock disponible
         ]))
+        let total2 = 0
+        for(let i =0; i < localStorage.length; i++){
+            let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
+            console.log(key[0])
+            total2 = total2 + ((key[2])*(key[3]))
+            // total = total + key
+        }
+        setTotal(total2)
+        console.log(total2)
         
     }
     const addLocalStorage2 = () => {
@@ -130,6 +137,15 @@ const ItemCart = ({productCart}) => {
             productCart[3]-(productCart[3] - (cantidad + cantidad2)),
             productCart[9]//stock disponible
         ]))
+        let total2 = 0
+        for(let i =0; i < localStorage.length; i++){
+            let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
+            console.log(key[0])
+            total2 = total2 + ((key[2])*(key[3]))
+            // total = total + key
+        }
+        setTotal(total2)
+        console.log(total2)
         
     }
     // const test4 = () => {
