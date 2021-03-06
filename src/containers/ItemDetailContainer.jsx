@@ -14,8 +14,8 @@ const ItemDetailContainer = () =>{
     const { productoID } = useParams();
     // const [products, setProducts] = React.useState([]);
     // const [load, setLoad] = React.useState("CARGANDO . . .");
-    const {cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad} = React.useContext(GlobalContext);
-
+    const {cart,setCart,prueba, setPrueba, globalTest, products, setProducts} = React.useContext(GlobalContext);
+    const [load, setLoad] = React.useState("CARGANDO . . .");
     // const cart = React.useContext(GlobalContext);
 
     // React.useEffect(() => {
@@ -29,13 +29,14 @@ const ItemDetailContainer = () =>{
     //     myPromise.then((result) => setProducts(result));
 
     // },[]);    
+     
     React.useEffect(()=>{
         // consultas a la BD, suscripciones como addeventlistener
         // console.log("im glibal")
         return () => {
 
             console.log("unmounted RIP Detail")
-            window.location.reload(false)
+            // window.location.reload(false)
         }
     },[]);
 

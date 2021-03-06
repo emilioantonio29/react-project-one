@@ -32,10 +32,13 @@ const ItemListContainer = () =>{
         // consultas a la BD, suscripciones como addeventlistener
         console.log("ItemListContainer")
         return () => {
-
+            // window.location.reload(false)
             console.log("ItemListContainer unmon")
+            // globalTest3()
             // globalTest4()
-            window.location.reload(false)
+            // window.location.reload(false)
+            globalTest4()
+            globalTest()
         }
     },[]);
 

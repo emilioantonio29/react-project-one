@@ -2,6 +2,7 @@
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
+import  {BrowserRouter, Switch, Route} from 'react-router-dom';
 
   const CartWidget = () =>{
 
@@ -34,8 +35,7 @@ import {Link} from 'react-router-dom';
                  
                   {/* <!-- carrito --> */}
                   <Link to={`/carrito`}>
-                      <button type="button" className="btn notification" data-toggle="modal" data-target="#staticBackdrop2"> {/*resetProducto()*/}
-                        {/* <i className="material-icons add_shopping_cart" data-target="#staticBackdrop2">&#xe854;</i> */}
+                      <button type="button" className="btn notification" data-toggle="modal" data-target="#staticBackdrop2">   
                         <span className="material-icons sizeC">
                           shopping_cart
                         </span>

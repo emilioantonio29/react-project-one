@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from '../../containers/CartWidget';
+import  {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 
 
@@ -11,7 +12,7 @@ const NavbarComponent = () => {
       <>
         
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link to={`/`}><img src="imagenes/logo.png" alt=""/></Link>
+            <Link to={`/`}><img src={`../imagenes/logo.png`} alt=""/></Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>

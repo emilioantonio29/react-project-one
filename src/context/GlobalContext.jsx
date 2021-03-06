@@ -12,11 +12,54 @@ export const GlobalProvider = ({children}) => {
     const [cart2, setCart2] = useState([])
     const [prueba, setPrueba] = useState([])
     const [total, setTotal] = useState(0)
+    const [unusedState, setUnusedState] = useState()
+    const [TESTER, TESTERS] = useState([])
+    // React.useEffect(() => {
+    //     const myPromise = new Promise ((resolve, reject) => {
+    //         setTimeout(() => {    
+    //             resolve(ProductList);
+    //             // setLoad("");    
+    //         }, 1500);
+    // });
+        
+    //     myPromise.then((result) => setProducts(result));
+
+    // },[]);   
+    React.useEffect(() => {
+        const myPromise = new Promise ((resolve, reject) => {
+            setTimeout(() => {    
+                resolve(ProductList);
+                // setLoad("");    
+            }, 1500);
+    });
+        
+        myPromise.then((result) => setProducts(result));
+
+    },[]);   
+    React.useEffect(()=>{
+        // consultas a la BD, suscripciones como addeventlistener
+        console.log("im glibal")
+        // for(let i =0; i < localStorage.length; i++){
+        //     let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
+        //     cart.push(key)
+        // }
+        return () => {
+
+            console.log("unmounted RIP GLOBAL")
+
+        }
+    },[]);
+    // const globalTest5 = () => {
+       
+    //     window.location.reload(false)
+    // }
     const globalTest3 = () => {
        
         setCart([])
+        // TESTERS(TESTER+1)
     }
     const globalTest4 = () => {
+       
         for(let i =0; i < localStorage.length; i++){
             let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
             cart.push(key)
@@ -26,33 +69,21 @@ export const GlobalProvider = ({children}) => {
     
     
     const globalTest = () => {
-        console.log("soy el global")
-        console.log(typeof(products))
-        console.log("BATMAN BEGINS")
-        if(localStorage.length===0){
-            setCart([])}
-   
-        // setCart([JSON.parse(localStorage.getItem(1))])
-        // if(localStorage.length===0){
-        //     setCart([])
-        // }
-        // setCart([])
+        TESTERS([])
+        let total2 = 0
         for(let i =0; i < localStorage.length; i++){
             let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
-            // alert(cart)
-            // alert(cart.length)
-            // for(let i =0; i < cart.length; i++){
-            //     alert(cart)
-            // }
-            // alert(key)
-            // setCarritoS([...carritoS, (JSON.parse(localStorage.getItem(localStorage.key(i))))])
-            // alert(key)
-            // setCart([...cart, [key]])
-            cart.push(key)
+            console.log(key[0])
+            // total2 = total2 + ((key[2])*(key[3]))
+            TESTER.push(key); 
+
         }
-
-
-        // }
+     
+        // setTotal(total2)
+        // console.log(total2)
+        // document.title = `${total}`
+        // console.log(cart)
+        // console.log(carrito)
 
     }
     const globalTest2 = () => {
@@ -85,31 +116,11 @@ export const GlobalProvider = ({children}) => {
         alert(result); 
         }   
 
-    React.useEffect(() => {
-        const myPromise = new Promise ((resolve, reject) => {
-            setTimeout(() => {    
-                resolve(ProductList);
-                // setLoad("");    
-            }, 1500);
-    });
-        
-        myPromise.then((result) => setProducts(result));
-
-    },[]);   
-    React.useEffect(()=>{
-        // consultas a la BD, suscripciones como addeventlistener
-        console.log("im glibal")
-        return () => {
-
-            console.log("unmounted RIP GLOBAL")
-
-        }
-    },[]);
 
     // console.log("soy el global")
 
     
-    return <GlobalContext.Provider value={{cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2, setCart2,firstAsync,globalTest3,globalTest4,total, setTotal}}>
+    return <GlobalContext.Provider value={{cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2, setCart2,firstAsync,globalTest3,globalTest4,total, setTotal,TESTER}}>
 
         {children}
     </GlobalContext.Provider>

@@ -9,14 +9,13 @@ const ItemCart = ({productCart}) => {
     const [show, setShow] = React.useState(false);
     const {cart, setCart, globalTest,globalTest4,globalTest3,prueba, setPrueba, total,setTotal} = React.useContext(GlobalContext);
     const [productCarts, setProducts] = React.useState([]);
-
     const [cantidad2, setCantidad2] = React.useState(1);
     const [cantidad, setCantidad] = React.useState(productCart[9])//stock
    
     
     React.useEffect(()=>{
+        console.log("cartNow")
         document.title = `${cantidad2}`
-        //
         document.title = `${cantidad}`
         console.log("mounted cantidad")
         if(localStorage.getItem(productCart[0]) === null){
@@ -27,7 +26,7 @@ const ItemCart = ({productCart}) => {
             setCantidad(productCart[9] - variableCarrito[3])
         }
 
-
+        
         return () => {
             console.log("unmounted RIP ----")
         }
@@ -59,6 +58,7 @@ const ItemCart = ({productCart}) => {
         globalTest3()
         globalTest4()
         window.location.reload(false)
+      
     }
     ////////////////TEST
     function agregarCarrito(){
@@ -181,11 +181,3 @@ const ItemCart = ({productCart}) => {
 
 export default ItemCart;
 
-// gold
-// var arr = ["124857202", "500255104", "78573M104"];
-// var res = arr.reduce(function(s, a){
-//     s.push({name: a});
-//     return s;
-//   }, [])
-  
-// console.log(res);

@@ -6,61 +6,33 @@ import {Link} from 'react-router-dom';
 
 const Item2 = ({producto}) => {
     
-    const [cantidad2, setCantidad2] = useState(1);
-    const [cantidad, setCantidad] = useState(producto.cantidad)
-    // const [producto, setproducto] = React.useState([]);
-
+    const [contadorInicial, setContadorInicial] = useState(1);
+    const [stockDisponible, setstockDisponible] = useState(producto.cantidad)
     const [show, setShow] = useState(true);
-    const {cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad} = React.useContext(GlobalContext);
-    // const {prueba, setPrueba} = React.useContext(GlobalContext);
-    // const cart = React.useContext(GlobalContext);
-    console.log(cart)
+    const {cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest4} = React.useContext(GlobalContext);
 
     React.useEffect(()=>{
-        // consultas a la BD, suscripciones como addeventlistener
-        document.title = `${cantidad2}`
-        console.log("mounted cantidad2")
-        console.log(producto.id)
-        setPrueba(producto)
-        // console.log('esto es cart'+cart)
-        return () => {
-            // remove listener
-            // desuscripción BD
-            console.log("unmounted RIP ITEM2")
-            // globalTest()
-        }
-    },[cantidad2]);
-
-    React.useEffect(()=>{
-        // consultas a la BD, suscripciones como addeventlistener
-        document.title = `${cantidad}`
-        // setCantidad(1)
         console.log("mounted cantidad")
         if(localStorage.getItem(producto.id) === null){
-            setCantidad(producto.cantidad)
+            setstockDisponible(producto.cantidad)
             console.log("localNull")
         }else{
             let variableCarrito = JSON.parse(localStorage.getItem(producto.id))
-            // alert(variableCarrito[3])
-            setCantidad(producto.cantidad - variableCarrito[3])
-            // setCantidad("SIN STOCK")
+            setstockDisponible(producto.cantidad - variableCarrito[3])
         }
+        document.title = `${contadorInicial}`
+        document.title = `${stockDisponible}`
         return () => {
-            // remove listener
-            // desuscripción BD
             console.log("unmounted RIP")
         }
-    },[]);
+    },[contadorInicial]);
 
     function agregarCarrito(){
-        if(cantidad2 <= cantidad){
-            setCantidad(cantidad - cantidad2)
-            setCantidad2(1)
+        if(contadorInicial <= stockDisponible){
+            setstockDisponible(stockDisponible - contadorInicial)
+            setContadorInicial(1)
             setShow(false)
-            // setCart(cart.push(producto))
-            // setCart([...cart, {producto}])
-            test3()
-            // alert(producto.cantidad - cantidad)
+            localStorageAct()
             setCart([...cart, JSON.parse(localStorage.getItem(producto.id))])
             
         }else{
@@ -68,139 +40,73 @@ const Item2 = ({producto}) => {
         }
     } 
     function agregarCarrito2(){
-        if(cantidad2 <= cantidad){
-            setCantidad(cantidad - cantidad2)
-            setCantidad2(1)
+        if(contadorInicial <= stockDisponible){
+            setstockDisponible(stockDisponible - contadorInicial)
+            setContadorInicial(1)
             setShow(false)
-            // setCart(cart.push(producto))
-            // setCart([...cart, {producto}])
-            test3()
-            // alert(producto.cantidad - cantidad)
-            // setCart([...cart, [producto.id,producto.nombre]])
-            // globalTest()
+            localStorageAct()
         }else{
             alert("No hay mas Stock")
         }
     } 
 
     function sumaCantidad(){
-        if(cantidad2 <= cantidad - 1){
-            setCantidad2(cantidad2 + 1)
+        if(contadorInicial <= stockDisponible - 1){
+            setContadorInicial(contadorInicial + 1)
         }
     }
-
-    // function restaCantidad(){
-
-    // }
-
-    // function agregar(){
-    //     setCart(cart.push(producto))
-       
-    // }
-
-
-    
-    const test3 = () => {
-        // console.log(producto.cantidad)
-        // console.log(cantidad)
-        // console.log('esto es cart'+cart)
-        // console.log(producto)
-        // console.log(producto2)
-        // setPrueba([...cart, {id:2,name:"example"}])
-    //  sirve localStorage.setItem(producto.id, JSON.stringify({id:producto.id,nombre:producto.nombre,precio:producto.precio,cantidad:producto.cantidad - (cantidad - cantidad2),moneda:producto.moneda,tipo:producto.tipo,descript:producto.descript,imagen:producto.imagen,stock:producto.cantidad-(producto.cantidad - (cantidad - cantidad2))}))
+    const localStorageAct = () => {
     //   localStorage.setItem(producto.id, JSON.stringify([{
     //     id:producto.id,
     //     nombre:producto.nombre,
     //     precio:producto.precio,
-    //     cantidad:producto.cantidad - (cantidad - cantidad2),
+    //     cantidad:producto.cantidad - (cantidad - contadorInicial),
     //     moneda:producto.moneda,
     //     tipo:producto.tipo,
     //     descript:producto.descript,
     //     imagen:producto.imagen,
-    //     stock:producto.cantidad-(producto.cantidad - (cantidad - cantidad2))
+    //     stock:producto.cantidad-(producto.cantidad - (cantidad - contadorInicial))
     //   }]))
         localStorage.setItem(producto.id, JSON.stringify([
             producto.id,
             producto.nombre,
             producto.precio,
-            producto.cantidad - (cantidad - cantidad2),//cantidad agregada al carrito
+            producto.cantidad - (stockDisponible - contadorInicial),//cantidad agregada al carrito
             producto.moneda,
             producto.tipo,
             producto.descript,
             producto.imagen,
-            producto.cantidad-(producto.cantidad - (cantidad - cantidad2)),//stock disponible
+            producto.cantidad-(producto.cantidad - (stockDisponible - contadorInicial)),//stock disponible
             producto.cantidad //stock real
             
-        ]))
-    //   stock:producto.cantidad-(producto.cantidad - (cantidad - cantidad2)
-    //   cantidad:producto.cantidad - (cantidad - cantidad2)
-        // localStorage.setItem(producto.id, JSON.stringify({idproducto:producto.id,precioproducto:producto.precio,stockDisponible:producto.cantidad,cantidadAgregada:producto.cantidad - (cantidad - cantidad2)}))
-
-        // localStorage.setItem(producto.cantidad, JSON.stringify(producto.cantidad - cantidad))
-        // localStorage.setItem(producto.id, JSON.stringify({cantidad:producto.cantidad - (cantidad - cantidad2)}))
-        
-        //  localStorage.setItem(producto.id, JSON.stringify([{producto:producto, cantidad:cantidad - (cantidad - cantidad2)}]))
-
-        // localStorage.setItem(producto.id, cantidad - (cantidad - cantidad2))
-        // let prod = JSON.stringify(producto);
-        // let cant = JSON.stringify(cantidad - (cantidad - cantidad2));
-        // let cadena = [prod,cant]
-        // localStorage.setItem(producto.id, prod)
-
-        
+        ]))     
     }
     const test4 = () => {
-        // console.log(producto.cantidad)
-        // console.log(cantidad)
-        // console.log('esto es cart'+cart)
-        // console.log(producto)
-        // console.log(producto2)
-        // console.log(typeof(cart))
-        // console.log(JSON.parse(localStorage.getItem(producto.id))[4])
-
-        // console.log("cart")
-        // console.log(producto)
-        // localStorage.getItem(producto.id)
-        // localStorage.getItem("session")
-        // console.log(cantidad - cantidad2)
-        // let xx = localStorage.getItem(producto.id) 
-        // console.log(xx)
-        // let user = JSON.parse(localStorage.getItem(producto.id))
-        // console.log(user.idproducto)
-        // globalTest()
         console.log(producto)
     }
     
 
     return <div className="card col-md-6">
-        {/* <Link to={`/`}>
-            <button>volver</button>
-        </Link> */}
-        {/* <button onClick={() => {console.log(producto.id)}}>console.log</button>
-            
-        <button onClick={test3}> Push</button> */}
-        {/* <button onClick={test4}> consoleLogg</button> */}
-        
-        <p>Stock: {cantidad}</p>
-        <p>{cantidad2}</p>
-        <p>{producto.cantidad - cantidad}</p>
+
+        <p>Stock: {stockDisponible}</p>
+        <p>{contadorInicial}</p>
+        <p>{producto.cantidad - stockDisponible}</p>
         <br/>
 
         <img src={`../imagenes/${producto.imagen}.png`} alt=""/>
         <h3>{producto.nombre}</h3>
         <p>Precio: {producto.precio} {producto.moneda}</p>
-        {/* <p>Stock: {producto.cantidad}</p> */}
-        <p>Stock: {cantidad}</p>
+        <p>Stock: {stockDisponible}</p>
         <p>Categoria: {producto.tipo}</p>
         <p>Descripción: {producto.descript}</p>
         <div className="d-flex justify-content-between">
             {show ? (
                 <div className="d-flex align-items-center justify-content-between cajaCount">
                     <div>
-                        <button onClick={()=>{setCantidad2(cantidad2 < 2 ? cantidad2 : cantidad2 - 1 )}}>-</button> 
+                        <button onClick={()=>{setContadorInicial(contadorInicial < 2 ? contadorInicial : contadorInicial - 1 )}}>-</button> 
                     </div>
                     <div>
-                        <p>{cantidad2}</p>
+                        <p>{contadorInicial}</p>
                     </div>
                     <div className="">
                         <button onClick={()=>{sumaCantidad()}}>+</button> 
@@ -209,34 +115,17 @@ const Item2 = ({producto}) => {
             ) : ("")} 
 
             <div className="d-flex justify-content-end">
-                {/* <button type="button" onClick={() => {setShow(!show);}}>Seguir Agregando al carrito {show ? 'Div 2' : 'Div 1'}</button> */}
                 {show ? ("" ) : (<button type="button" onClick={() => {setShow(!show);}}>Seguir Agregando al carrito {show ? 'Div 2' : 'Div 1'}</button>)}
-
             </div>
         </div>    
             <div className="d-flex justify-content-between">   
                 <div className="">
-                    {/* <button onClick={()=>{setCantidad(cantidad2 < producto.cantidad + 1 ? cantidad - cantidad2 : cantidad2)}}>Agregar al Carrito</button>  */}
-                    {/* <button onClick={()=>{agregarCarrito()}}>Agregar al Carrito</button>  */}
-                    {/* {show ? (<button onClick={()=>{agregarCarrito()}}>Agregar al Carrito</button> ) : (<button className="btn btn-success" onClick={()=>{alert("proximo paso; agregar elementos al carrito")}}>Ir a Comprar</button>)} */}
-                    {/* {show ? (<button onClick={()=>{agregarCarrito()}}>Agregar al Carrito</button> ) : (<button className="btn btn-success" onClick={()=>{alert("proximo paso; agregar elementos al carrito")}}>Ir a Comprar</button>)} */}
-                    {/* <button onClick={() => {setCart([...cart, [producto.id,producto.nombre]])}}> Agregar item de prueba al carrito</button> */}
                     <button onClick={() => {{agregarCarrito2()}}}> Agregar item de prueba al carrito</button>
-
-                    {/* <button onClick={() => {console.log(cart)}}>console.log</button> */}
                 </div>
                 <div>
-                     {show ? ("" ) : (<p>Items Agregados al carrito: {producto.cantidad - cantidad}</p> )}
-                     {/* checklater */}
+                     {show ? ("" ) : (<p>Items Agregados al carrito: {producto.cantidad - stockDisponible}</p> )}
                 </div>
             </div>
-            {/* <div>
-                <button type="button" onClick={() => {setShow(!show);}}>
-                    Mostrar {show ? 'Div 2' : 'Div 1'}
-                </button>
-
-                {show ? (<button onClick={()=>{agregarCarrito()}}>Agregar al Carrito</button> ) : ("WAZAAA")}
-            </div> */}
     </div>
     
 }

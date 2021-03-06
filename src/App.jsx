@@ -41,11 +41,13 @@ const App = () => {
   <GlobalProvider>
   
     <BrowserRouter>
-      <NavbarComponent/>
+    <NavbarComponent/>
       <Switch>
+      
         <Route exact path="/" component={ItemListContainer}/>
         <Route exact path="/ItemDetailContainer/:productoID" component={ItemDetailContainer}/>
         <Route exact path="/carrito" component={CartContainer}/>
+        
         <Route path="*" children={<div>Not found</div>}/>
       </Switch>
     </BrowserRouter>
