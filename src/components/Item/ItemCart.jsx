@@ -2,35 +2,35 @@ import * as React from 'react';
 import {Link} from 'react-router-dom';
 import Item2 from './Item2';
 import { GlobalContext } from "../../context/GlobalContext";
-import Test from '../Item/Test'
+
 
 
 const ItemCart = ({productCart}) => {
     const [show, setShow] = React.useState(false);
-    const {cart, setCart, globalTest,globalTest4,globalTest3,prueba, setPrueba, total,setTotal} = React.useContext(GlobalContext);
+    const {cart, setCart, globalTest,globalTest4,globalTest3,prueba, setPrueba, total,setTotal,renderFunction} = React.useContext(GlobalContext);
     const [productCarts, setProducts] = React.useState([]);
-    const [cantidad2, setCantidad2] = React.useState(1);
-    const [cantidad, setCantidad] = React.useState(productCart[9])//stock
+    const [contadorInicial, setContadorInicial] = React.useState(1);
+    const [stockDisponible, setstockDisponible] = React.useState(productCart[9])//stock
    
     
     React.useEffect(()=>{
-        console.log("cartNow")
-        document.title = `${cantidad2}`
-        document.title = `${cantidad}`
-        console.log("mounted cantidad")
+        console.log("CARTNOW")
+        document.title = `${contadorInicial}`
+        document.title = `${stockDisponible}`
+        console.log("mounted stockDisponible")
         if(localStorage.getItem(productCart[0]) === null){
-            setCantidad(productCart[9])
+            setstockDisponible(productCart[9])
             console.log("localNull")
         }else{
             let variableCarrito = JSON.parse(localStorage.getItem(productCart[0]))
-            setCantidad(productCart[9] - variableCarrito[3])
+            setstockDisponible(productCart[9] - variableCarrito[3])
         }
 
         
         return () => {
             console.log("unmounted RIP ----")
         }
-    },[cantidad2]);
+    },[contadorInicial]);
    
     const consoleLogItemCard = () => {
         console.log(total)
@@ -46,8 +46,8 @@ const ItemCart = ({productCart}) => {
 
         // console.log(JSON.parse(localStorage.getItem(productCart[0]))[0])
         // console.log(productCart[9])
-        // console.log(cantidad+" "+cantidad2)
-        // console.log(productCart[9]-cantidad)
+        // console.log(stockDisponible+" "+contadorInicial)
+        // console.log(productCart[9]-stockDisponible)
         // console.log(typeof(productCart[2]))
     }
 
@@ -57,14 +57,15 @@ const ItemCart = ({productCart}) => {
         // window.location.reload(false)
         globalTest3()
         globalTest4()
-        window.location.reload(false)
+        // window.location.reload(false)
+        renderFunction()
       
     }
     ////////////////TEST
     function agregarCarrito(){
-        if(cantidad2 <= cantidad){
-            setCantidad(cantidad - cantidad2)
-            setCantidad2(1)
+        if(contadorInicial <= stockDisponible){
+            setstockDisponible(stockDisponible - contadorInicial)
+            setContadorInicial(1)
             setShow(false)
             addLocalStorage()
             setCart([...cart, JSON.parse(localStorage.getItem(productCart[0]))])
@@ -74,9 +75,9 @@ const ItemCart = ({productCart}) => {
         }
     } 
     function agregarCarrito2(){
-        if(cantidad2 <= cantidad){
-            setCantidad(cantidad - cantidad2)
-            setCantidad2(1)
+        if(contadorInicial <= stockDisponible){
+            setstockDisponible(stockDisponible - contadorInicial)
+            setContadorInicial(1)
             setShow(false)
             addLocalStorage()
         }else{
@@ -84,9 +85,9 @@ const ItemCart = ({productCart}) => {
         }
     } 
     function agregarCarrito3(){
-        if(productCart[9]-cantidad>1 ){
-            setCantidad(cantidad + cantidad2)
-            setCantidad2(1)
+        if(productCart[9]-stockDisponible>1 ){
+            setstockDisponible(stockDisponible + contadorInicial)
+            setContadorInicial(1)
             setShow(false)
             addLocalStorage2()
         }else{
@@ -94,9 +95,9 @@ const ItemCart = ({productCart}) => {
         }
     } 
 
-    function sumaCantidad(){
-        if(cantidad2 <= cantidad - 1){
-            setCantidad2(cantidad2 + 1)
+    function sumastockDisponible(){
+        if(contadorInicial <= stockDisponible - 1){
+            setContadorInicial(contadorInicial + 1)
         }
     }
  
@@ -105,12 +106,12 @@ const ItemCart = ({productCart}) => {
             productCart[0],
             productCart[1],
             productCart[2],
-            productCart[9] - (cantidad - cantidad2),//cantidad agregada al carrito
+            productCart[9] - (stockDisponible - contadorInicial),//stockDisponible agregada al carrito
             productCart[4],
             productCart[5],
             productCart[6],
             productCart[7],
-            productCart[3]-(productCart[3] - (cantidad - cantidad2)),
+            productCart[3]-(productCart[3] - (stockDisponible - contadorInicial)),
             productCart[9]//stock disponible
         ]))
         let total2 = 0
@@ -129,12 +130,12 @@ const ItemCart = ({productCart}) => {
             productCart[0],
             productCart[1],
             productCart[2],
-            productCart[9] - (cantidad + cantidad2),//cantidad agregada al carrito
+            productCart[9] - (stockDisponible + contadorInicial),//stockDisponible agregada al carrito
             productCart[4],
             productCart[5],
             productCart[6],
             productCart[7],
-            productCart[3]-(productCart[3] - (cantidad + cantidad2)),
+            productCart[3]-(productCart[3] - (stockDisponible + contadorInicial)),
             productCart[9]//stock disponible
         ]))
         let total2 = 0
@@ -159,10 +160,10 @@ const ItemCart = ({productCart}) => {
         {/* <p>IdProducto: {productCart}</p>
         <p>nombre: {productCart}</p> */}
         {/* <p>stock Disponible: {productCart[3]}</p> */}
-        <p>stock Disponible: {cantidad}</p>
-        <p>Cantidad Agregada: {productCart[9]-cantidad}</p>
-        <p>SubTotal: {(productCart[2]*(productCart[9]-cantidad))}</p>
-        {/* <p>Cantidad: { productCart[9]}</p> */}
+        <p>stock Disponible: {stockDisponible}</p>
+        <p>stockDisponible Agregada: {productCart[9]-stockDisponible}</p>
+        <p>SubTotal: {(productCart[2]*(productCart[9]-stockDisponible))}</p>
+        {/* <p>stockDisponible: { productCart[9]}</p> */}
 
         {/* <p>IdProducto: {productCart}</p> */}
         {/* <p>Stock: {products.producto.nombre}</p> */}

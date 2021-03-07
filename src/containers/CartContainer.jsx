@@ -10,23 +10,22 @@ import {Link} from 'react-router-dom';
 
 
 const CartContainer = () =>{
-    const {cart,setCart,firstAsync,globalTest3,globalTest4,total, setTotal,TESTER,globalTest} = React.useContext(GlobalContext);
+    const {cart,setCart,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,globalTest,render, setRender,renderFunction} = React.useContext(GlobalContext);
     // const [show, setShow] = React.useState(true);
     const [carrito, setCarrito] = React.useState([]);
     const [carritoS, setCarritoS] = React.useState([]);
-    const[arrecho, setArrecho] = React.useState([]);
+
     
-    
-    // console.log("doSo")
-    // console.log(cart)
     React.useEffect(() => {
+        setCarrito([])
+        setCarritoS([])
         const myPromise = new Promise ((resolve, reject) => {
             // setTimeout(() => resolve(ProductList), 3000);
-            resolve(TESTER);
+            resolve(arrayCart);
     });
     
         myPromise.then((result) => setCarritoS(result));
-    },[]);   
+    },[render]);   
     React.useEffect(()=>{
         // globalTest4()
         // window.location.reload(false)
@@ -63,12 +62,15 @@ const CartContainer = () =>{
             globalTest3()
             globalTest()
         }
-    },[]);
+    },[render]);
 
     
     const ConsoleLog = () => {
         globalTest()
-        console.log(TESTER)
+        setCarrito([])
+        setCarritoS([])
+        console.log(render)
+        renderFunction()
         // globalTest3()
     }
     const ConsoleLogCar = () => {
@@ -78,11 +80,11 @@ const CartContainer = () =>{
         localStorage.clear()
         globalTest3()
         globalTest4()
-        window.location.reload(false)
+        // window.location.reload(false)
         // setCarrito([])
         // setTotal(0)
         // setCart([])
-        
+        renderFunction()
     }
 
 
@@ -127,7 +129,7 @@ const CartContainer = () =>{
 
             </div>  
             <h1>TOTAL: {total}</h1>
-            <h1>TOTAL: {TESTER}</h1>
+            <h1>TOTAL: {arrayCart}</h1>
             <button onClick={eliminarTodo}> VaciarCarrito</button>
         </>
     )

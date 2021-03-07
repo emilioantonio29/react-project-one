@@ -1,17 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import ItemCount from '../../containers/ItemCount';
 import Item2 from '../Item/Item2';
-// import Item2 from '../Item/Item2';
-
 
 
 const ItemDetailList = ({products2, productoID}) =>{
-
-
-//    const productos = [
-//         ["Mermelada Frutilla", 250, "Mermelada 100% natural reducida en azucar"],
-//         ["Mermelada Naranja", 280, "Realizada con los mejores productos naturales"]
-//     ]
 
 const test4 = () => {
     // console.log(products2[productoID].id)
