@@ -5,7 +5,6 @@ import ItemDetailList from '../components/ItemDetailList/ItemDetailList';
 import ProductList from '../mocks/ProductList';
 import Item2 from '../components/Item/Item2';
 import Item from '../components/Item/Item';
-import Test from '../components/Item/Test';
 import { GlobalContext } from '../context/GlobalContext';
 import {Link} from 'react-router-dom';
 
