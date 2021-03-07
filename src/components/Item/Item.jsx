@@ -25,14 +25,16 @@ const Item = ({product}) => {
 
     const test = () => {
         console.log(product.producto.id)
+        
     }
 
     return <div className="card col-md-6">
         {/* <button onClick={() => {console.log(product.producto)}}>console.log</button> */}
         <h3>{product.producto.nombre}</h3>
-        <p>Precio: {product.producto.precio} {product.moneda}</p>
+        <p>Precio: {product.producto.precio} {product.producto.moneda}</p>
         <p>Stock: {stockDisponible}</p>
         <Link to={`/ItemDetailContainer/${product.producto.id}`}><button>Comprar</button></Link>
+        <br/>
         {/* <button onClick={test}> test2</button> */}
     </div>
     

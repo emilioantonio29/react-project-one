@@ -44,6 +44,7 @@ const ItemDetailContainer = () =>{
         // console.log(productoID)
         // console.log(load)
         // console.log(products2)
+        console.log(products.producto.id)
         console.log(products)
     }
 
@@ -52,8 +53,8 @@ const ItemDetailContainer = () =>{
 
             {/* <button onClick={test3}> test3</button> */}
 
-            <h1>ItemID: {productoID}</h1>
-            <p>DETALLE DE PRODUCTO DEL ITEMDETAILCONTAINER</p>
+            {/* <h1>ItemID: {productoID}</h1>
+            <p>DETALLE DE PRODUCTO DEL ITEMDETAILCONTAINER</p> */}
             <Link to={`/`}>
             <button>volver</button>
              </Link>
@@ -69,7 +70,7 @@ const ItemDetailContainer = () =>{
             <div>
                 <ul>
                     {
-                        products.filter(product => parseInt(product.producto.id) === parseInt(productoID))
+                        products.filter(product => product.producto.id === productoID)
                             .map((producto)=>{
                                 return <Item2 key={producto.producto.id} producto={producto.producto}/>
                       })

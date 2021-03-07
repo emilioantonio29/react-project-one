@@ -4,46 +4,61 @@ import ProductList from '../mocks/ProductList';
 import {Link} from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
 import { CartContext } from '../context/CartContext';
+import { getFirestore } from '../firebase';
 
 
 
 
 
 const ItemListContainer = () =>{
-    const {cart,setCart,prueba, setPrueba, globalTest,globalTest2,cart2,setCart2,firstAsync,globalTest3,globalTest4} = React.useContext(GlobalContext);
+    const {cart,setCart,prueba, setPrueba, globalTest,globalTest2,cart2,setCart2,firstAsync,globalTest3,globalTest4,products, setProducts} = React.useContext(GlobalContext);
 
-    const [products, setProducts] = React.useState([]);
+    // const [products, setProducts] = React.useState([]);
     const [load, setLoad] = React.useState("CARGANDO . . .");
-    // const {cart, setCart} = React.useContext(GlobalContext);
-    // const cart = React.useContext(GlobalContext);
-    // console.log(cart)
-    React.useEffect(() => {
-        const myPromise = new Promise ((resolve, reject) => {
-            // setTimeout(() => resolve(ProductList), 3000);
-            setTimeout(() => {    
-                resolve(ProductList);
-                setLoad("");    
-            }, 3000);
-    });
+
+    // React.useEffect(() => {
+    //     const myPromise = new Promise ((resolve, reject) => {
+    //         // setTimeout(() => resolve(ProductList), 3000);
+    //         setTimeout(() => {    
+    //             resolve(ProductList);
+    //             setLoad("");    
+    //         }, 3000);
+    // });
     
-        myPromise.then((result) => setProducts(result));
-    },[]);     
-    React.useEffect(()=>{
-        // consultas a la BD, suscripciones como addeventlistener
-        console.log("ItemListContainer")
-        return () => {
-            // window.location.reload(false)
-            console.log("ItemListContainer unmon")
-            // globalTest3()
-            // globalTest4()
-            // window.location.reload(false)
-            globalTest4()
-            globalTest()
-        }
-    },[]);
+    //     myPromise.then((result) => setProducts(result));
+    // },[]);     
+    // React.useEffect(() => {
+    //     const bd = getFirestore();// conexion a la bd
+    //     const itemCollection = bd.collection('producto');// guardamos la referencia
+    //     // tomando los datos
+    //     itemCollection.get().then((value) => {
+    //         // console.log(value.docs.keys)
+    //         let temp = value.docs.map(element => {
+    //             // return {...element.data(), id:element.id}
+    //             return {"producto": {...element.data(), id:element.id}}
+    //         })
+                
+    //         // value.docs.map(element => {console.log(element.data())})
+    //         // value.docs.map(element => {console.log({...element.data(), id:element.id})})
+    //         console.log(temp)
+    //         setProducts(temp)
+    //         console.log(products)
+    //     })
+    //     return () => {
+    //         // window.location.reload(false)
+    //         console.log("ItemListContainer unmon")
+    //         // globalTest3()
+    //         // globalTest4()
+    //         // window.location.reload(false)
+    //         globalTest4()
+    //         globalTest()
+    //     }
+    // },[]);     
 
 
-    
+
+    // console.log(products)
+    console.log(products)
     return(
         <>
 

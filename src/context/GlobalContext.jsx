@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { createContext, useEffect, useState } from "react";
 import ProductList from '../mocks/ProductList';
+import { getFirestore } from '../firebase';
 
 export const GlobalContext = createContext();
 
@@ -25,34 +26,38 @@ export const GlobalProvider = ({children}) => {
     //     myPromise.then((result) => setProducts(result));
 
     // },[]);   
-    React.useEffect(() => {
-        const myPromise = new Promise ((resolve, reject) => {
-            setTimeout(() => {    
-                resolve(ProductList);
-                // setLoad("");    
-            }, 1500);
-    });
+    // React.useEffect(() => {
+    //     const myPromise = new Promise ((resolve, reject) => {
+    //         setTimeout(() => {    
+    //             resolve(ProductList);
+    //             // setLoad("");    
+    //         }, 1500);
+    // });
         
-        myPromise.then((result) => setProducts(result));
+    //     myPromise.then((result) => setProducts(result));
 
-    },[]);   
-    React.useEffect(()=>{
-        // consultas a la BD, suscripciones como addeventlistener
-        console.log("im glibal")
-        // for(let i =0; i < localStorage.length; i++){
-        //     let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
-        //     cart.push(key)
-        // }
+    // },[]);   
+    React.useEffect(() => {
+        const bd = getFirestore();// conexion a la bd
+        const itemCollection = bd.collection('producto');// guardamos la referencia
+        // tomando los datos
+        itemCollection.get().then((value) => {
+            // console.log(value.docs.keys)
+            let temp = value.docs.map(element => {
+                // return {...element.data(), id:element.id}
+                return {"producto": {...element.data(), id:element.id}}
+            })
+                
+            // value.docs.map(element => {console.log(element.data())})
+            // value.docs.map(element => {console.log({...element.data(), id:element.id})})
+            setProducts(temp)
+        })
         return () => {
-
-            console.log("unmounted RIP GLOBAL")
-
+            // window.location.reload(false)
+            console.log("global unmon")
+     
         }
-    },[]);
-    // const globalTest5 = () => {
-       
-    //     window.location.reload(false)
-    // }
+    },[]);     
     const globalTest3 = () => {
        
         setCart([])

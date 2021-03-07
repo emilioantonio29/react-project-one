@@ -88,10 +88,10 @@ const Item2 = ({producto}) => {
 
     return <div className="card col-md-6">
 
-        <p>Stock: {stockDisponible}</p>
+        {/* <p>Stock: {stockDisponible}</p>
         <p>{contadorInicial}</p>
         <p>{producto.cantidad - stockDisponible}</p>
-        <br/>
+        <br/> */}
 
         <img src={`../imagenes/${producto.imagen}.png`} alt=""/>
         <h3>{producto.nombre}</h3>

@@ -168,7 +168,7 @@ const ItemCart = ({productCart}) => {
         {/* <p>IdProducto: {productCart}</p> */}
         {/* <p>Stock: {products.producto.nombre}</p> */}
         <button onClick={eliminarItem}> eliminarItem</button>
-        <button onClick={consoleLogItemCard}> consoleLogItemCard</button>
+        {/* <button onClick={consoleLogItemCard}> consoleLogItemCard</button> */}
         <button onClick={() => {{agregarCarrito2()}}}> +</button>
         <button onClick={() => {{agregarCarrito3()}}}> -</button>
         {/* <Item2/> */}

@@ -23,6 +23,7 @@ const ItemList = ({products}) =>{
                     <ItemCount/>
                 </div>) 
             })}   */}
+            
             <div>
                 <ul>
                     {products.map((product)=>{

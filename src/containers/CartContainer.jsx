@@ -91,17 +91,15 @@ const CartContainer = () =>{
 
     return(
         <>
-            <button onClick={ConsoleLog}> ConsoleLog</button>
-            <button onClick={ConsoleLogCar}> ConsoleLogcar</button>
+            {/* <button onClick={ConsoleLog}> ConsoleLog</button>
+            <button onClick={ConsoleLogCar}> ConsoleLogcar</button> */}
             <Link to={`/`}>
-                    <button type="button" className="btn notification" data-toggle="modal" data-target="#staticBackdrop2">   
+                    <button type="" className=" " data-toggle="" data-target="">   
                         volver
                     </button>
             </Link>
 
-            <div>
-                carrito
-            </div>  
+ 
             {/* <h1>ItemID: {cart[0].name}</h1> */}
             
             {/* <div>
@@ -129,7 +127,7 @@ const CartContainer = () =>{
 
             </div>  
             <h1>TOTAL: {total}</h1>
-            <h1>TOTAL: {arrayCart}</h1>
+            {/* <h1>TOTAL: {arrayCart}</h1> */}
             <button onClick={eliminarTodo}> VaciarCarrito</button>
         </>
     )
