@@ -9,34 +9,14 @@ export const GlobalContext = createContext();
 export const GlobalProvider = ({children}) => {
     const [load, setLoad] = React.useState("CARGANDO . . .");
     const [products, setProducts] = React.useState([]);
+    const [buyers, setBuyers] = React.useState([]);
     const [cart, setCart] = useState([])
     const [cart2, setCart2] = useState([])
     const [prueba, setPrueba] = useState([])
     const [total, setTotal] = useState(0)
     const [render, setRender] = useState(false)
     const [arrayCart, setArrayCart] = useState([])
-    // React.useEffect(() => {
-    //     const myPromise = new Promise ((resolve, reject) => {
-    //         setTimeout(() => {    
-    //             resolve(ProductList);
-    //             // setLoad("");    
-    //         }, 1500);
-    // });
-        
-    //     myPromise.then((result) => setProducts(result));
-
-    // },[]);   
-    // React.useEffect(() => {
-    //     const myPromise = new Promise ((resolve, reject) => {
-    //         setTimeout(() => {    
-    //             resolve(ProductList);
-    //             // setLoad("");    
-    //         }, 1500);
-    // });
-        
-    //     myPromise.then((result) => setProducts(result));
-
-    // },[]);   
+ 
     React.useEffect(() => {
         const bd = getFirestore();// conexion a la bd
         const itemCollection = bd.collection('producto');// guardamos la referencia
@@ -52,6 +32,7 @@ export const GlobalProvider = ({children}) => {
             // value.docs.map(element => {console.log({...element.data(), id:element.id})})
             setProducts(temp)
         })
+
         return () => {
             // window.location.reload(false)
             console.log("global unmon")
@@ -133,7 +114,7 @@ export const GlobalProvider = ({children}) => {
     // console.log("soy el global")
 
     
-    return <GlobalContext.Provider value={{render, setRender,renderFunction,cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2, setCart2,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,setArrayCart}}>
+    return <GlobalContext.Provider value={{buyers, setBuyers,render, setRender,renderFunction,cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2, setCart2,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,setArrayCart}}>
 
         {children}
     </GlobalContext.Provider>
