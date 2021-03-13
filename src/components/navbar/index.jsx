@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CartWidget from '../../containers/CartWidget';
 import  {BrowserRouter, Switch, Route} from 'react-router-dom';
 import {Link} from 'react-router-dom';
+import './style.css'
 
 
 
@@ -11,7 +12,9 @@ const NavbarComponent = () => {
     return(
       <>
         
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center reset">
+            <div className="d-flex align-items-center col-md-8 reset">
+            
             <Link to={`/`}><img src={`../imagenes/logo.png`} alt=""/></Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -54,6 +57,7 @@ const NavbarComponent = () => {
             </div>
             <div className="ml-auto">
                 <CartWidget/>
+            </div>
             </div>
         </nav>
       </>

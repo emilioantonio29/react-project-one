@@ -115,7 +115,7 @@ const Item2 = ({producto}) => {
             ) : ("")} 
 
             <div className="d-flex justify-content-end">
-                {show ? ("" ) : (<button type="button" onClick={() => {setShow(!show);}}>Seguir Agregando al carrito {show ? 'Div 2' : 'Div 1'}</button>)}
+                {show ? ("test") : (<button type="button" onClick={() => {setShow(!show);}}>Seguir Agregando al carrito {show ? 'Div 2' : 'Div 1'}</button>)}
             </div>
         </div>    
             <div className="d-flex justify-content-between">   

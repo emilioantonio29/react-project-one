@@ -2,6 +2,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComponent from './components/navbar/';
+
 import ButtonComponent from './components/button/';
 import ItemListContainer from './containers/ItemListContainer';
 import ItemListContainer2 from './containers/ItemListContainer2';
@@ -14,6 +15,7 @@ import { GlobalContext, GlobalProvider } from './context/GlobalContext';
 import { CartContext } from './context/CartContext';
 import { useState } from 'react';
 import CartContainer from './containers/CartContainer';
+import FooterComponent from './components/footer/';
 
 
 
@@ -37,45 +39,17 @@ const App = () => {
   
   // 
   return( 
-  
-  <GlobalProvider>
-  
-    <BrowserRouter>
-    <NavbarComponent/>
-      <Switch>
-      
-        <Route exact path="/" component={ItemListContainer}/>
-        <Route exact path="/ItemDetailContainer/:productoID" component={ItemDetailContainer}/>
-        <Route exact path="/carrito" component={CartContainer}/>
-        
-        <Route path="*" children={<div>Not found</div>}/>
-      </Switch>
-    </BrowserRouter>
-    
-    
-    
-
-      {/* <NavbarComponent/> */}
-
-
-
-      {/* <div className="container">React Project</div> */}
-      {/* <button onClick={Saludar} className="btn btn-success">Comprar</button> */}
-      
-      {/* React */}
-      {/* <ButtonComponent text={`texto cambiado test`}/>  */}
-      {/* text: parametro | valor */}
-      {/* <ButtonComponent text={`Agregar al carrito`}/>
-      <ButtonComponent/>
-      <ButtonComponent/>
-      <ButtonComponent/> */}
-
-      {/* <ItemListContainer/> */}
-      {/* <ItemListContainer2/> */}
-      
-      {/* <div>contador importado "ItemCount"</div>
-      <ItemCount/> */}
-
+    <GlobalProvider>
+      <BrowserRouter>
+      <NavbarComponent/>
+        <Switch>
+          <Route exact path="/" component={ItemListContainer}/>
+          <Route exact path="/ItemDetailContainer/:productoID" component={ItemDetailContainer}/>
+          <Route exact path="/carrito" component={CartContainer}/>
+          <Route path="*" children={<div>Not found</div>}/>
+        </Switch>
+      <FooterComponent/>
+      </BrowserRouter>
     </GlobalProvider>
   );
 

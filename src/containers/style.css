@@ -31,3 +31,33 @@
 
 
 /* ------------------------------------------------------------------ ItemListContainer */
+
+
+/* ------------------------------------------------------------------ CartContainer */
+.cajaCart{
+    width: 100%;
+    height: 500px;
+    /* border: 1px solid red */
+}
+.cajaCart img{
+    width: 50%;
+    height: 500px !important;
+}
+.noPad{
+    padding: 15px 0px 0px 0px
+}
+.noPad .btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  .noPad .btn {
+    /* border: 1px solid #7e5127; */
+    color: #7e5127 !important;
+    padding-left: 15px;
+  }
+  .noPad .btn:hover {
+    /* border: 1px solid #7e5127; */
+    /* background-color: #e7e1db !important; */
+    color: #b465b4 !important;
+  }
+ 

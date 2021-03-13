@@ -20,30 +20,30 @@ const CartContainer = () =>{
     const [firePhone, setFirePhone] = React.useState("");
     const [fireMail, setFireMail] = React.useState("");
     const [disabled, setDisabled] = React.useState(false);
+    const [showCart, setShowCart] = React.useState(true);
     
-    React.useEffect(() => {
+    // React.useEffect(() => {
        
+    //     setCarrito([])
+    //     setCarritoS([])
+    //     const myPromise = new Promise ((resolve, reject) => {
+    //         resolve(arrayCart);
+    //     });
+    //     myPromise.then((result) => setCarritoS(result));
+    // },[render]);   
+    React.useEffect(()=>{
+        if(localStorage.length!=0){
+            setShowCart(false)
+        }else{
+            setShowCart(true)
+        }
         setCarrito([])
         setCarritoS([])
         const myPromise = new Promise ((resolve, reject) => {
-            // setTimeout(() => resolve(ProductList), 3000);
             resolve(arrayCart);
-    });
-    
+        });
         myPromise.then((result) => setCarritoS(result));
-    },[render]);   
-    React.useEffect(()=>{
        
-        // globalTest4()
-        // window.location.reload(false)
-        // for(let i =0; i < localStorage.length; i++){
-        //     let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
-        //     console.log("doSo") 
-        //     cart.push(key)
-          
-        // }
-        // globalTest4()
-        
         globalTest()
         console.log("soy el cart")
         // setCarrito([])
@@ -72,29 +72,6 @@ const CartContainer = () =>{
             globalTest()
         }
     },[render]);
-
-    // {comprador: {nombre: "emilio", email:"test@test", telefono: "111155554"}, items: [... carritoFire], total: total}
-    // const fireBuy = () => {
-        
-    //     for(let i =0; i < localStorage.length; i++){
-    //         const bd = getFirestore();
-    //         let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
-    //         // console.log(key[0])
-    //         // console.log(key)
-    //         // carritoFire.push(key); 
-    //         carritoFire.push([{producto:{
-    //             id: key[0],//idproducto
-    //             nombre: key[1],//nombre del producto
-    //             precio: key[2], //precio actual del producto
-    //             cantidadComprada: key[3], // cantidad comprada por el cliente
-    //             categoria: key[5],
-    //             stockAfterBuy: key[8] // stock que quedará si se realiza la compra
-    //         }}])
-    //         // console.log(carritoFire)
-    //         // console.log(fireName)
-    //     }
-    //     console.log({comprador: {nombre: fireName, email: fireMail, telefono: firePhone}, items: [... carritoFire], total: total, date: "fecha"})
-    // }
 
     const fireBuy = async () =>{
         if(localStorage.length!=0){
@@ -137,7 +114,12 @@ const CartContainer = () =>{
             setBuyers(temp)
         })
         console.log(buyers)
-        console.log(localStorage.length)
+        console.log(arrayCart)
+        if(showCart===true){
+            setShowCart(false)
+        }else{
+            setShowCart(true)
+        }
     }
     const eliminarTodo = () => {
         localStorage.clear()
@@ -155,7 +137,32 @@ const CartContainer = () =>{
 
     return(
         <>
-        <div className="d-flex justify-content-center">
+        {showCart ? (    
+        <div className="d-flex flex-column">
+            <div className="d-flex justify-content-center" >
+                <div className="col-md-8 d-flex justify-content-left align-items-center noPad">
+                    <p >
+                        <Link to={`/`}>
+                        <button className="btn">Todos los productos</button>
+                        </Link>
+                    </p>
+                    <p><i class="fa fa-angle-right"></i></p>
+                    <p style={{paddingLeft:"10px"}}> Cart</p>
+                </div>
+            </div>
+            <div className="d-flex justify-content-center" >
+                <div className="col-md-8 d-flex justify-content-center align-items-center cajaCart">
+                    <img src={`../imagenes/cEmpty.png`} alt="ImagenCartEmpty"/>
+                </div>
+            </div>
+            <div className="d-flex justify-content-center" >
+                <div className="col-md-8 d-flex justify-content-center align-items-center">
+                    <p>No hay productos agregados al carrito ...</p>
+                </div>
+            </div>
+        </div>
+        ) : (
+            <div className="d-flex justify-content-center">
         <div className="col-md-8">
             <Link to={`/`}>
                 <button type="" className=" " data-toggle="" data-target="">   
@@ -223,6 +230,10 @@ const CartContainer = () =>{
             <button onClick={eliminarTodo}> VaciarCarrito</button>
             <button onClick={fireBuy} className="btn-success" disabled={false}>Comprar</button>
             </div></div>
+
+        )} 
+
+        
         </>
 
     )
