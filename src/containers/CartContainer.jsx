@@ -97,27 +97,26 @@ const CartContainer = () =>{
     // }
 
     const fireBuy = async () =>{
-        for(let i =0; i < localStorage.length; i++){
-            const bd = getFirestore();
-            let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
-            // console.log(key[0])
-            // console.log(key)
-            // carritoFire.push(key); 
-            carritoFire.push({
-                id: key[0],//idproducto
-                nombre: key[1],//nombre del producto
-                precio: key[2], //precio actual del producto
-                cantidadComprada: key[3], // cantidad comprada por el cliente
-                categoria: key[5],
-                stockAfterBuy: key[8] // stock que quedará si se realiza la compra
-            })
+        if(localStorage.length!=0){
+            for(let i =0; i < localStorage.length; i++){
+                const bd = getFirestore();
+                let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
+                carritoFire.push({
+                    id: key[0],//idproducto
+                    nombre: key[1],//nombre del producto
+                    precio: key[2], //precio actual del producto
+                    cantidadComprada: key[3], // cantidad comprada por el cliente
+                    categoria: key[5],
+                    stockAfterBuy: key[8] // stock que quedará si se realiza la compra
+                })
+            }
+            let newOrder = {comprador: {nombre: fireName, email: fireMail, telefono: firePhone}, items: carritoFire, total: total, date: new Date()}
+            const db = getFirestore()
+            const ordenesCollection = db.collection("ordenes")
+            ordenesCollection.add(newOrder).then()
+            eliminarTodo()
+            setDisabled(true)
         }
-        let newOrder = {comprador: {nombre: fireName, email: fireMail, telefono: firePhone}, items: carritoFire, total: total, date: new Date()}
-        const db = getFirestore()
-        const ordenesCollection = db.collection("ordenes")
-        ordenesCollection.add(newOrder).then()
-        eliminarTodo()
-        setDisabled(true)
     }
 
     const ConsoleLogCompradores = () => {
@@ -138,6 +137,7 @@ const CartContainer = () =>{
             setBuyers(temp)
         })
         console.log(buyers)
+        console.log(localStorage.length)
     }
     const eliminarTodo = () => {
         localStorage.clear()
@@ -155,7 +155,8 @@ const CartContainer = () =>{
 
     return(
         <>
-
+        <div className="d-flex justify-content-center">
+        <div className="col-md-8">
             <Link to={`/`}>
                 <button type="" className=" " data-toggle="" data-target="">   
                     volver
@@ -221,7 +222,9 @@ const CartContainer = () =>{
             {/* <h1>TOTAL: {arrayCart}</h1> */}
             <button onClick={eliminarTodo}> VaciarCarrito</button>
             <button onClick={fireBuy} className="btn-success" disabled={false}>Comprar</button>
+            </div></div>
         </>
+
     )
 
 }
