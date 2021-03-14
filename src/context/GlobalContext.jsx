@@ -16,6 +16,9 @@ export const GlobalProvider = ({children}) => {
     const [total, setTotal] = useState(0)
     const [render, setRender] = useState(false)
     const [arrayCart, setArrayCart] = useState([])
+    const [fireName, setFireName] = React.useState("");
+    const [firePhone, setFirePhone] = React.useState("");
+    const [fireMail, setFireMail] = React.useState("");
  
     React.useEffect(() => {
         const bd = getFirestore();// conexion a la bd
@@ -114,7 +117,7 @@ export const GlobalProvider = ({children}) => {
     // console.log("soy el global")
 
     
-    return <GlobalContext.Provider value={{buyers, setBuyers,render, setRender,renderFunction,cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2, setCart2,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,setArrayCart}}>
+    return <GlobalContext.Provider value={{fireMail, setFireMail,firePhone, setFirePhone,fireName, setFireName,buyers, setBuyers,render, setRender,renderFunction,cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2, setCart2,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,setArrayCart}}>
 
         {children}
     </GlobalContext.Provider>

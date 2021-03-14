@@ -11,14 +11,14 @@ import { getFirestore } from '../firebase';
 
 
 const CartContainer = () =>{
-    const {buyers, setBuyers,cart,setCart,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,globalTest,render, setRender,renderFunction} = React.useContext(GlobalContext);
+    const {fireMail, setFireMail,firePhone, setFirePhone,fireName, setFireName,buyers, setBuyers,cart,setCart,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,globalTest,render, setRender,renderFunction} = React.useContext(GlobalContext);
     // const [show, setShow] = React.useState(true);
     const [carrito, setCarrito] = React.useState([]);
     const [carritoS, setCarritoS] = React.useState([]);
     const [carritoFire, setCarritoFire] = React.useState([]);
-    const [fireName, setFireName] = React.useState("");
-    const [firePhone, setFirePhone] = React.useState("");
-    const [fireMail, setFireMail] = React.useState("");
+    // const [fireName, setFireName] = React.useState("");
+    // const [firePhone, setFirePhone] = React.useState("");
+    // const [fireMail, setFireMail] = React.useState("");
     const [disabled, setDisabled] = React.useState(false);
     const [showCart, setShowCart] = React.useState(true);
     
@@ -115,11 +115,11 @@ const CartContainer = () =>{
         })
         console.log(buyers)
         console.log(arrayCart)
-        if(showCart===true){
-            setShowCart(false)
-        }else{
-            setShowCart(true)
-        }
+        // if(showCart===true){
+        //     setShowCart(false)
+        // }else{
+        //     setShowCart(true)
+        // }
     }
     const eliminarTodo = () => {
         localStorage.clear()
@@ -158,6 +158,7 @@ const CartContainer = () =>{
             <div className="d-flex justify-content-center" >
                 <div className="col-md-8 d-flex justify-content-center align-items-center">
                     <p>No hay productos agregados al carrito ...</p>
+                    <button onClick={ConsoleLogCompradores}> ConsoleLogCompradores</button>
                 </div>
             </div>
         </div>
@@ -197,6 +198,29 @@ const CartContainer = () =>{
             </form>
             
             <button onClick={ConsoleLogCompradores}> ConsoleLogCompradores</button>
+            <div className="container col-md-12" >
+                <div className="">
+                    <table className="table"> 
+                        <thead className="fondo shoC">
+                            <tr>
+                                <th style={{width:"25%"}}></th>
+                                <th style={{width:"25%"}}>PRODUCTO</th>
+                                <th style={{width:"16%"}} className="centre">PRECIO</th>
+                                <th style={{width:"16%"}} className="centre">CANTIDAD</th>
+                                <th style={{width:"16%"}} className="centre">SUBTOTAL</th>
+                            </tr>
+                        </thead>
+                        {/* BODY START */}
+                        <tbody>
+                            <tr></tr>
+                        </tbody>
+                        {/* FOOT START */}
+                        <tfoot class="">
+                            <tr></tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
             
             {/* <button onClick={ConsoleLogCar}> ConsoleLogcar</button> */}
 
@@ -225,10 +249,73 @@ const CartContainer = () =>{
 
 
             </div>  
-            <h1>TOTAL: {total}</h1>
-            {/* <h1>TOTAL: {arrayCart}</h1> */}
-            <button onClick={eliminarTodo}> VaciarCarrito</button>
-            <button onClick={fireBuy} className="btn-success" disabled={false}>Comprar</button>
+            <div className="container col-md-12">
+                <div className="table-responsive">
+                    <table className="table tableFix"> 
+                        <thead className="fondo shoC">
+                            <tr></tr>
+                        </thead>
+                        {/* BODY START */}
+                        <tbody>
+                            <tr></tr>
+                        </tbody>
+                        {/* FOOT START */}
+                        <tfoot class="">
+                            <tr class="" style={{height: "100px;"}}>
+                                <th class="" style={{width:"25%"}}></th>
+                                <th class="" style={{width:"25%"}}>
+                                    <label class="d-flex justify-content-left"></label>
+                                </th>
+                                <th class="" style={{width:"16%"}}>
+                                    <label class="d-flex justify-content-center"></label>
+                                </th>
+                                <th class=" fondo" style={{width:"16%"}}>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false"
+                                            autocomplete="off" id="moneda">
+                                            <div class="handle"></div>
+                                        </button>
+                                    </div>
+                                </th>
+                                <th class=" fondo" style={{width:"16%"}}>
+                                    <div>
+                                        <label class="d-flex justify-content-center">TOTAL</label>
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr class="" style={{height: "100px;"}}>
+                                <th class="" style={{width:"25%"}}>
+                                    <div class="d-flex justify-content-center fixC">
+                                        <p class="" id=""><button onClick={eliminarTodo}> VaciarCarrito</button></p>
+                                    </div>
+                                </th>
+                                <th class="monedaArs" style={{width:"25%"}}>
+                                    <div class="d-flex justify-content-center fixC">
+                                        <p class="" id=""><button onClick={fireBuy} className="btn-success" disabled={false}>Comprar</button></p>
+                                    </div>
+                                </th>
+                                <th class=" monedaUsd" style={{width:"16%"}}>
+                                    <div class="d-flex justify-content-center fixC">
+                                        <p class="" id=""></p>
+                                    </div>
+                                </th>
+                                <th class=" monedaArs" style={{width:"16%"}}>
+                                    <div class="d-flex justify-content-center fixC">
+                                        <div class="alert-box2 addDown">$</div>
+                                        <p class="" id="total">ARS:</p>
+                                    </div>
+                                </th>
+                                <th class=" monedaUsd" style={{width:"16%"}}>
+                                    <div class="d-flex justify-content-center fixC">
+                                        <p class="" id="totalDolar">{total}</p>
+                                    </div>
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
             </div></div>
 
         )} 

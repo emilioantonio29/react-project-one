@@ -1,76 +1,23 @@
-/*-------------------------------------------------------------------*/
-/*-------------------------------------------------------------------*/
-/*-------------------------------------------------------------------*/
-/*-------------------------------------------------------------------*/
-/* ------------------------------------------------------------------ CartWidget Style */
+/* @charset "UTF-8"; */
+/*  INSTALACION SCSS
 
-
-
-
-
-
-
-
-/* ------------------------------------------------------------------ ItemCount */
-
-.cajaCount{
-    width: 100px;
-    border: 1px solid black;
-    padding: 0;
-    margin: 0;
-}
-.cajaCount p{
-    padding: 0;
-    margin: 0;
-}
-
-
-
-
-
-
-
-/* ------------------------------------------------------------------ ItemListContainer */
-
-
-/* ------------------------------------------------------------------ CartContainer */
-.cajaCart{
-    width: 100%;
-    height: 500px;
-    /* border: 1px solid red */
-}
-.cajaCart img{
-    width: 50%;
-    height: 500px !important;
-}
-.noPad{
-    padding: 15px 0px 0px 0px
-}
-.noPad .btn:focus {
-    outline: none;
-    box-shadow: none;
-  }
-  .noPad .btn {
-    /* border: 1px solid #7e5127; */
-    color: #7e5127 !important;
-    padding-left: 10px;
-  }
-  .noPad .btn:hover {
-    /* border: 1px solid #7e5127; */
-    /* background-color: #e7e1db !important; */
-    color: #b465b4 !important;
-  }
-  .container{
+1.- Instalar nodejs
+2.- Instalar npm
+3.- Ingresar al directorio del repositorio:
+    Iniciar el npm, con npm init
+    Instalar el nodemon: npm install -D node-sass nodemon
+4.- Crear la carpeta SCSS y CSS y sus archivos respectivos (style.css & style.scss)
+5.- Editar el package.json e insertar los lineas:
+    "build-css": "node-sass --include-path scss scss/prueba.scss css/pruebacss.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+    Donde se indica cuál será el archivo inicial de SCSS y adónde va a compilar el .CSS
+6.- Compilar con npm: run watch-css
+    sass --watch scss/style.scss css/style.css          */
+/******************************************************************************MENU***************************************************************************/
+.container{
     padding: 0% !important;
-    width: 100%;
-    margin: 0 auto;
-    
+    margin-bottom: 0% !important;
 }
-.container .table{
-    margin: 0%
-    
-}
-
 
 .fondo {
     background-color: #f5ece3;
@@ -422,7 +369,3 @@ table thead tr .centre{
     text-align: center;
     vertical-align: middle;
 }
-
- .tableFix{
-    margin: 0% !important;
- }

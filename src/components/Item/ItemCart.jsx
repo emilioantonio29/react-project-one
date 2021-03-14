@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Link} from 'react-router-dom';
 import Item2 from './Item2';
 import { GlobalContext } from "../../context/GlobalContext";
+import './style.css'
 
 
 
@@ -151,32 +152,89 @@ const ItemCart = ({productCart}) => {
     }
     // const test4 = () => {
     //     console.log(JSON.parse(localStorage.getItem(producto.id))[4])
-    // }
+    // }    
 
 
-    return <div className="card col-md-6">
-        <h3>{productCart[1]}</h3>
-        {/* <p>ID: {Object.values(localStorage)}</p> */}
-        {/* <p>IdProducto: {productCart}</p>
-        <p>nombre: {productCart}</p> */}
-        {/* <p>stock Disponible: {productCart[3]}</p> */}
-        <p>stock Disponible: {stockDisponible}</p>
-        <p>stockDisponible Agregada: {productCart[9]-stockDisponible}</p>
-        <p>SubTotal: {(productCart[2]*(productCart[9]-stockDisponible))}</p>
-        {/* <p>stockDisponible: { productCart[9]}</p> */}
+    return( 
+        <>
+            <div className="container col-md-12">
+                <div className="table-responsive">
+                    <table className="table"> 
+                        <thead className="fondo shoC">
+                            <tr></tr>
+                        </thead>
+                        {/* BODY START */}
+                        <tbody>
+                            <tr class="disappear1" style={{height: "100px;"}}>
+                                <td class="align-middle" style={{width:"25%"}}>
+                                    <div class="d-flex justify-content-left align-items-center borderImg2">
+                                        <img src={`../imagenes/logo.png`} alt="" />
+                                        <div class="trashC">
+                                            <div>
+                                                <button class="btnTrash test2" onClick={eliminarItem}>
+                                                    <span class="material-icons trash rounded">
+                                                        delete_forever
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <div class="trashOverlay rounded">
+                                                <button class="trashText rounded test2" onClick={eliminarItem}>Eliminar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="align-middle" style={{width:"25%"}}>
+                                    <div class="">
+                                        <p>{productCart[1]}</p>
+                                    </div>
+                                </td>
+                                <td class="align-middle" style={{width:"16%"}}>
+                                    <div class="d-flex justify-content-center">
+                                        <p>{productCart[2]}{productCart[4]}</p>
+                                    </div>
+                                </td>
+                                <td class="align-middle" style={{width:"16%"}}>
+                                    <div class="d-flex justify-content-center fixC">
+                                        <div class="cantidad2">
+                                            <div class="center">
+                                                <button type="button" class="btn restarNowC carAdd" data-toggle="modal"
+                                                    data-target="" accesskey="removeFrutilla" onClick={() => {{agregarCarrito3()}}}>
+                                                    <span class="material-icons carAdd"
+                                                        accesskey="removeFrutilla">remove_circle_outline</span>
+                                                </button>
+                                            </div>
+                                            <div class="center">
+                                                <p class="cantidadItemDom cantidadItem1C">{productCart[9]-stockDisponible}</p>
+                                            </div>
+                                            <div class="center">
+                                                <button type="button botonAdd carAdd" class="btn sumarNowC" data-toggle="modal"
+                                                    data-target="" accesskey="addFrutilla" onClick={() => {{agregarCarrito2()}}}>
+                                                    <span class="material-icons carAdd"
+                                                        accesskey="addFrutilla">add_circle_outline</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="align-middle" style={{width:"16%"}}>
+                                    <div class="d-flex justify-content-center">
+                                        <p class="subtotal sub1">{(productCart[2]*(productCart[9]-stockDisponible))}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        {/* FOOT START */}
+                        <tfoot class="">
+                            <tr></tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
 
-        {/* <p>IdProducto: {productCart}</p> */}
-        {/* <p>Stock: {products.producto.nombre}</p> */}
-        <button onClick={eliminarItem}> eliminarItem</button>
-        {/* <button onClick={consoleLogItemCard}> consoleLogItemCard</button> */}
-        <button onClick={() => {{agregarCarrito2()}}}> +</button>
-        <button onClick={() => {{agregarCarrito3()}}}> -</button>
-        {/* <Item2/> */}
-        {/* {show ? (<p>hay items</p>) : (<p>NO HAY ITEMS AGREGADOS AL CARRITO</p> )} */}
-        
-        
-    </div>
-    
+        {/* <p>stock Disponible: {stockDisponible}</p> */}
+
+        </>
+    )
     
 }
 
