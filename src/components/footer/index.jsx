@@ -11,8 +11,8 @@ const FooterComponent = () => {
     return(
       <>
         <div className="intro"></div>
-        <div className="footerC">
-            <div className="center colorBrown2">
+        <div className="footerC d-flex justify-content-center" style={{paddingTop:"30px"}}>
+            <div className="center colorBrown2 col-md-8">
                 <div className="container container2" style={{padding: "20px 0px 0px 0px"}}>
                     <div className="row">
                         <div className="col-md-4 d-flex justify-content-center align-items-end">
@@ -35,8 +35,8 @@ const FooterComponent = () => {
                 </div>
             </div>
         </div>
-        <div className="footerC">
-            <div className="center colorBrown2">
+        <div className="footerC d-flex justify-content-center">
+            <div className="center colorBrown2 col-md-8">
                 <div className="container container2" style={{padding: "20px 0px 0px 0px"}}>            
                     <div className="row">
                         <div className="col-md-4 d-flex justify-content-center">

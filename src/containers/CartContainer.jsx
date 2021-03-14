@@ -143,7 +143,7 @@ const CartContainer = () =>{
                 <div className="col-md-8 d-flex justify-content-left align-items-center noPad">
                     <p >
                         <Link to={`/`}>
-                        <button className="btn">Todos los productos</button>
+                        <button className="btn">Home</button>
                         </Link>
                     </p>
                     <p><i class="fa fa-angle-right"></i></p>
@@ -163,161 +163,189 @@ const CartContainer = () =>{
             </div>
         </div>
         ) : (
+
+            <div className="d-flex flex-column">
+            <div className="d-flex justify-content-center" >
+                <div className="col-md-8 d-flex justify-content-left align-items-center noPad">
+                    <p >
+                        <Link to={`/`}>
+                        <button className="btn">Home</button>
+                        </Link>
+                    </p>
+                    <p><bold><i class="fa fa-angle-right"></i></bold></p>
+                    <p style={{paddingLeft:"10px"}}> Cart</p>
+                </div>
+            </div>
+            <div className="d-flex justify-content-center" >
+                <div className="col-md-8 d-flex justify-content-left align-items-center ">
+                    <p style={{paddingLeft:"80px"}}> <span  class="material-icons subdirectory_arrow_right">
+                    subdirectory_arrow_right
+                    </span></p>
+                    <p>Paso 1/3: CheckOut</p>
+                    <p style={{paddingLeft:"10px"}}><i class="fa fa-angle-right"></i></p>
+                    <p style={{paddingLeft:"10px"}}>Paso 2/3: Datos Personales</p>
+                    <p style={{paddingLeft:"10px"}}><i class="fa fa-angle-right"></i></p>
+                    <p style={{paddingLeft:"10px"}}>Paso 3/3: Confirmar Compra</p>
+                    {/* <p><span class="material-icons">
+check_circle_outline
+</span></p> */}
+                    {/* <p style={{paddingLeft:"10px"}}><bold><i class="fa fa-angle-right"></i></bold></p>
+                    <p style={{paddingLeft:"10px"}}> Cart</p> */}
+                </div>
+            </div>
+
             <div className="d-flex justify-content-center">
-        <div className="col-md-8">
-            <Link to={`/`}>
-                <button type="" className=" " data-toggle="" data-target="">   
-                    volver
-                </button>
-            </Link>
-            <br/>
-            <h6>Datos Personales</h6>
-            <form>
-                <div className="form-group row">
-                    <label htmlFor="name" className="col-sm-2 col-form-label">Nombre Completo:</label>
-                    <div className="col-sm-10">
-                        <input type="text" id="name" placeholder="Emilio Martinez" className="form-control" required onChange={(e) => setFireName(e.target.value)}/>
-                    </div>
-                </div>
-                <div className="form-group row">
-                    <label htmlFor="cel" className="col-sm-2 col-form-label">Teléfono:</label>
-                    <div className="col-sm-10">
-                        <input type="text" id="cel" placeholder="11-99998888" className="form-control" required onChange={(e) => setFirePhone(e.target.value)}/>
-                    </div>
-                </div>
-                <div className="form-group row">
-                    <label htmlFor="cel" className="col-sm-2 col-form-label">Teléfono:</label>
-                    <div className="col-sm-10">
-                        <input type="text" id="cel" placeholder="emilio@example.com.ar"  className="form-control" required onChange={(e) => setFireMail(e.target.value)}/>
-                    </div>
-                </div>
-
-                {/* <label htmlFor="name">Nombre: </label>
-                <input type="text" id="name"  required onChange={(e) => setFireName(e.target.value)}/> */}
-
-            </form>
-            
-            <button onClick={ConsoleLogCompradores}> ConsoleLogCompradores</button>
-            <div className="container col-md-12" >
-                <div className="">
-                    <table className="table"> 
-                        <thead className="fondo shoC">
-                            <tr>
-                                <th style={{width:"25%"}}></th>
-                                <th style={{width:"25%"}}>PRODUCTO</th>
-                                <th style={{width:"16%"}} className="centre">PRECIO</th>
-                                <th style={{width:"16%"}} className="centre">CANTIDAD</th>
-                                <th style={{width:"16%"}} className="centre">SUBTOTAL</th>
-                            </tr>
-                        </thead>
-                        {/* BODY START */}
-                        <tbody>
-                            <tr></tr>
-                        </tbody>
-                        {/* FOOT START */}
-                        <tfoot class="">
-                            <tr></tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-            
-            {/* <button onClick={ConsoleLogCar}> ConsoleLogcar</button> */}
-
-            {/* <h1>ItemID: {cart[0].name}</h1> */}
-            
-            {/* <div>
-                {show ? ("") : ("hola")}
-            </div> */}
-            <div>
-                
-                    {   
-                        // cart.map((productCart)=>{
-                        //         return <ItemCart key={productCart.id} productCart={productCart}/>
-                        carritoS.map((productCart)=>{
-                            console.log("cart")
-                            return <ItemCart key={productCart} productCart={productCart}/>
-                        })
-                                              
-                        // <ItemCart  />
-                        // carrito.map(cards => {
-                        //     return <pre>{"s"}</pre>
-                        // })
-                        
-                    }
+                <div className="col-md-8">
                 
 
+                <h6>Datos Personales</h6>
+                <form>
+                    <div className="form-group row">
+                        <label htmlFor="name" className="col-sm-2 col-form-label">Nombre Completo:</label>
+                        <div className="col-sm-10">
+                            <input type="text" id="name" placeholder="Emilio Martinez" className="form-control" required onChange={(e) => setFireName(e.target.value)}/>
+                        </div>
+                    </div>
+                    <div className="form-group row">
+                        <label htmlFor="cel" className="col-sm-2 col-form-label">Teléfono:</label>
+                        <div className="col-sm-10">
+                            <input type="text" id="cel" placeholder="11-99998888" className="form-control" required onChange={(e) => setFirePhone(e.target.value)}/>
+                        </div>
+                    </div>
+                    <div className="form-group row">
+                        <label htmlFor="cel" className="col-sm-2 col-form-label">Email:</label>
+                        <div className="col-sm-10">
+                            <input type="text" id="cel" placeholder="emilio@example.com.ar"  className="form-control" required onChange={(e) => setFireMail(e.target.value)}/>
+                        </div>
+                    </div>
 
-            </div>  
-            <div className="container col-md-12">
-                <div className="table-responsive">
-                    <table className="table tableFix"> 
-                        <thead className="fondo shoC">
-                            <tr></tr>
-                        </thead>
-                        {/* BODY START */}
-                        <tbody>
-                            <tr></tr>
-                        </tbody>
-                        {/* FOOT START */}
-                        <tfoot class="">
-                            <tr class="" style={{height: "100px;"}}>
-                                <th class="" style={{width:"25%"}}></th>
-                                <th class="" style={{width:"25%"}}>
-                                    <label class="d-flex justify-content-left"></label>
-                                </th>
-                                <th class="" style={{width:"16%"}}>
-                                    <label class="d-flex justify-content-center"></label>
-                                </th>
-                                <th class=" fondo" style={{width:"16%"}}>
-                                    <div class="d-flex justify-content-center">
-                                        <button type="button" class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false"
-                                            autocomplete="off" id="moneda">
-                                            <div class="handle"></div>
-                                        </button>
-                                    </div>
-                                </th>
-                                <th class=" fondo" style={{width:"16%"}}>
-                                    <div>
-                                        <label class="d-flex justify-content-center">TOTAL</label>
-                                    </div>
-                                </th>
-                            </tr>
-                            <tr class="" style={{height: "100px;"}}>
-                                <th class="" style={{width:"25%"}}>
-                                    <div class="d-flex justify-content-center fixC">
-                                        <p class="" id=""><button onClick={eliminarTodo}> VaciarCarrito</button></p>
-                                    </div>
-                                </th>
-                                <th class="monedaArs" style={{width:"25%"}}>
-                                    <div class="d-flex justify-content-center fixC">
-                                        <p class="" id=""><button onClick={fireBuy} className="btn-success" disabled={false}>Comprar</button></p>
-                                    </div>
-                                </th>
-                                <th class=" monedaUsd" style={{width:"16%"}}>
-                                    <div class="d-flex justify-content-center fixC">
-                                        <p class="" id=""></p>
-                                    </div>
-                                </th>
-                                <th class=" monedaArs" style={{width:"16%"}}>
-                                    <div class="d-flex justify-content-center fixC">
-                                        <div class="alert-box2 addDown">$</div>
-                                        <p class="" id="total">ARS:</p>
-                                    </div>
-                                </th>
-                                <th class=" monedaUsd" style={{width:"16%"}}>
-                                    <div class="d-flex justify-content-center fixC">
-                                        <p class="" id="totalDolar">{total}</p>
-                                    </div>
-                                </th>
-                            </tr>
-                        </tfoot>
-                    </table>
+                    {/* <label htmlFor="name">Nombre: </label>
+                    <input type="text" id="name"  required onChange={(e) => setFireName(e.target.value)}/> */}
+
+                </form>
+                
+                <button onClick={ConsoleLogCompradores}> ConsoleLogCompradores</button>
+                <div className="container col-md-12" >
+                    <div className="">
+                        <table className="table"> 
+                            <thead className="fondo shoC">
+                                <tr>
+                                    <th style={{width:"25%"}}></th>
+                                    <th style={{width:"25%"}}>PRODUCTO</th>
+                                    <th style={{width:"16%"}} className="centre">PRECIO</th>
+                                    <th style={{width:"16%"}} className="centre">CANTIDAD</th>
+                                    <th style={{width:"16%"}} className="centre">SUBTOTAL</th>
+                                </tr>
+                            </thead>
+                            {/* BODY START */}
+                            <tbody>
+                                <tr></tr>
+                            </tbody>
+                            {/* FOOT START */}
+                            <tfoot class="">
+                                <tr></tr>
+                            </tfoot>
+                        </table>
+                    </div>
                 </div>
+                
+                {/* <button onClick={ConsoleLogCar}> ConsoleLogcar</button> */}
+
+                {/* <h1>ItemID: {cart[0].name}</h1> */}
+                
+                {/* <div>
+                    {show ? ("") : ("hola")}
+                </div> */}
+                <div>
+                    
+                        {   
+                            // cart.map((productCart)=>{
+                            //         return <ItemCart key={productCart.id} productCart={productCart}/>
+                            carritoS.map((productCart)=>{
+                                console.log("cart")
+                                return <ItemCart key={productCart} productCart={productCart}/>
+                            })
+                                                
+                            // <ItemCart  />
+                            // carrito.map(cards => {
+                            //     return <pre>{"s"}</pre>
+                            // })
+                            
+                        }
+                    
+
+
+                </div>  
+                <div className="container col-md-12">
+                    <div className="table-responsive">
+                        <table className="table tableFix"> 
+                            <thead className="fondo shoC">
+                                <tr></tr>
+                            </thead>
+                            {/* BODY START */}
+                            <tbody>
+                                <tr></tr>
+                            </tbody>
+                            {/* FOOT START */}
+                            <tfoot class="">
+                                <tr class="" style={{height: "100px;"}}>
+                                    <th class="" style={{width:"25%"}}></th>
+                                    <th class="" style={{width:"25%"}}>
+                                        <label class="d-flex justify-content-left"></label>
+                                    </th>
+                                    <th class="" style={{width:"16%"}}>
+                                        <label class="d-flex justify-content-center"></label>
+                                    </th>
+                                    <th class=" fondo" style={{width:"16%"}}>
+                                        <div class="d-flex justify-content-center">
+                                            <button type="button" class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false"
+                                                autocomplete="off" id="moneda">
+                                                <div class="handle"></div>
+                                            </button>
+                                        </div>
+                                    </th>
+                                    <th class=" fondo" style={{width:"16%"}}>
+                                        <div>
+                                            <label class="d-flex justify-content-center">TOTAL</label>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr class="" style={{height: "100px;"}}>
+                                    <th class="" style={{width:"25%"}}>
+                                        <div class="d-flex justify-content-center fixC">
+                                            <p class="" id=""><button onClick={eliminarTodo}> VaciarCarrito</button></p>
+                                        </div>
+                                    </th>
+                                    <th class="monedaArs" style={{width:"25%"}}>
+                                        <div class="d-flex justify-content-center fixC">
+                                            <p class="" id=""><button onClick={fireBuy} className="btn-success" disabled={false}>Comprar</button></p>
+                                        </div>
+                                    </th>
+                                    <th class=" monedaUsd" style={{width:"16%"}}>
+                                        <div class="d-flex justify-content-center fixC">
+                                            <p class="" id=""></p>
+                                        </div>
+                                    </th>
+                                    <th class=" monedaArs" style={{width:"16%"}}>
+                                        <div class="d-flex justify-content-center fixC">
+                                            <div class="alert-box2 addDown">$</div>
+                                            <p class="" id="total">ARS:</p>
+                                        </div>
+                                    </th>
+                                    <th class=" monedaUsd" style={{width:"16%"}}>
+                                        <div class="d-flex justify-content-center fixC">
+                                            <p class="" id="totalDolar">{total}</p>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                </div>
+            </div>            
             </div>
-
-            </div></div>
-
         )} 
 
         

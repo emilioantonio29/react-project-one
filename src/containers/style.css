@@ -53,7 +53,7 @@
   .noPad .btn {
     /* border: 1px solid #7e5127; */
     color: #7e5127 !important;
-    padding-left: 10px;
+    padding-left: 13px;
   }
   .noPad .btn:hover {
     /* border: 1px solid #7e5127; */
@@ -425,4 +425,15 @@ table thead tr .centre{
 
  .tableFix{
     margin: 0% !important;
+ }
+ .fa-angle-right{
+    /* font-weight: 900;
+    font-size: 20px */
+    font-weight: 900;
+    color: #b465b4
+    
+ }
+ .subdirectory_arrow_right{
+     font-weight: 400 !important;
+     color: #b465b4
  }
