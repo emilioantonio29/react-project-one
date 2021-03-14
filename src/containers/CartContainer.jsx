@@ -158,7 +158,7 @@ const CartContainer = () =>{
             <div className="d-flex justify-content-center" >
                 <div className="col-md-8 d-flex justify-content-center align-items-center">
                     <p>No hay productos agregados al carrito ...</p>
-                    <button onClick={ConsoleLogCompradores}> ConsoleLogCompradores</button>
+                    {/* <button onClick={ConsoleLogCompradores}> ConsoleLogCompradores</button> */}
                 </div>
             </div>
         </div>
@@ -178,53 +178,29 @@ const CartContainer = () =>{
             </div>
             <div className="d-flex justify-content-center" >
                 <div className="col-md-8 d-flex justify-content-left align-items-center ">
-                    <p style={{paddingLeft:"80px"}}> <span  class="material-icons subdirectory_arrow_right">
+                    <p style={{padding:"0px 10px 0px 80px"}}> <span  class="material-icons subdirectory_arrow_right">
                     subdirectory_arrow_right
                     </span></p>
-                    <p>Paso 1/3: CheckOut</p>
-                    <p style={{paddingLeft:"10px"}}><i class="fa fa-angle-right"></i></p>
-                    <p style={{paddingLeft:"10px"}}>Paso 2/3: Datos Personales</p>
-                    <p style={{paddingLeft:"10px"}}><i class="fa fa-angle-right"></i></p>
-                    <p style={{paddingLeft:"10px"}}>Paso 3/3: Confirmar Compra</p>
-                    {/* <p><span class="material-icons">
-check_circle_outline
-</span></p> */}
-                    {/* <p style={{paddingLeft:"10px"}}><bold><i class="fa fa-angle-right"></i></bold></p>
-                    <p style={{paddingLeft:"10px"}}> Cart</p> */}
+                    <div class="cart_tab">
+                        <div class="cart_tab_left_on" id="login_tab_select_left"></div>
+                        <div class="cart_tab_on" id="login_tab_select">Paso 1/3: Checkout</div>
+                        <div class="cart_tab_right_on" id="login_tab_select_right"></div>
+                    </div>
+                    <p style={{padding:"0px 10px 0px 10px"}}><i class="fa fa-angle-right"></i></p>
+                    <p style={{padding:"0px 10px 0px 10px"}}>Paso 2/3: Datos Cliente</p>
+                    <p style={{padding:"0px 10px 0px 10px"}}><i class="fa fa-angle-right"></i></p>
+                    <p style={{padding:"0px 10px 0px 10px"}}>Paso 3/3: Confirmar Compra</p>
+                    <Link to={`/carritoDatos`}>
+                        <button className="btn">Home</button>
+                    </Link>
                 </div>
             </div>
 
             <div className="d-flex justify-content-center">
                 <div className="col-md-8">
+                <br/>
                 
-
-                <h6>Datos Personales</h6>
-                <form>
-                    <div className="form-group row">
-                        <label htmlFor="name" className="col-sm-2 col-form-label">Nombre Completo:</label>
-                        <div className="col-sm-10">
-                            <input type="text" id="name" placeholder="Emilio Martinez" className="form-control" required onChange={(e) => setFireName(e.target.value)}/>
-                        </div>
-                    </div>
-                    <div className="form-group row">
-                        <label htmlFor="cel" className="col-sm-2 col-form-label">Teléfono:</label>
-                        <div className="col-sm-10">
-                            <input type="text" id="cel" placeholder="11-99998888" className="form-control" required onChange={(e) => setFirePhone(e.target.value)}/>
-                        </div>
-                    </div>
-                    <div className="form-group row">
-                        <label htmlFor="cel" className="col-sm-2 col-form-label">Email:</label>
-                        <div className="col-sm-10">
-                            <input type="text" id="cel" placeholder="emilio@example.com.ar"  className="form-control" required onChange={(e) => setFireMail(e.target.value)}/>
-                        </div>
-                    </div>
-
-                    {/* <label htmlFor="name">Nombre: </label>
-                    <input type="text" id="name"  required onChange={(e) => setFireName(e.target.value)}/> */}
-
-                </form>
-                
-                <button onClick={ConsoleLogCompradores}> ConsoleLogCompradores</button>
+                {/* <button onClick={ConsoleLogCompradores}> ConsoleLogCompradores</button> */}
                 <div className="container col-md-12" >
                     <div className="">
                         <table className="table"> 
@@ -344,7 +320,54 @@ check_circle_outline
                 </div>
 
                 </div>
-            </div>            
+                
+            </div>      
+            <br/>
+            <div className="d-flex justify-content-center" >
+                <div className="col-md-8 d-flex justify-content-between align-items-center noPad" >
+                    <div className="col-md- d-flex justify-content-left align-items-center ">
+
+                    </div>
+                    <div className="col-md- d-flex justify-content-right align-items-center noPad2">
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Home</a>
+                            </li>
+                            <li class="page-item disabled">
+                                <a class="page-link activeS" href="#">1 <span class="sr-only">()</span></a>
+                            </li>
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#"><Link to={`/carritoDatos`}>Siguiente</Link></a>
+                            </li>
+                        </ul>
+                        </nav>
+                        {/* <div className="test">
+                        <a href="#" class="previous ">&laquo; Previous</a>
+                        <a href="#" class="next"><Link to={`/`}>Home </Link></a>
+                        <a href="#" class="active "><Link to={`/`}>Home </Link></a>
+                        <Link to={`/`}>
+                        <button className="btn">Home</button>
+                        </Link>
+                        </div> */}
+                        <div className="test">
+                            <button>Previo</button>
+                            <button>1</button>
+                            <button>2</button>
+                            <button>3</button>
+                            <button>Siguiente</button>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
             </div>
         )} 
 
@@ -356,115 +379,3 @@ check_circle_outline
 }
 
 export default CartContainer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-///////
-// const ItemDetailContainer = () =>{
-//     const { productoID } = useParams();
-  
-
-//     const [products2, setProducts] = React.useState([]);
-
-//     React.useEffect(() => {
-//         const myPromise = new Promise ((resolve, reject) => {
-//             setTimeout(() => resolve(ProductList), 5000);
-//     });
-    
-//         myPromise.then((result) => setProducts(result));
-//     },[]);     
-
-//     const mostrarProducto = products2.map(producto => {
-//         if(producto.id == productoID){
-//             return producto
-//         }
-//     })
-
-//     const test3 = () => {
-//         console.log(productoID)
-//         console.log(products2)
-//     }
-
-//     return(
-//         <>
-//             <button onClick={test3}> test3</button>
-//             <div className="contaniner">
-//                 <div>
-//                     <ul>
-//                         {/* {products2.map((producto)=>{
-//                             if(products2[1].id == 2 ){
-//                                 return <Item2 key={producto.id} producto={producto}/>
-
-//                             }
-//                             // return <Item2 key={product.id} product={product}/>;
-//                         })} */}
-                        
-//                     </ul>
-//                 </div>
-
-
-
-//                 <div className="d-flex justify-content-center">
-//                     <h1 className="">Esto es el ItemDetailContainer</h1>
-//                     <p>Al configurarlo con el router, esto reemplazará al itemListContainer, mostrando el itemList o informacion del producto seleccionado en el modulo ItemListContainer</p>
-//                 </div>
-//                 {/* <ItemDetailList products={products}/> */}
-//                 <ItemDetailList products2={products2} productoID={productoID}/>
-//             </div>
-
-            
-
-//         </>
-//     )
-
-// }
-
-// export default ItemDetailContainer;

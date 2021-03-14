@@ -15,7 +15,9 @@ import { GlobalContext, GlobalProvider } from './context/GlobalContext';
 import { CartContext } from './context/CartContext';
 import { useState } from 'react';
 import CartContainer from './containers/CartContainer';
+import CartContainerDatos from './containers/CartContainerDatos';
 import FooterComponent from './components/footer/';
+import CartContainerConfirmar from './containers/CartContainerConfirmar';
 
 
 
@@ -46,6 +48,8 @@ const App = () => {
           <Route exact path="/" component={ItemListContainer}/>
           <Route exact path="/ItemDetailContainer/:productoID" component={ItemDetailContainer}/>
           <Route exact path="/carrito" component={CartContainer}/>
+          <Route exact path="/carritoDatos" component={CartContainerDatos}/>
+          <Route exact path="/carritoConfirmarCompra" component={CartContainerConfirmar}/>
           <Route path="*" children={<div>Not found</div>}/>
         </Switch>
       <FooterComponent/>

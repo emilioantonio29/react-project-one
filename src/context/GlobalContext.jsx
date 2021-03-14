@@ -19,7 +19,11 @@ export const GlobalProvider = ({children}) => {
     const [fireName, setFireName] = React.useState("");
     const [firePhone, setFirePhone] = React.useState("");
     const [fireMail, setFireMail] = React.useState("");
- 
+    const [fireDireccion, setFireDireccion] = React.useState("");
+    const [fireCP, setFireCP] = React.useState("");
+    const [fireLocalidad, setFireLocalidad] = React.useState("");
+    const [fireEnvio, setFireEnvio] = React.useState(false);
+
     React.useEffect(() => {
         const bd = getFirestore();// conexion a la bd
         const itemCollection = bd.collection('producto');// guardamos la referencia
@@ -117,7 +121,7 @@ export const GlobalProvider = ({children}) => {
     // console.log("soy el global")
 
     
-    return <GlobalContext.Provider value={{fireMail, setFireMail,firePhone, setFirePhone,fireName, setFireName,buyers, setBuyers,render, setRender,renderFunction,cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2, setCart2,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,setArrayCart}}>
+    return <GlobalContext.Provider value={{fireEnvio, setFireEnvio,fireLocalidad, setFireLocalidad,fireCP, setFireCP,fireDireccion, setFireDireccion,fireMail, setFireMail,firePhone, setFirePhone,fireName, setFireName,buyers, setBuyers,render, setRender,renderFunction,cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2, setCart2,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,setArrayCart}}>
 
         {children}
     </GlobalContext.Provider>

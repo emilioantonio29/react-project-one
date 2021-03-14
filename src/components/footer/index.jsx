@@ -41,7 +41,7 @@ const FooterComponent = () => {
                     <div className="row">
                         <div className="col-md-4 d-flex justify-content-center">
                             <p style={{textAlign: "center"}}><a href="https://github.com/emmartinez29/react-project-one"
-                                    target="_blank"><i class="fa fa-github colorIcon"></i></a> GitHub</p>
+                                    target="_blank"><i className="fa fa-github colorIcon"></i></a> GitHub</p>
                         </div>
                         <div className="col-md-4 d-flex justify-content-start flex-column ">
                             <p style={{textAlign: "center"}}><a href="#" target="_blank" className="prevent"><i

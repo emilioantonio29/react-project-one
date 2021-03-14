@@ -34,6 +34,52 @@
 
 
 /* ------------------------------------------------------------------ CartContainer */
+.test button{
+  font-size: 100%;
+  font-family: inherit;
+  /* border: 0; */
+  border: 1px solid red;
+  padding: 10px;
+  background-color: white;
+}
+.test button:hover{
+
+  background-color: blue;
+}
+
+.test a {
+  text-decoration: none;
+  display: inline-block;
+  /* padding: 8px 16px; */
+  padding: 5px 10px 5px 10px;
+}
+
+.test a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.test .previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.test .next {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.test .round {
+  border-radius: 50%;
+}
+.test link {
+  border: 1px solid red !important
+}
+
+/**/
+.activeS{
+  background-image:red !important
+}
 .cajaCart{
     width: 100%;
     height: 500px;
@@ -44,7 +90,10 @@
     height: 500px !important;
 }
 .noPad{
-    padding: 15px 0px 0px 0px
+    padding: 15px 0px 0px 5px
+}
+.noPad2{
+  padding: 0px 20px 0px 0px
 }
 .noPad .btn:focus {
     outline: none;
@@ -437,3 +486,269 @@ table thead tr .centre{
      font-weight: 400 !important;
      color: #b465b4
  }
+
+ .cart_tab, .cart_tab_spacer {
+  display: inline-block;
+  vertical-align: middle;
+  color: #c6d4df;
+  /* font-size: 13px; */
+  cursor: default;
+  position: relative;
+  margin-top: -15px;
+  
+}
+.cart_tab_left_on {
+  position: absolute;
+  background-image: url( ../containers/checkout_pipeline_undershadow.png );
+  height: 9px;
+  top: 36px;
+  left: 1px;
+  right: 1px;
+  background-position: top center;
+}
+.cart_tab_on {
+  background-color: #b465b4;
+  color: #ffffff;
+  text-shadow: 1px 1px 1px rgba( 0, 0, 0, 0.3 );
+}
+.cart_tab_on, .cart_tab_off, .cart_tab_inactive {
+    padding: 7px 11px;
+    margin-right: 1px;
+}
+/* .cart_tab_right_on {
+  position: absolute;
+  width: 1px;
+  height: 28px;
+  top: 15px;
+  right: 0px;
+  background-image: url( ../containers/checkout_pipeline_undershadow.png );
+} */
+
+
+.AgregarDireccion .btn-toggle {
+  margin: 0 4rem;
+  padding: 0;
+  position: relative;
+  border: none;
+  height: 1.5rem;
+  width: 3rem;
+  border-radius: 1.5rem;
+  color: #6b7381;
+  background: #b465b4;
+}
+.AgregarDireccion  .btn-toggle:focus,
+.AgregarDireccion  .btn-toggle.focus,
+.AgregarDireccion .btn-toggle:focus.active,
+.AgregarDireccion .btn-toggle.focus.active {
+  outline: none;
+  box-shadow: none;
+}
+.AgregarDireccion .btn-toggle:before,
+.AgregarDireccion .btn-toggle:after {
+line-height: 1.5rem;
+width: 4rem;
+text-align: center;
+font-weight: 600;
+font-size: 0.75rem;
+text-transform: uppercase;
+letter-spacing: 2px;
+position: absolute;
+bottom: 0;
+transition: opacity 0.25s;
+}
+
+.AgregarDireccion .btn-toggle:before {
+  content: "Off";
+  left: -4rem;
+}
+
+.AgregarDireccion .btn-toggle:after {
+  content: "On";
+  right: -4rem;
+  opacity: 0.5;
+}
+
+.AgregarDireccion .btn-toggle > .handle {
+  position: absolute;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 1.125rem;
+  background: #fff;
+  transition: left 0.25s;
+}
+
+.AgregarDireccion .btn-toggle.active {
+  transition: background-color 0.25s;
+}
+
+.AgregarDireccion .btn-toggle.active > .handle {
+  left: 1.6875rem;
+  transition: left 0.25s;
+}
+
+.AgregarDireccion .btn-toggle.active:before {
+  opacity: 0.5;
+}
+
+.AgregarDireccion .btn-toggle.active:after {
+  opacity: 1;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm:before,
+.AgregarDireccion .btn-toggle.btn-sm:after {
+  line-height: -0.5rem;
+  color: #fff;
+  letter-spacing: 0.75px;
+  left: 0.4125rem;
+  width: 2.325rem;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm:before {
+  text-align: right;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm:after {
+  text-align: left;
+  opacity: 0;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm.active:before {
+  opacity: 0;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm.active:after {
+  opacity: 1;
+}
+
+.AgregarDireccion .btn-toggle.btn-xs:before,
+.AgregarDireccion .btn-toggle.btn-xs:after {
+  display: none;
+}
+
+.AgregarDireccion .btn-toggle:before,
+.AgregarDireccion .btn-toggle:after {
+  color: #b465b4;
+}
+
+.AgregarDireccion .btn-toggle.active {
+  background-color: #c4a990;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm {
+  margin: 0 0.5rem;
+  padding: 0;
+  position: relative;
+  border: none;
+  height: 1.5rem;
+  width: 3rem;
+  border-radius: 1.5rem;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm:focus,
+.AgregarDireccion .btn-toggle.btn-sm.focus,
+.AgregarDireccion .btn-toggle.btn-sm:focus.active,
+.AgregarDireccion .btn-toggle.btn-sm.focus.active {
+  outline: none;
+  box-shadow: none;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm:before,
+.AgregarDireccion .btn-toggle.btn-sm:after {
+  line-height: 1.5rem;
+  width: 0.5rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: absolute;
+  bottom: 0;
+  transition: opacity 0.25s;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm:before {
+  content: "SI";
+  right: -0.5rem;
+  /* opacity: 0.5; */
+}
+
+.AgregarDireccion .btn-toggle.btn-sm:after {
+  content: "NO";
+  right: -0.5rem;
+  opacity: 0.5;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm > .handle {
+  position: absolute;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 1.125rem;
+  background: #fff;
+  transition: left 0.25s;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm.active {
+  transition: background-color 0.25s;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm.active > .handle {
+  left: 1.6875rem;
+  transition: left 0.25s;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm.active:before {
+  opacity: 0.5;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm.active:after {
+  opacity: 1;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm.btn-sm:before,
+.AgregarDireccion .btn-toggle.btn-sm.btn-sm:after {
+  line-height: -0.5rem;
+  color: #fff;
+  letter-spacing: 0.75px;
+  left: 0.4125rem;
+  width: 2rem;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm.btn-sm:before {
+  text-align: right;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm.btn-sm:after {
+  text-align: left;
+  opacity: 0;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm.btn-sm.active:before {
+  opacity: 0;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm.btn-sm.active:after {
+  opacity: 1;
+}
+
+.AgregarDireccion .btn-toggle.btn-sm.btn-xs:before,
+.AgregarDireccion .btn-toggle.btn-sm.btn-xs:after {
+  display: none;
+}
+
+.AgregarDireccion .btn-toggle.btn-secondary {
+  color: #6b7381;
+  background: #bdc1c8;
+}
+
+.AgregarDireccion .btn-toggle.btn-secondary:before,
+.AgregarDireccion .btn-toggle.btn-secondary:after {
+  color: #6b7381;
+}
+
+.AgregarDireccion .btn-toggle.btn-secondary.active {
+  background-color: #ff8300;
+}
