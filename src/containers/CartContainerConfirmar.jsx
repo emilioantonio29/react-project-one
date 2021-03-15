@@ -63,7 +63,7 @@ const CartContainerConfirmar = () =>{
         }
     },[render]);
 
-    const fireBuy = async () =>{
+    async function fireBuy(newOrder) {
         if(localStorage.length!=0){
             for(let i =0; i < localStorage.length; i++){
                 const bd = getFirestore();
@@ -79,12 +79,35 @@ const CartContainerConfirmar = () =>{
             }
             let newOrder = {comprador: {nombre: fireName, email: fireMail, telefono: firePhone}, items: carritoFire, total: total, date: new Date()}
             const db = getFirestore()
-            const ordenesCollection = db.collection("ordenes")
-            ordenesCollection.add(newOrder).then()
-            eliminarTodo()
-            setDisabled(true)
+        const { id } = await db.collection("cities").add(newOrder)
+        alert("TU NRO DE ORDEN ES :" + id)
+        eliminarTodo()
+        setDisabled(true)
         }
-    }
+      }
+
+    // const fireBuy = async () =>{
+    //     if(localStorage.length!=0){
+    //         for(let i =0; i < localStorage.length; i++){
+    //             const bd = getFirestore();
+    //             let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
+    //             carritoFire.push({
+    //                 id: key[0],//idproducto
+    //                 nombre: key[1],//nombre del producto
+    //                 precio: key[2], //precio actual del producto
+    //                 cantidadComprada: key[3], // cantidad comprada por el cliente
+    //                 categoria: key[5],
+    //                 stockAfterBuy: key[8] // stock que quedará si se realiza la compra
+    //             })
+    //         }
+    //         let newOrder = {comprador: {nombre: fireName, email: fireMail, telefono: firePhone}, items: carritoFire, total: total, date: new Date()}
+    //         const db = getFirestore()
+    //         const ordenesCollection = await db.collection("ordenes")
+    //         ordenesCollection.add(newOrder).then()
+    //         eliminarTodo()
+    //         setDisabled(true)
+    //     }
+    // }
 
     const ConsoleLogCompradores = () => {
         console.log(fireName)
@@ -149,6 +172,8 @@ const CartContainerConfirmar = () =>{
                     </p>
                     <p><i class="fa fa-angle-right"></i></p>
                     <p style={{paddingLeft:"10px"}}> Cart</p>
+                    <button onClick={ConsoleLogCompradores} onClick={ConsoleLogCompradores} style={{marginLeft:"500px"}}> ConsoleLogCompradores</button>
+
                 </div>
             </div>
             <div className="d-flex justify-content-center" >
@@ -177,6 +202,7 @@ const CartContainerConfirmar = () =>{
                     </p>
                     <p><i class="fa fa-angle-right"></i></p>
                     <p style={{paddingLeft:"10px"}}> Cart</p>
+
                 </div>
             </div>
             <div className="d-flex justify-content-center" >
