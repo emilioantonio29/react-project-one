@@ -313,7 +313,7 @@ const CartContainer = () =>{
                                     </th>
                                     <th class="monedaArs" style={{width:"25%"}}>
                                         <div class="d-flex justify-content-center fixC">
-                                            <p class="" id=""><button onClick={fireBuy} className="btn-success" disabled={false}>Comprar</button></p>
+                                            {/* <p class="" id=""><button onClick={fireBuy} className="btn-success" disabled={false}>Comprar</button></p> */}
                                         </div>
                                     </th>
                                     <th class=" monedaUsd" style={{width:"16%"}}>
