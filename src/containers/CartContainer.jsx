@@ -148,6 +148,8 @@ const CartContainer = () =>{
                     </p>
                     <p><i class="fa fa-angle-right"></i></p>
                     <p style={{paddingLeft:"10px"}}> Cart</p>
+                    <button onClick={ConsoleLogCompradores} onClick={ConsoleLogCompradores} style={{marginLeft:"930px"}}> ConsoleLogCompradores</button>
+
                 </div>
             </div>
             <div className="d-flex justify-content-center" >
@@ -172,8 +174,10 @@ const CartContainer = () =>{
                         <button className="btn">Home</button>
                         </Link>
                     </p>
-                    <p><bold><i class="fa fa-angle-right"></i></bold></p>
+                    <p><i class="fa fa-angle-right"></i></p>
                     <p style={{paddingLeft:"10px"}}> Cart</p>
+                    <button onClick={ConsoleLogCompradores} style={{marginLeft:"930px"}}> ConsoleLogCompradores</button>
+
                 </div>
             </div>
             <div className="d-flex justify-content-center" >
@@ -190,9 +194,9 @@ const CartContainer = () =>{
                     <p style={{padding:"0px 10px 0px 10px"}}>Paso 2/3: Datos Cliente</p>
                     <p style={{padding:"0px 10px 0px 10px"}}><i class="fa fa-angle-right"></i></p>
                     <p style={{padding:"0px 10px 0px 10px"}}>Paso 3/3: Confirmar Compra</p>
-                    <Link to={`/carritoDatos`}>
+                    {/* <Link to={`/carritoDatos`}>
                         <button className="btn">Home</button>
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
 
@@ -264,8 +268,23 @@ const CartContainer = () =>{
                             </tbody>
                             {/* FOOT START */}
                             <tfoot class="">
-                                <tr class="" style={{height: "100px;"}}>
-                                    <th class="" style={{width:"25%"}}></th>
+                                <tr class="" >
+                                    <th class="" style={{width:"25%"}}>
+                                        <div className="d-flex justify-content-center">
+                                            <div class=" trashC2">
+                                                <div>
+                                                    <button class="btnTrash test2" onClick={eliminarTodo}>
+                                                        <span class="material-icons trash rounded">
+                                                            delete_forever
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <div class="trashOverlay rounded">
+                                                    <button class="trashText rounded test2" onClick={eliminarTodo}>Eliminar Todo</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </th>
                                     <th class="" style={{width:"25%"}}>
                                         <label class="d-flex justify-content-left"></label>
                                     </th>
@@ -286,10 +305,10 @@ const CartContainer = () =>{
                                         </div>
                                     </th>
                                 </tr>
-                                <tr class="" style={{height: "100px;"}}>
+                                <tr class="" style={{height: "100px"}}>
                                     <th class="" style={{width:"25%"}}>
                                         <div class="d-flex justify-content-center fixC">
-                                            <p class="" id=""><button onClick={eliminarTodo}> VaciarCarrito</button></p>
+                                            {/* <p class="" id=""><button onClick={eliminarTodo}> VaciarCarrito</button></p> */}
                                         </div>
                                     </th>
                                     <th class="monedaArs" style={{width:"25%"}}>
@@ -322,50 +341,22 @@ const CartContainer = () =>{
                 </div>
                 
             </div>      
-            <br/>
-            <div className="d-flex justify-content-center" >
-                <div className="col-md-8 d-flex justify-content-between align-items-center noPad" >
+            
+            <br />
+            <div className="d-flex justify-content-center">
+                <div className="col-md-8 d-flex justify-content-between align-items-center noPad">
                     <div className="col-md- d-flex justify-content-left align-items-center ">
-
                     </div>
                     <div className="col-md- d-flex justify-content-right align-items-center noPad2">
-                    <nav aria-label="...">
-                        <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Home</a>
-                            </li>
-                            <li class="page-item disabled">
-                                <a class="page-link activeS" href="#">1 <span class="sr-only">()</span></a>
-                            </li>
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#"><Link to={`/carritoDatos`}>Siguiente</Link></a>
-                            </li>
-                        </ul>
-                        </nav>
-                        {/* <div className="test">
-                        <a href="#" class="previous ">&laquo; Previous</a>
-                        <a href="#" class="next"><Link to={`/`}>Home </Link></a>
-                        <a href="#" class="active "><Link to={`/`}>Home </Link></a>
-                        <Link to={`/`}>
-                        <button className="btn">Home</button>
-                        </Link>
-                        </div> */}
                         <div className="test">
-                            <button>Previo</button>
-                            <button>1</button>
-                            <button>2</button>
-                            <button>3</button>
-                            <button>Siguiente</button>
+                            {/* <button className="previo hoverS">Home</button> */}
+                            <Link to={`/`} ><button className="previo    ">Home</button></Link>
+                            <Link to={`#`}  ><button className="disabled activated" disabled>1</button></Link>
+                            <Link to={`#`}  onMouseOver={e => e.preventDefault()}><button className="disabled" disabled>2</button></Link>
+                            <Link to={`#`}  onMouseOver={e => e.preventDefault()}><button className="disabled" disabled>3</button></Link>
+                            <Link to={`/carritoDatos`} ><button className="previo ">Siguiente</button></Link>
                         </div>
                     </div>
-                    
-                    
                 </div>
             </div>
             </div>

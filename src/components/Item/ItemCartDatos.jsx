@@ -6,7 +6,7 @@ import './style.css'
 
 
 
-const ItemCart = ({productCart}) => {
+const ItemCartDatos = ({productCart}) => {
     const [show, setShow] = React.useState(false);
     const {cart, setCart, globalTest,globalTest4,globalTest3,prueba, setPrueba, total,setTotal,renderFunction} = React.useContext(GlobalContext);
     const [productCarts, setProducts] = React.useState([]);
@@ -169,7 +169,7 @@ const ItemCart = ({productCart}) => {
                                 <td class="align-middle" style={{width:"25%"}}>
                                     <div class="d-flex justify-content-left align-items-center borderImg2">
                                         <img src={`../imagenes/logo.png`} alt="" />
-                                        <div class="trashC">
+                                        {/* <div class="trashC">
                                             <div>
                                                 <button class="btnTrash test2" onClick={eliminarItem}>
                                                     <span class="material-icons trash rounded">
@@ -180,7 +180,7 @@ const ItemCart = ({productCart}) => {
                                             <div class="trashOverlay rounded">
                                                 <button class="trashText rounded test2" onClick={eliminarItem}>Eliminar</button>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </td>
                                 <td class="align-middle" style={{width:"25%"}}>
@@ -196,23 +196,23 @@ const ItemCart = ({productCart}) => {
                                 <td class="align-middle" style={{width:"16%"}}>
                                     <div class="d-flex justify-content-center fixC">
                                         <div class="cantidad2">
-                                            <div class="center">
+                                            {/* <div class="center">
                                                 <button type="button" class="btn restarNowC carAdd" data-toggle="modal"
                                                     data-target="" accesskey="removeFrutilla" onClick={() => {{agregarCarrito3()}}}>
                                                     <span class="material-icons carAdd"
                                                         accesskey="removeFrutilla">remove_circle_outline</span>
                                                 </button>
-                                            </div>
+                                            </div> */}
                                             <div class="center">
                                                 <p class="cantidadItemDom cantidadItem1C">{productCart[9]-stockDisponible}</p>
                                             </div>
-                                            <div class="center">
+                                            {/* <div class="center">
                                                 <button type="button botonAdd carAdd" class="btn sumarNowC" data-toggle="modal"
                                                     data-target="" accesskey="addFrutilla" onClick={() => {{agregarCarrito2()}}}>
                                                     <span class="material-icons carAdd"
                                                         accesskey="addFrutilla">add_circle_outline</span>
                                                 </button>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </td>
@@ -238,5 +238,5 @@ const ItemCart = ({productCart}) => {
     
 }
 
-export default ItemCart;
+export default ItemCartDatos;
 

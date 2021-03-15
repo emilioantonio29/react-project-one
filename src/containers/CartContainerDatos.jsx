@@ -23,6 +23,11 @@ const CartContainerDatos = () =>{
    
    
     React.useEffect(()=>{
+        if(localStorage.length!=0){
+            setShowCart(false)
+        }else{
+            setShowCart(true)
+        }
         console.log("renders")
         console.log(fireEnvio)
         if(fireEnvio===false){
@@ -105,9 +110,9 @@ const CartContainerDatos = () =>{
                     </div>
                     <p style={{padding:"0px 10px 0px 10px"}}><i className="fa fa-angle-right"></i></p>
                     <p style={{padding:"0px 10px 0px 10px"}}>Paso 3/3: Confirmar Compra</p>
-                    <Link to={`/carritoConfirmarCompra`}>
+                    {/* <Link to={`/carritoConfirmarCompra`}>
                         <button className="btn">Home</button>
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
 
@@ -178,7 +183,7 @@ const CartContainerDatos = () =>{
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style={{width:"20%"}}>Retiro en local:</td>
+                                    <td style={{width:"20%"}}>Envío a domicilio:</td>
                                     <td style={{width:"20%"}} className="AgregarDireccion">
                                         {fireEnvio ? (
                                             <button id="" onClick={showDireccion} type="button" className={aria} data-toggle="button" aria-pressed="false"
@@ -227,45 +232,23 @@ const CartContainerDatos = () =>{
 
                 </div>
             </div>         
-            <br/>
-            <div className="d-flex justify-content-center" >
-                <div className="col-md-8 d-flex justify-content-between align-items-center noPad" >
+            <br />
+            <div className="d-flex justify-content-center">
+                <div className="col-md-8 d-flex justify-content-between align-items-center noPad">
                     <div className="col-md- d-flex justify-content-left align-items-center ">
-
                     </div>
                     <div className="col-md- d-flex justify-content-right align-items-center noPad2">
-                    <nav aria-label="...">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#" tabindex="-1"><Link to={`/carrito`}>Paso Anterior</Link></a>
-                            </li>
-                            <li class="page-item disabled">
-                                <a class="page-link activeS" href="#">1 <span class="sr-only">()</span></a>
-                            </li>
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#"><Link to={`/carritoConfirmarCompra`}>Siguiente</Link></a>
-                            </li>
-                        </ul>
-                        </nav>
-                        {/* <div className="test">
-                        <a href="#" class="previous ">&laquo; Previous</a>
-                        <a href="#" class="next"><Link to={`/`}>Home </Link></a>
-                        <a href="#" class="active "><Link to={`/`}>Home </Link></a>
-                        <Link to={`/`}>
-                        <button className="btn">Home</button>
-                        </Link>
-                        </div> */}
+                        <div className="test">
+                            {/* <button className="previo hoverS">Home</button> */}
+                            <Link to={`/carrito`} ><button className="previo    ">Paso Anterior</button></Link>
+                            <Link to={`#`}  onMouseOver={e => e.preventDefault()}><button className="disabled " disabled>1</button></Link>
+                            <Link to={`#`}  onMouseOver={e => e.preventDefault()}><button className="disabled activated" disabled>2</button></Link>
+                            <Link to={`#`}  onMouseOver={e => e.preventDefault()}><button className="disabled" disabled>3</button></Link>
+                            <Link to={`/carritoConfirmarCompra`} ><button className="previo ">Siguiente</button></Link>
+                        </div>
                     </div>
-                    
-                    
                 </div>
-                </div>   
+            </div>
             </div>
         )} 
 
