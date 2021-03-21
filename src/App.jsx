@@ -20,8 +20,9 @@ import FooterComponent from './components/footer/';
 import CartContainerConfirmar from './containers/CartContainerConfirmar';
 import TotoTools from './components/toto/'
 import {Link} from 'react-router-dom';
-import ItemListContainerMermelada from './containers/ItemListContainerMermeladas';
 import ItemListContainerGolfeado from '../src/containers/ItemListContainerGolfeado';
+import ItemListContainerMermelada from './containers/ItemListContainerMermelada';
+import ItemListContainerPan from './containers/ItemListContainerPan';
 
 
 // let estilos = {color:'red',background:'black'}
@@ -52,6 +53,8 @@ const App = () => {
       {/* <Route exact path="/golfeados" component={ItemListContainerGolfeado}/> */}
         <Switch>
           <Route exact path="/golfeados" component={ItemListContainerGolfeado}/>
+          <Route exact path="/mermeladas" component={ItemListContainerMermelada}/>
+          <Route exact path="/pandejamon" component={ItemListContainerPan}/>
           <Route exact path="/" component={ItemListContainer}/>
           <Route exact path="/ItemDetailContainer/:productoID" component={ItemDetailContainer}/>
           <Route exact path="/carrito" component={CartContainer}/>

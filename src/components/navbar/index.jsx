@@ -28,13 +28,13 @@ const NavbarComponent = () => {
                             <button className="btn">Todos los Productos</button>
                         </NavLink>
                       
-                        <Link to={`/ItemDetailContainer/21qS0AUU1VZm8UHE8OLz`} exact activeClassName="bg-success">
+                        <NavLink to={`/mermeladas`} exact activeClassName="bg-success">
                             <button className="btn">Mermeladas</button>
-                        </Link>
-                
-                        <Link to={`/carritoDatos`} exact>
+                        </NavLink>
+
+                        <NavLink to={`/pandejamon`} exact activeClassName="bg-success">
                             <button className="btn">Pan de Jamon</button>
-                        </Link>
+                        </NavLink>
                   
                         <NavLink to={'/golfeados'} exact activeClassName="bg-success">
                             <button className="btn">Golfeados</button>

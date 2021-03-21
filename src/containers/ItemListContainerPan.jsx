@@ -7,6 +7,7 @@ import { GlobalContext } from '../context/GlobalContext';
 import { CartContext } from '../context/CartContext';
 import { getFirestore } from '../firebase';
 import { Container, Row, Col } from 'reactstrap';
+import ItemListPan from '../components/ItemList/ItemListPan';
 
 
 
@@ -108,7 +109,7 @@ const ItemListContainerPan = () =>{
                         </div>
                     </div>
                     <div className="d-flex justify-content-center" >
-                         <ItemList products={products} key={products}/>
+                         <ItemListPan products={products} key={products}/>
                     </div>
  
                 </div>

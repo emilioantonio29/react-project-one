@@ -7,6 +7,8 @@ import { GlobalContext } from '../context/GlobalContext';
 import { CartContext } from '../context/CartContext';
 import { getFirestore } from '../firebase';
 import { Container, Row, Col } from 'reactstrap';
+import ItemListGolfeado from '../components/ItemList/ItemListGolfeado';
+import ItemListMermelada from '../components/ItemList/ItemListMermelada';
 
 
 
@@ -108,7 +110,7 @@ const ItemListContainerMermelada = () =>{
                         </div>
                     </div>
                     <div className="d-flex justify-content-center" >
-                         <ItemList products={products} key={products}/>
+                         <ItemListMermelada products={products} key={products}/>
                     </div>
  
                 </div>
