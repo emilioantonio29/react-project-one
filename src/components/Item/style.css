@@ -14,6 +14,10 @@
 6.- Compilar con npm: run watch-css
     sass --watch scss/style.scss css/style.css          */
 /******************************************************************************MENU***************************************************************************/
+/* .carAdd:hover {
+  color: #83674c;
+} */
+
 .container{
     padding: 0% !important;
     margin-bottom: 0% !important;
@@ -106,9 +110,9 @@
   .fixC {
     margin-top: -5px;
   }
-  .carAdd:hover {
+  /* .carAdd:hover {
     color: #83674c;
-  }
+  } */
   .carAdd:focus {
     outline: none;
     box-shadow: none;

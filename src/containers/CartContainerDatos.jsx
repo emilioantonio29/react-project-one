@@ -8,7 +8,7 @@ import Item from '../components/Item/Item';
 import { GlobalContext } from '../context/GlobalContext';
 import {Link} from 'react-router-dom';
 import { getFirestore } from '../firebase';
-
+import swal from 'sweetalert'
 
 const CartContainerDatos = () =>{
     const {fireEnvio, setFireEnvio,fireLocalidad, setFireLocalidad,fireCP, setFireCP,fireDireccion, setFireDireccion,fireMail, setFireMail,firePhone, setFirePhone,fireName, setFireName} = React.useContext(GlobalContext);
@@ -52,6 +52,17 @@ const CartContainerDatos = () =>{
             setFireEnvio(false)
         }
         console.log(fireEnvio)
+    }
+    const checkData= () =>{
+        swal({
+            title: "",
+            text: `llena todos los campos`,
+            icon: "warning",
+            buttons: {
+                confirm : {text:'Ok',className:'msgStyle'}
+               
+            },
+        });
     }
 
 

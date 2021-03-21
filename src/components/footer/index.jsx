@@ -1,7 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CartWidget from '../../containers/CartWidget';
-import  {BrowserRouter, Switch, Route} from 'react-router-dom';
-import {Link} from 'react-router-dom';
 import './style.css'
 
 
@@ -81,8 +78,6 @@ const FooterComponent = () => {
                 </div>
             </div>
         </div>
-    
-      
       </>
     )
   

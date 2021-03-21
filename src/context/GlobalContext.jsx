@@ -1,7 +1,6 @@
 
 import * as React from 'react';
 import { createContext, useEffect, useState } from "react";
-import ProductList from '../mocks/ProductList';
 import { getFirestore } from '../firebase';
 
 export const GlobalContext = createContext();
@@ -23,8 +22,14 @@ export const GlobalProvider = ({children}) => {
     const [fireCP, setFireCP] = React.useState("");
     const [fireLocalidad, setFireLocalidad] = React.useState("");
     const [fireEnvio, setFireEnvio] = React.useState(false);
-
+    const [cartIcon, setCartIcon] = React.useState(false);
+    const [dolar, getDolar] = React.useState(150)
     React.useEffect(() => {
+        if(localStorage.length!==0){
+            setCartIcon(true)
+        }
+        fetch('https://www.dolarsi.com/api/api.php?type=valoresprincipales').then(response => response.json()).then(commits => getDolar(parseFloat(commits[1].casa.venta))); 
+        
         const bd = getFirestore();// conexion a la bd
         const itemCollection = bd.collection('producto');// guardamos la referencia
         // tomando los datos
@@ -42,7 +47,7 @@ export const GlobalProvider = ({children}) => {
 
         return () => {
             // window.location.reload(false)
-            console.log("global unmon")
+            // console.log("global unmon")
      
         }
     },[]);     
@@ -74,7 +79,7 @@ export const GlobalProvider = ({children}) => {
         let total2 = 0
         for(let i =0; i < localStorage.length; i++){
             let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
-            console.log(key[0])
+            // console.log(key[0])
             // total2 = total2 + ((key[2])*(key[3]))
             arrayCart.push(key); 
 
@@ -121,7 +126,7 @@ export const GlobalProvider = ({children}) => {
     // console.log("soy el global")
 
     
-    return <GlobalContext.Provider value={{fireEnvio, setFireEnvio,fireLocalidad, setFireLocalidad,fireCP, setFireCP,fireDireccion, setFireDireccion,fireMail, setFireMail,firePhone, setFirePhone,fireName, setFireName,buyers, setBuyers,render, setRender,renderFunction,cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2, setCart2,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,setArrayCart}}>
+    return <GlobalContext.Provider value={{dolar, getDolar,cartIcon, setCartIcon,fireEnvio, setFireEnvio,fireLocalidad, setFireLocalidad,fireCP, setFireCP,fireDireccion, setFireDireccion,fireMail, setFireMail,firePhone, setFirePhone,fireName, setFireName,buyers, setBuyers,render, setRender,renderFunction,cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest2,cart2, setCart2,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,setArrayCart}}>
 
         {children}
     </GlobalContext.Provider>

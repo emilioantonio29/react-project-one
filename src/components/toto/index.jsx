@@ -10,13 +10,11 @@ import { GlobalContext } from '../../context/GlobalContext';
 
 
 const TotoTools = () => {
-  const {fireMail, setFireMail,firePhone, setFirePhone,fireName, setFireName,buyers, setBuyers,cart,setCart,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,globalTest,render, setRender,renderFunction} = React.useContext(GlobalContext);
+  const {fireEnvio,dolar, getDolar,fireMail, setFireMail,firePhone, setFirePhone,fireName, setFireName,buyers, setBuyers,cart,setCart,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,globalTest,render, setRender,renderFunction} = React.useContext(GlobalContext);
 
 
   const ConsoleLogCompradores = () => {
-    // console.log(fireName)
-    // console.log(firePhone)
-    // console.log(fireMail)
+
     const db = getFirestore()
     const itemCollection = db.collection("ordenes");// guardamos la referencia
     itemCollection.get().then((value) => {
@@ -28,7 +26,7 @@ const TotoTools = () => {
             
         // value.docs.map(element => {console.log(element.data())})
         // value.docs.map(element => {console.log({...element.data(), id:element.id})})
-        // setBuyers(temp)
+        setBuyers(temp)
     })
     console.log(buyers)
  
@@ -38,20 +36,74 @@ const TotoTools = () => {
     //     setShowCart(true)
     // }
     }
+    const addFirebase = async () =>{
+      const db = getFirestore()
+      const itemCollection = db.collection("producto");// guardamos la referencia
+      itemCollection.get().then((value) => {
+          // console.log(value.docs.keys)
+          let temp = value.docs.map(element => {
+              // return {...element.data(), id:element.id}
+              return {"producto": {...element.data(), id:element.id}}
+          })
+              
+          // value.docs.map(element => {console.log(element.data())})
+          // value.docs.map(element => {console.log({...element.data(), id:element.id})})
+          setBuyers(temp)
+      })
+      console.log(buyers.length)
+          let newOrder = {
+              cantidad:12, 
+              descript:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+              id: buyers.length+1,
+              imagen: "test",
+              moneda: "$",
+              nombre: "TEST: Mermelada de Naranja",
+              precio: 260,
+              tipo: "Mermeladas"
+
+          }
+          
+          const ordenesCollection = await db.collection("producto")
+          ordenesCollection.add(newOrder).then(
+          alert("ITEM AGREGADO: RECARGA LA PAGINA PARA VER EL NUEVO PRODUCTO")
+          )
+      
+  }
+  
+  
+  const getBlue = () =>{
+    console.log(`FETCH GLOBALCONTEXT: el valor del dolarBlue es ${dolar}.`)
+    console.log(`Estructura: DATA[1].casa.venta`)
+    console.log(`Fuente: https://www.dolarsi.com/api/api.php?type=valoresprincipales`)
+  }
+
+  const retiroLocal = () =>{
+    console.log(fireEnvio)
+  }
+
 
     return(
       <>
         <div className="totoDiv">
             <div><h6>TotoTools - ConsoleLogs</h6></div>
             <div className="d-flex  flex-column">
-                <div className="d-flex">
-                <p>Revisar historico de compras realizadas</p>
-                <button  onClick={ConsoleLogCompradores} style={{width:"50px"}}>GO</button>
-
+                <br/>
+                <div className="d-flex justify-content-between">
+                  <p>ConsoleLog de compras realizadas</p>
+                  <button className="toto"  onClick={ConsoleLogCompradores} style={{width:"40px"}}>GO</button>
                 </div>
-                <button>test</button>
-                <button>test</button>
-                <button>test</button>
+                <div className="d-flex justify-content-between">
+                  <p>Agregar Item a FireBase</p>
+                  <button className="toto" onClick={addFirebase} style={{width:"40px"}}>GO</button>
+                </div>
+                <div className="d-flex justify-content-between">
+                  <p>ConsoleLog dolarBlue</p>
+                  <button className="toto" onClick={getBlue} style={{width:"40px"}}>GO</button>
+                </div>
+                <div className="d-flex justify-content-between">
+                  <p>ConsoleLog el pedido actual tiene retiro en local?</p>
+                  <button className="toto" onClick={retiroLocal} style={{width:"40px"}}>GO</button>
+                </div>
             </div>
 
         </div>

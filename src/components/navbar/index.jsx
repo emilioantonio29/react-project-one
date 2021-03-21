@@ -21,24 +21,28 @@ const NavbarComponent = () => {
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse d-flex justify-content-center" id="navbarNavDropdown">
-                <ul className="navbar-nav">
+                <ul className="navbar-nav linkEffect">
                         <React.Fragment>
-                        
-                        <NavLink to={`/`} exact activeClassName="bg-success">
+                        <li>
+                        <NavLink to={`/`} exact activeClassName="linkEffectActive">
                             <button className="btn">Todos los Productos</button>
                         </NavLink>
-                      
-                        <NavLink to={`/mermeladas`} exact activeClassName="bg-success">
+                        </li>
+                        <li>
+                        <NavLink to={`/Mermeladas`} exact activeClassName="linkEffectActive">
                             <button className="btn">Mermeladas</button>
                         </NavLink>
-
-                        <NavLink to={`/pandejamon`} exact activeClassName="bg-success">
+                        </li>
+                        <li>
+                        <NavLink to={`/PanesDeJamon`} exact activeClassName="linkEffectActive">
                             <button className="btn">Pan de Jamon</button>
                         </NavLink>
-                  
-                        <NavLink to={'/golfeados'} exact activeClassName="bg-success">
+                        </li>
+                        <li>
+                        <NavLink to={'/Golfeados'} exact activeClassName="linkEffectActive">
                             <button className="btn">Golfeados</button>
                         </NavLink>
+                        </li>
                         </React.Fragment>
           
                 </ul>

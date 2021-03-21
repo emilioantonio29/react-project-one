@@ -195,7 +195,7 @@ width: 155px;
   .trashC2 {
     position: relative;
     width: 135px;
-    margin-left: 50px;
+    margin-left: 40px;
     /* margin-top: -188px; */
   }
 
@@ -828,4 +828,120 @@ transition: opacity 0.25s;
 
 .btnNoStyle:hover {
   background-color:#e4bae4
+}
+
+.notification {
+  position: relative;
+  display: inline-block;
+}
+.notification .cirC {
+  position: absolute;
+  top: -1px;
+  right: 8px;
+  border-radius: 50%;
+  background-color: white;
+  color: #a044a0;
+  font-size: 20px;
+  border: 1px solid #a047a0;
+  -webkit-animation: glow2 1s ease-in-out infinite alternate;
+  -moz-animation: glow2 1s ease-in-out infinite alternate;
+  animation: glow2 1s ease-in-out infinite alternate;
+}
+.notification .sizeC {
+  font-size: 220%;
+  color: #c0a78f;
+  border-color: red;
+}
+.notification .sizeC:hover {
+  color: #bd7abd;
+}
+.notification .sizeC2 {
+  font-size: 200%;
+  color: #c0a78f;
+}
+
+.notification .sizeC2 {
+  font-size: 200%;
+  color: #c0a78f;
+}
+
+.favoriteF, .favoriteM, .favoriteN, .escon {
+  color: #5e3b1b;
+}
+
+.favorite:hover, .favorite2:hover, .escon:hover, .favoriteF:hover, .favoriteM:hover, .favoriteN:hover, .addRemoveFront:hover {
+  color: #bd7abd;
+}
+.notification .cirC {
+  position: absolute;
+  top: -1px;
+  right: 8px;
+  border-radius: 50%;
+  background-color: white;
+  color: #a044a0;
+  font-size: 22px;
+  border: 1px solid #a047a0;
+  -webkit-animation: glow2 1s ease-in-out infinite alternate;
+  -moz-animation: glow2 1s ease-in-out infinite alternate;
+  animation: glow2 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow2 {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 8px #a047a0, 0 0 10px #a047a0, 0 0 13px #a047a0, 0 0 15px #a047a0, 0 0 17px #a047a0;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 7px #f5ece3, 0 0 10px #f5ece3, 0 0 13px #f5ece3, 0 0 15px #f5ece3, 0 0 17px #f5ece3, 0 0 20px #f5ece3;
+  }
+}
+
+.favoriteF, .favoriteM, .favoriteN, .escon {
+  color: #522c09;
+}
+
+.favorite:hover, .favorite2:hover, .escon:hover, .favoriteF:hover, .favoriteM:hover, .favoriteN:hover, .addRemoveFront:hover {
+  color: #bd7abd;
+}
+
+.escon {
+  
+  -webkit-animation: glow 3s ease-in-out infinite alternate;
+  -moz-animation: glow 3s ease-in-out infinite alternate;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 4px #a047a0, 0 0 5px #a047a0, 0 0 7px #a047a0, 0 0 7px #a047a0, 0 0 9px #a047a0;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 7px #f5ece3, 0 0 10px #f5ece3, 0 0 13px #f5ece3, 0 0 15px #f5ece3, 0 0 17px #f5ece3, 0 0 20px #f5ece3;
+  }
+}
+@-webkit-keyframes animation {
+  0% {
+    background-color: #f5ece3;
+  }
+  50.0% {
+    background-color: #dabada;
+  }
+  100.0% {
+    background-color: #bb8fbb;
+  }
+}
+
+.msgStyle{
+  color: rgb(78, 65, 65);
+  background-color: #f5ece3;
+  width: 100%;
+  font-size: 18px;
+  height: 50px;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.msgStyle:hover{
+  color: rgb(78, 65, 65);
+  background-color: #dabada !important;
 }

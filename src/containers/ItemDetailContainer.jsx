@@ -55,9 +55,9 @@ const ItemDetailContainer = () =>{
 
             {/* <h1>ItemID: {productoID}</h1>
             <p>DETALLE DE PRODUCTO DEL ITEMDETAILCONTAINER</p> */}
-            <Link to={`/`}>
+            {/* <Link to={`/`}>
             <button>volver</button>
-             </Link>
+             </Link> */}
             {/* <h1>ItemID: {productoMostrar}</h1> */}
             {/* <button onClick={() => {test3()}}>console.log</button> */}
             {/* <button onClick={() => {setCart([...cart, {products}])}}>agre</button> */}
@@ -67,8 +67,7 @@ const ItemDetailContainer = () =>{
                 <h1>{load}</h1>
             </div> */}
             
-            <div>
-                <ul>
+
                     {
                         products.filter(product => product.producto.id === productoID)
                             .map((producto)=>{
@@ -76,8 +75,7 @@ const ItemDetailContainer = () =>{
                       })
                         
                     }
-                </ul>
-            </div>  
+ 
         </>
     )
 

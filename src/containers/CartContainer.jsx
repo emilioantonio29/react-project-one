@@ -8,10 +8,10 @@ import Item from '../components/Item/Item';
 import { GlobalContext } from '../context/GlobalContext';
 import {Link} from 'react-router-dom';
 import { getFirestore } from '../firebase';
-
+import swal from 'sweetalert'
 
 const CartContainer = () =>{
-    const {fireMail, setFireMail,firePhone, setFirePhone,fireName, setFireName,buyers, setBuyers,cart,setCart,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,globalTest,render, setRender,renderFunction} = React.useContext(GlobalContext);
+    const {dolar, getDolar, setCartIcon,fireMail, setFireMail,firePhone, setFirePhone,fireName, setFireName,buyers, setBuyers,cart,setCart,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,globalTest,render, setRender,renderFunction} = React.useContext(GlobalContext);
     // const [show, setShow] = React.useState(true);
     const [carrito, setCarrito] = React.useState([]);
     const [carritoS, setCarritoS] = React.useState([]);
@@ -21,7 +21,9 @@ const CartContainer = () =>{
     // const [fireMail, setFireMail] = React.useState("");
     const [disabled, setDisabled] = React.useState(false);
     const [showCart, setShowCart] = React.useState(true);
-    
+    const [moneda, setMoneda] = React.useState(true);
+    const [totalDolar, setTotalDolar] = React.useState();
+ 
     // React.useEffect(() => {
        
     //     setCarrito([])
@@ -32,10 +34,13 @@ const CartContainer = () =>{
     //     myPromise.then((result) => setCarritoS(result));
     // },[render]);   
     React.useEffect(()=>{
+        
         if(localStorage.length!=0){
             setShowCart(false)
+            setCartIcon(true)
         }else{
             setShowCart(true)
+            setCartIcon(false)
         }
         setCarrito([])
         setCarritoS([])
@@ -62,6 +67,8 @@ const CartContainer = () =>{
         document.title = `${total}`
         console.log(cart)
         console.log(carrito)
+        setTotalDolar((total / dolar).toFixed(2))
+        document.title = `${totalDolar}`
         return () => {
 
             console.log("soy el cart unmon")
@@ -93,6 +100,7 @@ const CartContainer = () =>{
             ordenesCollection.add(newOrder).then()
             eliminarTodo()
             setDisabled(true)
+      
         }
     }
 
@@ -130,10 +138,32 @@ const CartContainer = () =>{
         // setTotal(0)
         // setCart([])
         renderFunction()
+        borrarCarritoMsg()
        
     }
 
-
+    
+    const dolarTotal = () => {
+        if(moneda === true){
+            setMoneda(false)
+            renderFunction()
+        }
+        else{
+            setMoneda(true)
+        }
+    }
+    const borrarCarritoMsg= () =>{
+        swal({
+            title: "",
+            text: `Los items del carrito fueron eliminados correctamente`,
+            icon: "",
+            buttons: {
+                confirm : {text:'Cerrar',className:'msgStyle'}
+               
+            },
+        });
+    }
+    
 
     return(
         <>
@@ -141,15 +171,15 @@ const CartContainer = () =>{
         <div className="d-flex flex-column">
             <div className="d-flex justify-content-center" >
                 <div className="col-md-8 d-flex justify-content-left align-items-center noPad">
-                    <p >
+                    <p>
                         <Link to={`/`}>
                         <button className="btn">Home</button>
                         </Link>
                     </p>
-                    <p><i class="fa fa-angle-right"></i></p>
+                    <p><i className="fa fa-angle-right"></i></p>
                     <p style={{paddingLeft:"10px"}}> Cart</p>
                     {/* <button onClick={ConsoleLogCompradores} style={{marginLeft:"500px"}}> ConsoleLogCompradores</button> */}
-
+                  
                 </div>
             </div>
             <div className="d-flex justify-content-center" >
@@ -169,30 +199,30 @@ const CartContainer = () =>{
             <div className="d-flex flex-column">
             <div className="d-flex justify-content-center" >
                 <div className="col-md-8 d-flex justify-content-left align-items-center noPad">
-                    <p >
+                    <p>
                         <Link to={`/`}>
                         <button className="btn">Home</button>
                         </Link>
                     </p>
-                    <p><i class="fa fa-angle-right"></i></p>
+                    <p><i className="fa fa-angle-right"></i></p>
                     <p style={{paddingLeft:"10px"}}> Cart</p>
-                    <button onClick={ConsoleLogCompradores} style={{marginLeft:"930px"}}> ConsoleLogCompradores</button>
+                    {/* <button onClick={ConsoleLogCompradores} style={{marginLeft:"930px"}}> ConsoleLogCompradores</button> */}
 
                 </div>
             </div>
             <div className="d-flex justify-content-center" >
                 <div className="col-md-8 d-flex justify-content-left align-items-center ">
-                    <p style={{padding:"0px 10px 0px 80px"}}> <span  class="material-icons subdirectory_arrow_right">
+                    <p style={{padding:"0px 10px 0px 80px"}}> <span  className="material-icons subdirectory_arrow_right">
                     subdirectory_arrow_right
                     </span></p>
-                    <div class="cart_tab">
-                        <div class="cart_tab_left_on" id="login_tab_select_left"></div>
-                        <div class="cart_tab_on" id="login_tab_select">Paso 1/3: Checkout</div>
-                        <div class="cart_tab_right_on" id="login_tab_select_right"></div>
+                    <div className="cart_tab">
+                        <div className="cart_tab_left_on" id="login_tab_select_left"></div>
+                        <div className="cart_tab_on" id="login_tab_select">Paso 1/3: Checkout</div>
+                        <div className="cart_tab_right_on" id="login_tab_select_right"></div>
                     </div>
-                    <p style={{padding:"0px 10px 0px 10px"}}><i class="fa fa-angle-right"></i></p>
+                    <p style={{padding:"0px 10px 0px 10px"}}><i className="fa fa-angle-right"></i></p>
                     <p style={{padding:"0px 10px 0px 10px"}}>Paso 2/3: Datos Cliente</p>
-                    <p style={{padding:"0px 10px 0px 10px"}}><i class="fa fa-angle-right"></i></p>
+                    <p style={{padding:"0px 10px 0px 10px"}}><i className="fa fa-angle-right"></i></p>
                     <p style={{padding:"0px 10px 0px 10px"}}>Paso 3/3: Confirmar Compra</p>
                     {/* <Link to={`/carritoDatos`}>
                         <button className="btn">Home</button>
@@ -222,7 +252,7 @@ const CartContainer = () =>{
                                 <tr></tr>
                             </tbody>
                             {/* FOOT START */}
-                            <tfoot class="">
+                            <tfoot className="">
                                 <tr></tr>
                             </tfoot>
                         </table>
@@ -267,69 +297,73 @@ const CartContainer = () =>{
                                 <tr></tr>
                             </tbody>
                             {/* FOOT START */}
-                            <tfoot class="">
-                                <tr class="" >
-                                    <th class="" style={{width:"25%"}}>
+                            <tfoot className="">
+                                <tr className="" >
+                                    <th className="" style={{width:"25%"}}>
                                         <div className="d-flex justify-content-center">
-                                            <div class=" trashC2">
+                                            <div className="trashC2">
                                                 <div>
-                                                    <button class="btnTrash test2" onClick={eliminarTodo}>
-                                                        <span class="material-icons trash rounded">
+                                                    <button className="btnTrash test2" onClick={eliminarTodo}>
+                                                        <span className="material-icons trash rounded">
                                                             delete_forever
                                                         </span>
                                                     </button>
                                                 </div>
-                                                <div class="trashOverlay rounded">
-                                                    <button class="trashText rounded test2" onClick={eliminarTodo}>Eliminar Todo</button>
+                                                <div className="trashOverlay rounded">
+                                                    <button className="trashText rounded test2" onClick={eliminarTodo}>Eliminar Todo</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </th>
-                                    <th class="" style={{width:"25%"}}>
-                                        <label class="d-flex justify-content-left"></label>
+                                    <th className="" style={{width:"25%"}}>
+                                        <label className="d-flex justify-content-left"></label>
                                     </th>
-                                    <th class="" style={{width:"16%"}}>
-                                        <label class="d-flex justify-content-center"></label>
+                                    <th className="" style={{width:"16%"}}>
+                                        <label className="d-flex justify-content-center"></label>
                                     </th>
-                                    <th class=" fondo" style={{width:"16%"}}>
-                                        <div class="d-flex justify-content-center">
-                                            <button type="button" class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false"
+                                    <th className=" fondo" style={{width:"16%"}}>
+                                        <div className="d-flex justify-content-center">
+                                            {/* <button onClick={dolarTotal} type="button" className="btn btn-sm btn-toggle moneda" data-toggle="button" aria-pressed="false"
                                                 autocomplete="off" id="moneda">
-                                                <div class="handle"></div>
-                                            </button>
+                                                <div className="handle"></div>
+                                            </button> */}
                                         </div>
                                     </th>
-                                    <th class=" fondo" style={{width:"16%"}}>
+                                    <th className=" fondo" style={{width:"16%"}}>
                                         <div>
-                                            <label class="d-flex justify-content-center">TOTAL</label>
+                                            <label className="d-flex justify-content-center">TOTAL</label>
                                         </div>
                                     </th>
                                 </tr>
-                                <tr class="" style={{height: "100px"}}>
-                                    <th class="" style={{width:"25%"}}>
-                                        <div class="d-flex justify-content-center fixC">
-                                            {/* <p class="" id=""><button onClick={eliminarTodo}> VaciarCarrito</button></p> */}
+                                <tr className="" style={{height: "100px"}}>
+                                    <th className="" style={{width:"25%"}}>
+                                        <div className="d-flex justify-content-center fixC">
+                                            {/* <p className="" id=""><button onClick={eliminarTodo}> VaciarCarrito</button></p> */}
                                         </div>
                                     </th>
-                                    <th class="monedaArs" style={{width:"25%"}}>
-                                        <div class="d-flex justify-content-center fixC">
-                                            {/* <p class="" id=""><button onClick={fireBuy} className="btn-success" disabled={false}>Comprar</button></p> */}
+                                    <th className="monedaArs" style={{width:"25%"}}>
+                                        <div className="d-flex justify-content-center fixC">
+                                            {/* <p className="" id=""><button onClick={fireBuy} className="btn-success" disabled={false}>Comprar</button></p> */}
                                         </div>
                                     </th>
-                                    <th class=" monedaUsd" style={{width:"16%"}}>
-                                        <div class="d-flex justify-content-center fixC">
-                                            <p class="" id=""></p>
+                                    <th className=" monedaUsd" style={{width:"16%"}}>
+                                        <div className="d-flex justify-content-center fixC">
+                                            <p className="" id=""></p>
                                         </div>
                                     </th>
-                                    <th class=" monedaArs" style={{width:"16%"}}>
-                                        <div class="d-flex justify-content-center fixC">
-                                            <div class="alert-box2 addDown">$</div>
-                                            <p class="" id="total">ARS:</p>
+                                    <th className=" monedaArs" style={{width:"16%"}}>
+                                        <div className="d-flex justify-content-center fixC">
+                                            <div className="alert-box2 addDown">$</div>
+                                            <p className="" id="total">
+                                                {moneda ? ("ARS") : ("USD")}
+                                            </p>
                                         </div>
                                     </th>
-                                    <th class=" monedaUsd" style={{width:"16%"}}>
-                                        <div class="d-flex justify-content-center fixC">
-                                            <p class="" id="totalDolar">{total}</p>
+                                    <th className=" monedaUsd" style={{width:"16%"}}>
+                                        <div className="d-flex justify-content-center fixC">
+                                            <p className="" id="totalDolar">
+                                                {moneda ? (total) : (<p style={{color:"green"}}>${totalDolar}</p>)}
+                                            </p>
                                         </div>
                                     </th>
                                 </tr>

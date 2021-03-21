@@ -1,34 +1,18 @@
 import * as React from 'react';
 import ItemList from '../components/ItemList/ItemList';
-import Item from '../components/ItemList/ItemList';
-import ProductList from '../mocks/ProductList';
 import {Link} from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
-import { CartContext } from '../context/CartContext';
-import { getFirestore } from '../firebase';
-import { Container, Row, Col } from 'reactstrap';
+
 
 
 
 
 const ItemListContainer = () =>{
     const {cart,setCart,prueba, setPrueba, globalTest,globalTest2,cart2,setCart2,firstAsync,globalTest3,globalTest4,products, setProducts} = React.useContext(GlobalContext);
-
     // const [products, setProducts] = React.useState([]);
     const [load, setLoad] = React.useState(true);
     const [contenido, setContenido] = React.useState(false);
-
-    // React.useEffect(() => {
-    //     const myPromise = new Promise ((resolve, reject) => {
-    //         // setTimeout(() => resolve(ProductList), 3000);
-    //         setTimeout(() => {    
-    //             resolve(ProductList);
-    //             setLoad("");    
-    //         }, 3000);
-    // });
-    
-    //     myPromise.then((result) => setProducts(result));
-    // },[]);     
+  
     React.useEffect(() => {
         if(products.length===0){
             setLoad(true)
@@ -39,22 +23,21 @@ const ItemListContainer = () =>{
                 setContenido(false)
                 }, 300);
         }
-        console.log(products)
+        console.log("itemListContainer")
         setTimeout(() => {  
 
             setLoad(false) 
             setContenido(false)
             }, 1500);
-        console.log("after")
      
         return () => {
-
+            console.log("itemListContainer_Out")
         }
     },[]);     
 
 
     // console.log(products)
-    console.log(products)
+    // console.log(products)
     return(
         <>
             {load ? (
@@ -62,7 +45,7 @@ const ItemListContainer = () =>{
                     <div className="d-flex justify-content-center" >
                         <div className="col-md-8 d-flex justify-content-center  flex-column align-items-center noPad">
                             <div className="spinner-border" role="status" style={{marginTop:"170px"}}>
-                                <span class="sr-only">Loading...</span>
+                                <span className="sr-only">Loading...</span>
                             </div>
                             <div>
                                 <p>
@@ -113,17 +96,7 @@ const ItemListContainer = () =>{
  
                 </div>
                 
-                   
-                    
-                                              
-           
-            
-          
-
-
-
-
-
+                
 
             )}
 

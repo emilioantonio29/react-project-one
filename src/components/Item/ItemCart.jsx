@@ -1,9 +1,7 @@
 import * as React from 'react'; 
-import {Link} from 'react-router-dom';
-import Item2 from './Item2';
 import { GlobalContext } from "../../context/GlobalContext";
 import './style.css'
-
+import swal from 'sweetalert'
 
 
 const ItemCart = ({productCart}) => {
@@ -15,13 +13,13 @@ const ItemCart = ({productCart}) => {
    
     
     React.useEffect(()=>{
-        console.log("CARTNOW")
+       
         document.title = `${contadorInicial}`
         document.title = `${stockDisponible}`
-        console.log("mounted stockDisponible")
+        // console.log("mounted stockDisponible")
         if(localStorage.getItem(productCart[0]) === null){
             setstockDisponible(productCart[9])
-            console.log("localNull")
+            
         }else{
             let variableCarrito = JSON.parse(localStorage.getItem(productCart[0]))
             setstockDisponible(productCart[9] - variableCarrito[3])
@@ -29,12 +27,12 @@ const ItemCart = ({productCart}) => {
 
         
         return () => {
-            console.log("unmounted RIP ----")
+            
         }
     },[contadorInicial]);
    
     const consoleLogItemCard = () => {
-        console.log(total)
+        // console.log(total)
         // console.log(cart)
         // localStorage.getItem("2")
         // let user = JSON.parse(localStorage.getItem(productCart))
@@ -42,7 +40,7 @@ const ItemCart = ({productCart}) => {
         // console.log(JSON.parse(productCart).id)
         // console.log(productCart.length)
         // console.log(cart[0])
-        console.log(cart)
+        // console.log(cart)
         
 
         // console.log(JSON.parse(localStorage.getItem(productCart[0]))[0])
@@ -60,6 +58,7 @@ const ItemCart = ({productCart}) => {
         globalTest4()
         // window.location.reload(false)
         renderFunction()
+        borrarCarritoMsg()
       
     }
     ////////////////TEST
@@ -82,7 +81,7 @@ const ItemCart = ({productCart}) => {
             setShow(false)
             addLocalStorage()
         }else{
-            alert("No hay mas Stock")
+            agregarNoStock()
         }
     } 
     function agregarCarrito3(){
@@ -118,12 +117,12 @@ const ItemCart = ({productCart}) => {
         let total2 = 0
         for(let i =0; i < localStorage.length; i++){
             let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
-            console.log(key[0])
+            // console.log(key[0])
             total2 = total2 + ((key[2])*(key[3]))
             // total = total + key
         }
         setTotal(total2)
-        console.log(total2)
+        // console.log(total2)
         
     }
     const addLocalStorage2 = () => {
@@ -142,17 +141,52 @@ const ItemCart = ({productCart}) => {
         let total2 = 0
         for(let i =0; i < localStorage.length; i++){
             let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
-            console.log(key[0])
+            // console.log(key[0])
             total2 = total2 + ((key[2])*(key[3]))
             // total = total + key
         }
         setTotal(total2)
-        console.log(total2)
+        // console.log(total2)
         
     }
     // const test4 = () => {
     //     console.log(JSON.parse(localStorage.getItem(producto.id))[4])
     // }    
+    const agregarOk= () =>{
+        
+        swal({
+            title: "",
+            text: ``,
+            icon: "success",
+            buttons: {
+                confirm : {text:'Cerrar',className:'msgStyle'}
+               
+            },
+        });
+    }
+    const agregarNoStock= () =>{
+        
+        swal({
+            title: "",
+            text: `Lo sentimos, este producto ya no tiene stock disponible...`,
+            icon: "warning",
+            buttons: {
+                confirm : {text:'Cerrar',className:'msgStyle'}
+               
+            },
+        });
+    }
+    const borrarCarritoMsg= () =>{
+        swal({
+            title: "",
+            text: `El item fue eliminado del carrito`,
+            icon: "",
+            buttons: {
+                confirm : {text:'Cerrar',className:'msgStyle'}
+               
+            },
+        });
+    }
 
 
     return( 
@@ -165,66 +199,66 @@ const ItemCart = ({productCart}) => {
                         </thead>
                         {/* BODY START */}
                         <tbody>
-                            <tr class="disappear1" style={{height: "100px;"}}>
-                                <td class="align-middle" style={{width:"25%"}}>
-                                    <div class="d-flex justify-content-left align-items-center borderImg2">
-                                        <img src={`../imagenes/logo.png`} alt="" />
-                                        <div class="trashC">
+                            <tr className="disappear1" style={{height: "100px"}}>
+                                <td className="align-middle" style={{width:"25%"}}>
+                                    <div className="d-flex justify-content-left align-items-center borderImg2">
+                                        <img src={`../imagenes/${productCart[7]}.png`} alt="" />
+                                        <div className="trashC">
                                             <div>
-                                                <button class="btnTrash test2" onClick={eliminarItem}>
-                                                    <span class="material-icons trash rounded">
+                                                <button className="btnTrash test2" onClick={eliminarItem}>
+                                                    <span className="material-icons trash rounded">
                                                         delete_forever
                                                     </span>
                                                 </button>
                                             </div>
-                                            <div class="trashOverlay rounded">
-                                                <button class="trashText rounded test2" onClick={eliminarItem}>Eliminar</button>
+                                            <div className="trashOverlay rounded">
+                                                <button className="trashText rounded test2" onClick={eliminarItem}>Eliminar</button>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="align-middle" style={{width:"25%"}}>
-                                    <div class="">
+                                <td className="align-middle" style={{width:"25%"}}>
+                                    <div className="">
                                         <p>{productCart[1]}</p>
                                     </div>
                                 </td>
-                                <td class="align-middle" style={{width:"16%"}}>
-                                    <div class="d-flex justify-content-center">
+                                <td className="align-middle" style={{width:"16%"}}>
+                                    <div className="d-flex justify-content-center">
                                         <p>{productCart[2]}{productCart[4]}</p>
                                     </div>
                                 </td>
-                                <td class="align-middle" style={{width:"16%"}}>
-                                    <div class="d-flex justify-content-center fixC">
-                                        <div class="cantidad2">
-                                            <div class="center">
-                                                <button type="button" class="btn restarNowC carAdd" data-toggle="modal"
-                                                    data-target="" accesskey="removeFrutilla" onClick={() => {{agregarCarrito3()}}}>
-                                                    <span class="material-icons carAdd"
-                                                        accesskey="removeFrutilla">remove_circle_outline</span>
+                                <td className="align-middle" style={{width:"16%"}}>
+                                    <div className="d-flex justify-content-center fixC">
+                                        <div className="cantidad2">
+                                            <div className="center">
+                                                <button type="button" className="btn restarNowC carAdd" data-toggle="modal"
+                                                    data-target=""  onClick={() => {{agregarCarrito3()}}}>
+                                                    <span className="material-icons carAdd"
+                                                        >remove_circle_outline</span>
                                                 </button>
                                             </div>
-                                            <div class="center">
-                                                <p class="cantidadItemDom cantidadItem1C">{productCart[9]-stockDisponible}</p>
+                                            <div className="center">
+                                                <p className="cantidadItemDom cantidadItem1C">{productCart[9]-stockDisponible}</p>
                                             </div>
-                                            <div class="center">
-                                                <button type="button botonAdd carAdd" class="btn sumarNowC" data-toggle="modal"
-                                                    data-target="" accesskey="addFrutilla" onClick={() => {{agregarCarrito2()}}}>
-                                                    <span class="material-icons carAdd"
-                                                        accesskey="addFrutilla">add_circle_outline</span>
+                                            <div className="center">
+                                                <button type="button botonAdd carAdd" className="btn sumarNowC" data-toggle="modal"
+                                                    data-target=""  onClick={() => {{agregarCarrito2()}}}>
+                                                    <span className="material-icons carAdd"
+                                                      >add_circle_outline</span>
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="align-middle" style={{width:"16%"}}>
-                                    <div class="d-flex justify-content-center">
-                                        <p class="subtotal sub1">{(productCart[2]*(productCart[9]-stockDisponible))}</p>
+                                <td className="align-middle" style={{width:"16%"}}>
+                                    <div className="d-flex justify-content-center">
+                                        <p className="subtotal sub1">{(productCart[2]*(productCart[9]-stockDisponible))}</p>
                                     </div>
                                 </td>
                             </tr>
                         </tbody>
                         {/* FOOT START */}
-                        <tfoot class="">
+                        <tfoot className="">
                             <tr></tr>
                         </tfoot>
                     </table>

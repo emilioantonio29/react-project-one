@@ -2,17 +2,10 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComponent from './components/navbar/';
-
-import ButtonComponent from './components/button/';
 import ItemListContainer from './containers/ItemListContainer';
-
-import ItemCount from './containers/ItemCount';
 import  {BrowserRouter, Switch, Route} from 'react-router-dom';
-        //engloba la app
-                        //rutas a manejar
 import ItemDetailContainer from './containers/ItemDetailContainer';
-import { GlobalContext, GlobalProvider } from './context/GlobalContext';
-import { CartContext } from './context/CartContext';
+import { GlobalProvider } from './context/GlobalContext';
 import { useState } from 'react';
 import CartContainer from './containers/CartContainer';
 import CartContainerDatos from './containers/CartContainerDatos';
@@ -25,23 +18,13 @@ import ItemListContainerMermelada from './containers/ItemListContainerMermelada'
 import ItemListContainerPan from './containers/ItemListContainerPan';
 
 
-// let estilos = {color:'red',background:'black'}
-// function App() {
-//   return (
-//       <div className="App">
-//         <button className="btn btn-success">test</button>
-//       </div>
-//   );
-  
-// } 
-
 const App = () => {
-  const [id, setID] = useState(2); //test
-  const [precio, setPrecio] = useState(9999); //test
-  // logica antes del return
-  const Saludar = () => {
-    alert("hola")
-}
+//   const [id, setID] = useState(2); //test
+//   const [precio, setPrecio] = useState(9999); //test
+//   // logica antes del return
+//   const Saludar = () => {
+//     alert("hola")
+// }
   
   // 
   return( 
@@ -52,9 +35,9 @@ const App = () => {
       <TotoTools/>
       {/* <Route exact path="/golfeados" component={ItemListContainerGolfeado}/> */}
         <Switch>
-          <Route exact path="/golfeados" component={ItemListContainerGolfeado}/>
-          <Route exact path="/mermeladas" component={ItemListContainerMermelada}/>
-          <Route exact path="/pandejamon" component={ItemListContainerPan}/>
+          <Route exact path="/Golfeados" component={ItemListContainerGolfeado}/>
+          <Route exact path="/Mermeladas" component={ItemListContainerMermelada}/>
+          <Route exact path="/PanesDeJamon" component={ItemListContainerPan}/>
           <Route exact path="/" component={ItemListContainer}/>
           <Route exact path="/ItemDetailContainer/:productoID" component={ItemDetailContainer}/>
           <Route exact path="/carrito" component={CartContainer}/>

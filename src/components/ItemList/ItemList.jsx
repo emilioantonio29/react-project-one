@@ -1,16 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import ItemCount from '../../containers/ItemCount';
 import Item from '../Item/Item';
-import { Container, Row, Col } from 'reactstrap';
 
 
 const ItemList = ({products}) =>{
 
 
-//    const productos = [
-//         ["Mermelada Frutilla", 250, "Mermelada 100% natural reducida en azucar"],
-//         ["Mermelada Naranja", 280, "Realizada con los mejores productos naturales"]
-//     ]
 
     return(
         <>

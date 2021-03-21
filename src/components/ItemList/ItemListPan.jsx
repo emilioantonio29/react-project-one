@@ -1,15 +1,10 @@
 import React, {useState, useEffect} from 'react';
-import ItemCount from '../../containers/ItemCount';
 import Item from '../Item/Item';
-import { Container, Row, Col } from 'reactstrap';
+
 
 
 const ItemListPan = ({products}) =>{
 
-//    const productos = [
-//         ["Mermelada Frutilla", 250, "Mermelada 100% natural reducida en azucar"],
-//         ["Mermelada Naranja", 280, "Realizada con los mejores productos naturales"]
-//     ]
 
     return(
         <>
@@ -29,9 +24,9 @@ const ItemListPan = ({products}) =>{
                         <div className="col-md-8">
                             <div  className="itemList d-flex flex-wrap">
                             {
-                                    products.filter(producto => producto.producto.tipo === "Panes de Jamon")
+                                    products.filter(producto => producto.producto.tipo === "PanesDeJamon")
                                     .map((product)=>{
-                                        return <Item key={product} product={product}/>
+                                        return <Item key={product.producto.id} product={product}/>
                                     })
 
                                 }

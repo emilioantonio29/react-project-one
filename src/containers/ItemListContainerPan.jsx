@@ -1,12 +1,6 @@
 import * as React from 'react';
-import ItemList from '../components/ItemList/ItemList';
-import Item from '../components/ItemList/ItemList';
-import ProductList from '../mocks/ProductList';
 import {Link} from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
-import { CartContext } from '../context/CartContext';
-import { getFirestore } from '../firebase';
-import { Container, Row, Col } from 'reactstrap';
 import ItemListPan from '../components/ItemList/ItemListPan';
 
 
@@ -19,17 +13,6 @@ const ItemListContainerPan = () =>{
     const [load, setLoad] = React.useState(true);
     const [contenido, setContenido] = React.useState(false);
 
-    // React.useEffect(() => {
-    //     const myPromise = new Promise ((resolve, reject) => {
-    //         // setTimeout(() => resolve(ProductList), 3000);
-    //         setTimeout(() => {    
-    //             resolve(ProductList);
-    //             setLoad("");    
-    //         }, 3000);
-    // });
-    
-    //     myPromise.then((result) => setProducts(result));
-    // },[]);     
     React.useEffect(() => {
         if(products.length===0){
             setLoad(true)
@@ -40,22 +23,22 @@ const ItemListContainerPan = () =>{
                 setContenido(false)
                 }, 300);
         }
-        console.log(products)
+        console.log("itemListContainerPan")
         setTimeout(() => {  
 
             setLoad(false) 
             setContenido(false)
             }, 1500);
-        console.log("after")
+     
      
         return () => {
-
+            console.log("itemListContainerPan_Out")
         }
     },[]);     
 
 
     // console.log(products)
-    console.log(products)
+    // console.log(products)
     return(
         <>
             {load ? (
@@ -63,7 +46,7 @@ const ItemListContainerPan = () =>{
                     <div className="d-flex justify-content-center" >
                         <div className="col-md-8 d-flex justify-content-center  flex-column align-items-center noPad">
                             <div className="spinner-border" role="status" style={{marginTop:"170px"}}>
-                                <span class="sr-only">Loading...</span>
+                                <span className="sr-only">Loading...</span>
                             </div>
                             <div>
                                 <p>
@@ -102,9 +85,11 @@ const ItemListContainerPan = () =>{
                         <div className="col-md-8 d-flex justify-content-left align-items-center noPad">
                             <p >
                                 <Link to={`/`}>
-                                <button disabled className="btn">Home</button>
+                                <button className="btn">Home</button>
                                 </Link>
                             </p>
+                            <p><i className="fa fa-angle-right"></i></p>    
+                            <p style={{paddingLeft:"10px"}}>Pan de Jamon</p>
  
                         </div>
                     </div>

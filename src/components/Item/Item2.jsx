@@ -1,7 +1,7 @@
-import ItemCount from "../../containers/ItemCount"
 import React, {useState, useEffect} from 'react';
 import { GlobalContext } from "../../context/GlobalContext";
 import {Link} from 'react-router-dom';
+import swal from 'sweetalert'
 
 
 const Item2 = ({producto}) => {
@@ -9,13 +9,11 @@ const Item2 = ({producto}) => {
     const [contadorInicial, setContadorInicial] = useState(1);
     const [stockDisponible, setstockDisponible] = useState(producto.cantidad)
     const [show, setShow] = useState(true);
-    const {cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest4} = React.useContext(GlobalContext);
+    const {setCartIcon,cart,setCart,prueba, setPrueba, globalTest, products, setProducts,load, setLoad,globalTest4} = React.useContext(GlobalContext);
 
     React.useEffect(()=>{
-        console.log("mounted cantidad")
         if(localStorage.getItem(producto.id) === null){
             setstockDisponible(producto.cantidad)
-            console.log("localNull")
         }else{
             let variableCarrito = JSON.parse(localStorage.getItem(producto.id))
             setstockDisponible(producto.cantidad - variableCarrito[3])
@@ -23,7 +21,6 @@ const Item2 = ({producto}) => {
         document.title = `${contadorInicial}`
         document.title = `${stockDisponible}`
         return () => {
-            console.log("unmounted RIP")
         }
     },[contadorInicial]);
 
@@ -45,8 +42,10 @@ const Item2 = ({producto}) => {
             setContadorInicial(1)
             setShow(false)
             localStorageAct()
+            setCartIcon(true)
+            agregarOk()
         }else{
-            alert("No hay mas Stock")
+            agregarNoStock()
         }
     } 
 
@@ -81,54 +80,115 @@ const Item2 = ({producto}) => {
             
         ]))     
     }
-    const test4 = () => {
-        console.log(producto)
+
+    const agregarOk= () =>{
+        let Item = "Item"
+        let agregado = "agregado"
+        if(contadorInicial!==1){
+            Item = "Items"
+            agregado = "agregados"
+        }
+        swal({
+            title: "",
+            text: `${Item} ${agregado} correctamente al carrito.`,
+            icon: "success",
+            buttons: {
+                confirm : {text:'Cerrar',className:'msgStyle'}
+               
+            },
+        });
     }
-    
+    const agregarNoStock= () =>{
+        let Item = "Item"
+        let agregado = "agregado"
+        if(contadorInicial!==1){
+            Item = "Items"
+            agregado = "agregados"
+        }
+        swal({
+            title: "",
+            text: `Lo sentimos, este producto ya no tiene stock disponible...`,
+            icon: "warning",
+            buttons: {
+                confirm : {text:'Cerrar',className:'msgStyle'}
+               
+            },
+        });
+    }
 
-    return <div className="card col-md-6">
-
-        {/* <p>Stock: {stockDisponible}</p>
-        <p>{contadorInicial}</p>
-        <p>{producto.cantidad - stockDisponible}</p>
-        <br/> */}
-
-        <img src={`../imagenes/${producto.imagen}.png`} alt=""/>
-        <h3>{producto.nombre}</h3>
-        <p>Precio: {producto.precio} {producto.moneda}</p>
-        <p>Stock: {stockDisponible}</p>
-        <p>Categoria: {producto.tipo}</p>
-        <p>Descripción: {producto.descript}</p>
-        <div className="d-flex justify-content-between">
-            {show ? (
-                <div className="d-flex align-items-center justify-content-between cajaCount">
-                    <div>
-                        <button onClick={()=>{setContadorInicial(contadorInicial < 2 ? contadorInicial : contadorInicial - 1 )}}>-</button> 
+    return (
+        <div>
+            <div className="d-flex flex-column">
+                <div className="d-flex justify-content-center">
+                    <div className="col-md-8 d-flex justify-content-left align-items-center noPad">
+                        <p>
+                            <Link to={`/`}> <button className="btn">Home</button>
+                            </Link>
+                        </p>
+                        <p><i className="fa fa-angle-right"></i></p>
+                        <p>
+                            <Link to={`/${producto.tipo}`}> <button className="btn">{producto.tipo}</button>
+                            </Link>
+                        </p>
+                        <p><i className="fa fa-angle-right"></i></p>
+                        <p style={{paddingLeft:"10px"}}> {producto.nombre}</p>
+                        {/* <button onClick={ConsoleLogCompradores} style={{marginLeft:"500px"}}> ConsoleLogCompradores</button>
+                        */}
                     </div>
-                    <div>
-                        <p>{contadorInicial}</p>
-                    </div>
-                    <div className="">
-                        <button onClick={()=>{sumaCantidad()}}>+</button> 
-                    </div>      
                 </div>
-            ) : ("")} 
+                <div className="d-flex justify-content-center">
+                    <div className="col-md-8 d-flex justify-content-center align-items-center noPad">
+                        <div >
+                            <div className="container py-3" >
+                                <div className="card" style={{padding:"10px 0px 10px 0px"}}>
+                                <div className="row ">
+                                    <div className="col-md-4 d-flex justify-content-center align-items-center flex-column">
+                                    <img src={`../imagenes/${producto.imagen}.png`} alt="" style={{marginTop:"30px"}}/>
+                                    <p>Stock: {stockDisponible}</p>
+                                    </div>
+                                    <div className="col-md-8 px-3">
+                                        <div className="card-block px-3">
+                                        <h4 className="card-title">{producto.nombre}</h4>
+                                        <p className="card-text">{producto.descript} {producto.tipo}</p>
+                                        <p className="card-text">Precio: {producto.precio}{producto.moneda}</p>
+                                        <div className="card-text">
+                                            <div className="d-flex justify-content-left fixC">
+                                                <div className="cantidad2">
+                                                    <div className="center">
+                                                        <button type="button" className="btn restarNowC carAdd" style={{paddingLeft:"0px"}}
+                                                        onClick={()=>{setContadorInicial(contadorInicial < 2 ? contadorInicial : contadorInicial - 1 )}}>
+                                                            <span className="material-icons carAdd"
+                                                                >remove_circle_outline</span>
+                                                        </button>
+                                                    </div>
+                                                    <div className="center">
+                                                        <p className="cantidadItemDom cantidadItem1C">{contadorInicial}</p>
+                                                    </div>
+                                                    <div className="center">
+                                                        <button type="button botonAdd carAdd" className="btn sumarNowC" onClick={()=>{sumaCantidad()}}>
+                                                            <span className="material-icons carAdd"
+                                                                >add_circle_outline</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p className="card-text">
+                                            <button className="botonNow botonNow6 btnNoStyle" onClick={()=> {{agregarCarrito2()}}}>Agregar al carrito</button>   
+                                        </p>
+                                        </div>
+                                    </div>
 
-            <div className="d-flex justify-content-end">
-                {show ? ("test") : (<button type="button" onClick={() => {setShow(!show);}}>Seguir Agregando al carrito {show ? 'Div 2' : 'Div 1'}</button>)}
-            </div>
-        </div>    
-            <div className="d-flex justify-content-between">   
-                <div className="">
-                    <button onClick={() => {{agregarCarrito2()}}}> Agregar item de prueba al carrito</button>
-                </div>
-                <div>
-                     {show ? ("" ) : (<p>Items Agregados al carrito: {producto.cantidad - stockDisponible}</p> )}
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-    </div>
-    
-}
+      
+    )}
 
 export default Item2;
 

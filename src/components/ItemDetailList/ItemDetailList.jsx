@@ -7,7 +7,7 @@ const ItemDetailList = ({products2, productoID}) =>{
 
 const test4 = () => {
     // console.log(products2[productoID].id)
-    alert(products2)
+    // alert(products2)
     // console.log(parseInt(productoID)+1)
 }
 
