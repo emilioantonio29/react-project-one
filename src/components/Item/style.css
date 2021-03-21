@@ -369,3 +369,7 @@ table thead tr .centre{
     text-align: center;
     vertical-align: middle;
 }
+
+.item{
+  padding: 0%;
+}

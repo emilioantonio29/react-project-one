@@ -4,8 +4,7 @@ import Item from '../Item/Item';
 import { Container, Row, Col } from 'reactstrap';
 
 
-const ItemList = ({products}) =>{
-
+const ItemListGolfeado = ({products}) =>{
 
 //    const productos = [
 //         ["Mermelada Frutilla", 250, "Mermelada 100% natural reducida en azucar"],
@@ -29,9 +28,13 @@ const ItemList = ({products}) =>{
                         <div className="d-flex justify-content-center">
                         <div className="col-md-8">
                             <div  className="itemList d-flex flex-wrap">
-                                {products.map((product)=>{
-                                    return <Item key={product.producto.id} product={product}/>;
-                                })}
+                            {
+                                    products.filter(producto => producto.producto.tipo === "Golfeados")
+                                    .map((product)=>{
+                                        return <Item key={product} product={product}/>
+                                    })
+
+                                }
                             </div>
                             </div>
                             </div>
@@ -45,4 +48,4 @@ const ItemList = ({products}) =>{
 
 }
 
-export default ItemList;
+export default ItemListGolfeado;

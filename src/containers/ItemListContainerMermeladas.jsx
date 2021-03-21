@@ -11,7 +11,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 
 
-const ItemListContainer = () =>{
+const ItemListContainerMermelada = () =>{
     const {cart,setCart,prueba, setPrueba, globalTest,globalTest2,cart2,setCart2,firstAsync,globalTest3,globalTest4,products, setProducts} = React.useContext(GlobalContext);
 
     // const [products, setProducts] = React.useState([]);
@@ -133,4 +133,4 @@ const ItemListContainer = () =>{
 
 }
 
-export default ItemListContainer;
+export default ItemListContainerMermelada;

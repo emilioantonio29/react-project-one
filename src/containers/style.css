@@ -804,3 +804,28 @@ transition: opacity 0.25s;
 .AgregarDireccion .btn-toggle.btn-secondary.active {
   background-color: #ff8300;
 }
+
+.spinner-border{
+  width: 7rem; 
+  height: 7rem; 
+  color:#c9b5a1;
+}
+
+.imagenItem{
+  border:"1px solid red"
+}
+
+.btnNoStyle {
+  color: black;
+  background-color: #f5ece3;
+  width: 100%;
+  font-size: 18px;
+  height: 40px;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.btnNoStyle:hover {
+  background-color:#e4bae4
+}

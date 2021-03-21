@@ -4,7 +4,7 @@ import Item from '../Item/Item';
 import { Container, Row, Col } from 'reactstrap';
 
 
-const ItemList = ({products}) =>{
+const ItemListMermelada = ({products}) =>{
 
 
 //    const productos = [
@@ -45,4 +45,4 @@ const ItemList = ({products}) =>{
 
 }
 
-export default ItemList;
+export default ItemListMermelada;

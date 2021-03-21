@@ -1,0 +1,13 @@
+
+
+
+
+.totoDiv{
+    width: 200px;
+    border: 1px solid purple;
+
+    position: absolute;
+    left: 10px;
+    top: 300px;
+    /* z-index: 10; */
+}

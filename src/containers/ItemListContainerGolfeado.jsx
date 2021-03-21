@@ -7,11 +7,12 @@ import { GlobalContext } from '../context/GlobalContext';
 import { CartContext } from '../context/CartContext';
 import { getFirestore } from '../firebase';
 import { Container, Row, Col } from 'reactstrap';
+import ItemListGolfeado from '../components/ItemList/ItemListGolfeado';
 
 
 
 
-const ItemListContainer = () =>{
+const ItemListContainerGolfeado = () =>{
     const {cart,setCart,prueba, setPrueba, globalTest,globalTest2,cart2,setCart2,firstAsync,globalTest3,globalTest4,products, setProducts} = React.useContext(GlobalContext);
 
     // const [products, setProducts] = React.useState([]);
@@ -108,7 +109,7 @@ const ItemListContainer = () =>{
                         </div>
                     </div>
                     <div className="d-flex justify-content-center" >
-                         <ItemList products={products} key={products}/>
+                         <ItemListGolfeado products={products} key={products}/>
                     </div>
  
                 </div>
@@ -133,4 +134,4 @@ const ItemListContainer = () =>{
 
 }
 
-export default ItemListContainer;
+export default ItemListContainerGolfeado;

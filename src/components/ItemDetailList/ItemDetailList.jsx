@@ -26,7 +26,7 @@ const test4 = () => {
                 </div>) 
             })}   */}
             <div>
-                <ul>
+
                     {products2.map((producto)=>{
                           if(products2[1].id == 2 ){
                             return <Item2 key={producto.id} producto={producto}/>
@@ -34,7 +34,7 @@ const test4 = () => {
                           }
                         // return <Item2 key={product.id} product={product}/>;
                     })}
-                </ul>
+
             </div>
             <button onClick={test4}> test22</button>
             

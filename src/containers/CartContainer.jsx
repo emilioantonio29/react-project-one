@@ -148,7 +148,7 @@ const CartContainer = () =>{
                     </p>
                     <p><i class="fa fa-angle-right"></i></p>
                     <p style={{paddingLeft:"10px"}}> Cart</p>
-                    <button onClick={ConsoleLogCompradores} onClick={ConsoleLogCompradores} style={{marginLeft:"500px"}}> ConsoleLogCompradores</button>
+                    {/* <button onClick={ConsoleLogCompradores} style={{marginLeft:"500px"}}> ConsoleLogCompradores</button> */}
 
                 </div>
             </div>

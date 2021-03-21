@@ -79,37 +79,48 @@ const CartContainerConfirmar = () =>{
             }
             let newOrder = {comprador: {nombre: fireName, email: fireMail, telefono: firePhone}, items: carritoFire, total: total, date: new Date()}
             const db = getFirestore()
-        const { id } = await db.collection("cities").add(newOrder)
-        alert("TU NRO DE ORDEN ES :" + id)
-        eliminarTodo()
-        setDisabled(true)
+            const { id } = await db.collection("ordenes").add(newOrder)
+            alert("TU NRO DE ORDEN ES :" + id)
+            eliminarTodo()
+            setDisabled(true)
         }
       }
 
-    // const fireBuy = async () =>{
-    //     if(localStorage.length!=0){
-    //         for(let i =0; i < localStorage.length; i++){
-    //             const bd = getFirestore();
-    //             let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
-    //             carritoFire.push({
-    //                 id: key[0],//idproducto
-    //                 nombre: key[1],//nombre del producto
-    //                 precio: key[2], //precio actual del producto
-    //                 cantidadComprada: key[3], // cantidad comprada por el cliente
-    //                 categoria: key[5],
-    //                 stockAfterBuy: key[8] // stock que quedará si se realiza la compra
-    //             })
-    //         }
-    //         let newOrder = {comprador: {nombre: fireName, email: fireMail, telefono: firePhone}, items: carritoFire, total: total, date: new Date()}
-    //         const db = getFirestore()
-    //         const ordenesCollection = await db.collection("ordenes")
-    //         ordenesCollection.add(newOrder).then()
-    //         eliminarTodo()
-    //         setDisabled(true)
-    //     }
-    // }
+    const fireBuy2 = async () =>{
+        // if(localStorage.length!=0){
+        //     for(let i =0; i < localStorage.length; i++){
+        //         const bd = getFirestore();
+        //         let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
+        //         carritoFire.push({
+        //             id: key[0],//idproducto
+        //             nombre: key[1],//nombre del producto
+        //             precio: key[2], //precio actual del producto
+        //             cantidadComprada: key[3], // cantidad comprada por el cliente
+        //             categoria: key[5],
+        //             stockAfterBuy: key[8] // stock que quedará si se realiza la compra
+        //         })
+        //     }
+            let newOrder = {
+                cantidad:15, 
+                descript:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                id: 6,
+                imagen: "test",
+                moneda: "$",
+                nombre: "PanDeJamonTest6",
+                precio: 1250,
+                tipo: "Panes de Jamon"
+
+            }
+            const db = getFirestore()
+            const ordenesCollection = await db.collection("producto")
+            ordenesCollection.add(newOrder).then()
+            // eliminarTodo()
+            // setDisabled(true)
+        // }
+    }
 
     const ConsoleLogCompradores = () => {
+        fireBuy2()
         console.log(fireName)
         console.log(firePhone)
         console.log(fireMail)
