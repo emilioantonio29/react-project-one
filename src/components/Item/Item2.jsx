@@ -122,7 +122,7 @@ const Item2 = ({producto}) => {
                 <div className="d-flex justify-content-center">
                     <div className="col-md-8 d-flex justify-content-left align-items-center noPad">
                         <p>
-                            <Link to={`/`}> <button className="btn">Home</button>
+                            <Link to={`/react-project-one`}> <button className="btn">Home</button>
                             </Link>
                         </p>
                         <p><i className="fa fa-angle-right"></i></p>

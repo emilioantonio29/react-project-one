@@ -38,7 +38,7 @@ const App = () => {
           <Route exact path="/Golfeados" component={ItemListContainerGolfeado}/>
           <Route exact path="/Mermeladas" component={ItemListContainerMermelada}/>
           <Route exact path="/PanesDeJamon" component={ItemListContainerPan}/>
-          <Route exact path="/" component={ItemListContainer}/>
+          <Route exact path="/react-project-one" component={ItemListContainer}/>
           <Route exact path="/ItemDetailContainer/:productoID" component={ItemDetailContainer}/>
           <Route exact path="/carrito" component={CartContainer}/>
           <Route exact path="/carritoDatos" component={CartContainerDatos}/>
@@ -48,7 +48,7 @@ const App = () => {
                 <div className="d-flex justify-content-center" >
                     <div className="col-md-8 d-flex justify-content-left align-items-center noPad">
                         <p >
-                            <Link to={`/`}>
+                            <Link to={`/react-project-one`}>
                             <button className="btn">Home</button>
                             </Link>
                         </p>

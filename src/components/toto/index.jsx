@@ -55,7 +55,7 @@ const TotoTools = () => {
               cantidad:12, 
               descript:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
               id: buyers.length+1,
-              imagen: "test",
+              imagen: "https://drive.google.com/uc?export=view&id=1BaYGFlQ_SzhyMRGxUSQYpRW4SfHRXYB-",
               moneda: "$",
               nombre: "TEST: Mermelada de Naranja",
               precio: 260,

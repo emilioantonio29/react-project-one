@@ -16,7 +16,7 @@ const NavbarComponent = () => {
         <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center reset">
             <div className="d-flex align-items-center col-md-8 reset">
             
-            <Link to={`/`}><img src="https://drive.google.com/uc?export=view&id=1kChaoDDFEVUdIQWEVAeIGu7JkzWgYdav" alt=""/></Link>
+            <Link to={`/react-project-one`}><img src="https://drive.google.com/uc?export=view&id=1kChaoDDFEVUdIQWEVAeIGu7JkzWgYdav" alt=""/></Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -24,7 +24,7 @@ const NavbarComponent = () => {
                 <ul className="navbar-nav linkEffect">
                         <React.Fragment>
                         <li>
-                        <NavLink to={`/`} exact activeClassName="linkEffectActive">
+                        <NavLink to={`/react-project-one`} exact activeClassName="linkEffectActive">
                             <button className="btn">Todos los Productos</button>
                         </NavLink>
                         </li>

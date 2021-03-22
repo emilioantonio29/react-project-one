@@ -73,7 +73,7 @@ const CartContainerDatos = () =>{
             <div className="d-flex justify-content-center" >
                 <div className="col-md-8 d-flex justify-content-left align-items-center noPad">
                     <p >
-                        <Link to={`/`}>
+                        <Link to={`/react-project-one`}>
                         <button className="btn">Home</button>
                         </Link>
                     </p>
@@ -83,7 +83,7 @@ const CartContainerDatos = () =>{
             </div>
             <div className="d-flex justify-content-center" >
                 <div className="col-md-8 d-flex justify-content-center align-items-center cajaCart">
-                    <img src={`../imagenes/cEmpty.png`} alt="ImagenCartEmpty"/>
+                    <img src={`https://drive.google.com/uc?export=view&id=1ABeWpRqjESxig8ke9VlIGm6NWJs-OT1r`} alt="ImagenCartEmpty"/>
                 </div>
             </div>
             <div className="d-flex justify-content-center" >
@@ -99,7 +99,7 @@ const CartContainerDatos = () =>{
             <div className="d-flex justify-content-center" >
                 <div className="col-md-8 d-flex justify-content-left align-items-center noPad">
                     <p >
-                        <Link to={`/`}>
+                        <Link to={`/react-project-one`}>
                         <button className="btn">Home</button>
                         </Link>
                     </p>
