@@ -41,7 +41,7 @@ const ItemListContainer = () =>{
     return(
         <>
             {load ? (
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column" style={{minHeight:"600px"}}>
                     <div className="d-flex justify-content-center" >
                         <div className="col-md-8 d-flex justify-content-center  flex-column align-items-center noPad">
                             <div className="spinner-border" role="status" style={{marginTop:"170px"}}>

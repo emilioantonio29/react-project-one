@@ -36,6 +36,7 @@ const Item = ({product}) => {
                         <div className="row g-0">
                             <div className="col-md-4 imagenItem" style={{}}>
                                 <img src={`../imagenes/${product.producto.imagen}.png`} alt=""/>    
+                                {/* <img src={"https://drive.google.com/file/d/1ABeWpRqjESxig8ke9VlIGm6NWJs-OT1r/view"} alt=""/>     */}
                             </div>
                             <div className="col-md-8">  
                             <div className="card-body" style={{padding:"10px 10px 0px 0px"}}>
