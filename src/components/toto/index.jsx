@@ -93,11 +93,11 @@ const TotoTools = () => {
                   <button className="toto"  onClick={ConsoleLogCompradores} style={{width:"40px"}}>GO</button>
                 </div>
                 <div className="d-flex justify-content-between">
-                  <p>Agregar Item a FireBase</p>
+                  <p>Agregar Item de Prueba a FireBase (reloadPage After)</p>
                   <button className="toto" onClick={addFirebase} style={{width:"40px"}}>GO</button>
                 </div>
                 <div className="d-flex justify-content-between">
-                  <p>ConsoleLog dolarBlue</p>
+                  <p>ConsoleLog dolarBlue </p>
                   <button className="toto" onClick={getBlue} style={{width:"40px"}}>GO</button>
                 </div>
                 <div className="d-flex justify-content-between">

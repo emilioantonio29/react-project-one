@@ -23,7 +23,7 @@ const ItemListContainer = () =>{
                 setContenido(false)
                 }, 300);
         }
-        console.log("itemListContainer")
+        // console.log("itemListContainer")
         setTimeout(() => {  
 
             setLoad(false) 

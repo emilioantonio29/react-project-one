@@ -50,28 +50,28 @@ const CartContainer = () =>{
         myPromise.then((result) => setCarritoS(result));
        
         globalTest()
-        console.log("soy el cart")
+        // console.log("soy el cart")
         // setCarrito([])
         let total2 = 0
         let prueba = []
         for(let i =0; i < localStorage.length; i++){
             let key = JSON.parse(localStorage.getItem(localStorage.key(i)))
-            console.log(key[0])
+            // console.log(key[0])
             total2 = total2 + ((key[2])*(key[3]))
             carrito.push(key); 
 
         }
         
         setTotal(total2)
-        console.log(total2)
+        // console.log(total2)
         document.title = `${total}`
-        console.log(cart)
-        console.log(carrito)
+        // console.log(cart)
+        // console.log(carrito)
         setTotalDolar((total / dolar).toFixed(2))
         document.title = `${totalDolar}`
         return () => {
 
-            console.log("soy el cart unmon")
+            // console.log("soy el cart unmon")
             // globalTest3()
             // setCarrito([])
             // setCart([])
@@ -105,9 +105,9 @@ const CartContainer = () =>{
     }
 
     const ConsoleLogCompradores = () => {
-        console.log(fireName)
-        console.log(firePhone)
-        console.log(fireMail)
+        // console.log(fireName)
+        // console.log(firePhone)
+        // console.log(fireMail)
         const db = getFirestore()
         const itemCollection = db.collection("ordenes");// guardamos la referencia
         itemCollection.get().then((value) => {
@@ -121,8 +121,8 @@ const CartContainer = () =>{
             // value.docs.map(element => {console.log({...element.data(), id:element.id})})
             setBuyers(temp)
         })
-        console.log(buyers)
-        console.log(arrayCart)
+        // console.log(buyers)
+        // console.log(arrayCart)
         // if(showCart===true){
         //     setShowCart(false)
         // }else{
@@ -272,7 +272,7 @@ const CartContainer = () =>{
                             // cart.map((productCart)=>{
                             //         return <ItemCart key={productCart.id} productCart={productCart}/>
                             carritoS.map((productCart)=>{
-                                console.log("cart")
+                                // console.log("cart")
                                 return <ItemCart key={productCart} productCart={productCart}/>
                             })
                                                 
