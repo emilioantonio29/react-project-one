@@ -42,7 +42,7 @@
   .navbar {
   background: linear-gradient(to right, #f5ece3, white, #f5ece3, white);
   display: flex !important;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   z-index: 16;
   box-shadow: 0 8px 6px -6px black;

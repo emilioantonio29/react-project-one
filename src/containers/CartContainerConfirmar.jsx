@@ -458,7 +458,7 @@ const CartContainerConfirmar = () =>{
                             <Link to={`#`}  onMouseOver={e => e.preventDefault()}><button className="disabled " disabled>1</button></Link>
                             <Link to={`#`}  onMouseOver={e => e.preventDefault()}><button className="disabled " disabled>2</button></Link>
                             <Link to={`#`}  onMouseOver={e => e.preventDefault()}><button className="disabled activated" disabled>3</button></Link>
-                            <Link to={`/react-project-one/carritoConfirmarCompra`} ><button className=" comprar" onClick={fireBuy}>COMPRAR</button></Link>
+                            <Link to={`/react-project-one`} ><button className=" comprar" onClick={fireBuy}>COMPRAR</button></Link>
                         </div>
                     </div>
                 </div>
