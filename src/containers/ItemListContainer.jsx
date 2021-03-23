@@ -39,7 +39,7 @@ const ItemListContainer = () =>{
     // console.log(products)
     // console.log(products)
     return(
-        <><div>
+        <><div >
         <Helmet>
             <title>SoyGlucosa | ProyectoCoder</title>
         </Helmet>

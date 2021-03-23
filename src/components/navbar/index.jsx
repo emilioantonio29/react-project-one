@@ -15,7 +15,7 @@ const NavbarComponent = () => {
         <Helmet>
             <title>SoyGlucosa | ProyectoCoder</title>
         </Helmet>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center reset">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center reset" style={{position:"relative !important"}}>
             <div className="d-flex align-items-center col-md-8 reset">
             
             <Link to={`/react-project-one`}><img src="https://drive.google.com/uc?export=view&id=1kChaoDDFEVUdIQWEVAeIGu7JkzWgYdav" alt=""/></Link>
