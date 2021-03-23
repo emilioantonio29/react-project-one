@@ -9,6 +9,8 @@ import { GlobalContext } from '../context/GlobalContext';
 import {Link} from 'react-router-dom';
 import { getFirestore } from '../firebase';
 import swal from 'sweetalert'
+import { Helmet } from 'react-helmet';
+
 
 const CartContainer = () =>{
     const {dolar, getDolar, setCartIcon,fireMail, setFireMail,firePhone, setFirePhone,fireName, setFireName,buyers, setBuyers,cart,setCart,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,globalTest,render, setRender,renderFunction} = React.useContext(GlobalContext);
@@ -167,6 +169,9 @@ const CartContainer = () =>{
 
     return(
         <>
+        <Helmet>
+            <title>SoyGlucosa | ProyectoCoder</title>
+        </Helmet>
         {showCart ? (    
         <div className="d-flex flex-column">
             <div className="d-flex justify-content-center" >
@@ -385,11 +390,11 @@ const CartContainer = () =>{
                     <div className="col-md- d-flex justify-content-right align-items-center noPad2">
                         <div className="test">
                             {/* <button className="previo hoverS">Home</button> */}
-                            <Link to={`/`} ><button className="previo    ">Home</button></Link>
+                            <Link to={`/react-project-one`} ><button className="previo    ">Home</button></Link>
                             <Link to={`#`}  ><button className="disabled activated" disabled>1</button></Link>
                             <Link to={`#`}  onMouseOver={e => e.preventDefault()}><button className="disabled" disabled>2</button></Link>
                             <Link to={`#`}  onMouseOver={e => e.preventDefault()}><button className="disabled" disabled>3</button></Link>
-                            <Link to={`/carritoDatos`} ><button className="previo ">Siguiente</button></Link>
+                            <Link to={`/react-project-one/carritoDatos`} ><button className="previo ">Siguiente</button></Link>
                         </div>
                     </div>
                 </div>

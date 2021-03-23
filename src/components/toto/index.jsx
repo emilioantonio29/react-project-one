@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import './style.css'
 import { getFirestore } from '../../firebase';
 import { GlobalContext } from '../../context/GlobalContext';
-
+import { Helmet } from 'react-helmet';
 
 
 const TotoTools = () => {
@@ -55,7 +55,7 @@ const TotoTools = () => {
               cantidad:12, 
               descript:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
               id: buyers.length+1,
-              imagen: "https://drive.google.com/uc?export=view&id=1BaYGFlQ_SzhyMRGxUSQYpRW4SfHRXYB-",
+              imagen: "https://drive.google.com/uc?export=view&id=1okLcd8PIn_-ggLdcp6eD4PRFf9JLeAP8",
               moneda: "$",
               nombre: "TEST: Mermelada de Naranja",
               precio: 260,
@@ -84,6 +84,9 @@ const TotoTools = () => {
 
     return(
       <>
+        <Helmet>
+            <title>SoyGlucosa | ProyectoCoder</title>
+        </Helmet>
         <div className="totoDiv">
             <div><h6>TotoTools - ConsoleLogs</h6></div>
             <div className="d-flex  flex-column">

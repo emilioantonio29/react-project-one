@@ -5,14 +5,16 @@ import {Link} from 'react-router-dom';
 import './style.css'
 import React from 'react';
 import Logo from './logo.png'
-
+import { Helmet } from 'react-helmet';
 
 const NavbarComponent = () => {
 
 
     return(
       <>
-        
+        <Helmet>
+            <title>SoyGlucosa | ProyectoCoder</title>
+        </Helmet>
         <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center reset">
             <div className="d-flex align-items-center col-md-8 reset">
             
@@ -29,17 +31,17 @@ const NavbarComponent = () => {
                         </NavLink>
                         </li>
                         <li>
-                        <NavLink to={`/Mermeladas`} exact activeClassName="linkEffectActive">
+                        <NavLink to={`/react-project-one/Mermeladas`} exact activeClassName="linkEffectActive">
                             <button className="btn">Mermeladas</button>
                         </NavLink>
                         </li>
                         <li>
-                        <NavLink to={`/PanesDeJamon`} exact activeClassName="linkEffectActive">
+                        <NavLink to={`/react-project-one/PanesDeJamon`} exact activeClassName="linkEffectActive">
                             <button className="btn">Pan de Jamon</button>
                         </NavLink>
                         </li>
                         <li>
-                        <NavLink to={'/Golfeados'} exact activeClassName="linkEffectActive">
+                        <NavLink to={'/react-project-one/Golfeados'} exact activeClassName="linkEffectActive">
                             <button className="btn">Golfeados</button>
                         </NavLink>
                         </li>

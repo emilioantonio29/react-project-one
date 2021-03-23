@@ -7,7 +7,7 @@ import Item2 from '../components/Item/Item2';
 import Item from '../components/Item/Item';
 import { GlobalContext } from '../context/GlobalContext';
 import {Link} from 'react-router-dom';
-
+import { Helmet } from 'react-helmet';
 
 const ItemDetailContainer = () =>{
     const { productoID } = useParams();
@@ -50,7 +50,9 @@ const ItemDetailContainer = () =>{
 
     return(
         <>
-
+        <Helmet>
+            <title>SoyGlucosa | ProyectoCoder</title>
+        </Helmet>
             {/* <button onClick={test3}> test3</button> */}
 
             {/* <h1>ItemID: {productoID}</h1>

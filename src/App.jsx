@@ -16,7 +16,7 @@ import {Link} from 'react-router-dom';
 import ItemListContainerGolfeado from '../src/containers/ItemListContainerGolfeado';
 import ItemListContainerMermelada from './containers/ItemListContainerMermelada';
 import ItemListContainerPan from './containers/ItemListContainerPan';
-
+import { Helmet } from 'react-helmet';
 
 const App = () => {
 //   const [id, setID] = useState(2); //test
@@ -28,21 +28,21 @@ const App = () => {
   
   // 
   return( 
-    
+
     <GlobalProvider>
       <BrowserRouter>   
       <NavbarComponent/>
       <TotoTools/>
       {/* <Route exact path="/golfeados" component={ItemListContainerGolfeado}/> */}
         <Switch>
-          <Route exact path="/Golfeados" component={ItemListContainerGolfeado}/>
-          <Route exact path="/Mermeladas" component={ItemListContainerMermelada}/>
-          <Route exact path="/PanesDeJamon" component={ItemListContainerPan}/>
+          <Route exact path="/react-project-one/Golfeados" component={ItemListContainerGolfeado}/>
+          <Route exact path="/react-project-one/Mermeladas" component={ItemListContainerMermelada}/>
+          <Route exact path="/react-project-one/PanesDeJamon" component={ItemListContainerPan}/>
           <Route exact path="/react-project-one" component={ItemListContainer}/>
-          <Route exact path="/ItemDetailContainer/:productoID" component={ItemDetailContainer}/>
-          <Route exact path="/carrito" component={CartContainer}/>
-          <Route exact path="/carritoDatos" component={CartContainerDatos}/>
-          <Route exact path="/carritoConfirmarCompra" component={CartContainerConfirmar}/>
+          <Route exact path="/react-project-one/ItemDetailContainer/:productoID" component={ItemDetailContainer}/>
+          <Route exact path="/react-project-one/carrito" component={CartContainer}/>
+          <Route exact path="/react-project-one/carritoDatos" component={CartContainerDatos}/>
+          <Route exact path="/react-project-one/carritoConfirmarCompra" component={CartContainerConfirmar}/>
           <Route path="*" children={
               <div className="d-flex flex-column">
                 <div className="d-flex justify-content-center" >
@@ -67,6 +67,7 @@ const App = () => {
       <FooterComponent/>
       </BrowserRouter>
     </GlobalProvider>
+    
   );
 
 }

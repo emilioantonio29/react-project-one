@@ -1,12 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css'
-
+import { Helmet } from 'react-helmet';
 
 const FooterComponent = () => {
 
 
     return(
       <>
+
         <div className="intro"></div>
         <div className="footerC d-flex justify-content-center" style={{paddingTop:"30px"}}>
             <div className="center colorBrown2 col-md-8">

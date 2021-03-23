@@ -2,7 +2,7 @@ import * as React from 'react';
 import ItemList from '../components/ItemList/ItemList';
 import {Link} from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
-
+import { Helmet } from 'react-helmet';
 
 
 
@@ -39,7 +39,10 @@ const ItemListContainer = () =>{
     // console.log(products)
     // console.log(products)
     return(
-        <>
+        <><div>
+        <Helmet>
+            <title>SoyGlucosa | ProyectoCoder</title>
+        </Helmet>
             {load ? (
                 <div className="d-flex flex-column" style={{minHeight:"600px"}}>
                     <div className="d-flex justify-content-center" >
@@ -101,7 +104,7 @@ const ItemListContainer = () =>{
             )}
 
 
-        </>
+</div></>
     )
 
 }

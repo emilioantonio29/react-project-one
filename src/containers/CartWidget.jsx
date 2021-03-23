@@ -37,7 +37,7 @@ import { GlobalContext } from '../context/GlobalContext';
                   
                   {/* <!-- carrito --> */}
                   {cartIcon ? (
-                    <Link to={`/carrito`}>
+                    <Link to={`/react-project-one/carrito`}>
                       <button type="button" className="btn notification" data-toggle="modal" data-target="#staticBackdrop2">
                         <span className="material-icons sizeC">
                           shopping_cart
@@ -48,7 +48,7 @@ import { GlobalContext } from '../context/GlobalContext';
                       </button>
                     </Link>
                   ):(
-                    <Link to={`/carrito`}>
+                    <Link to={`/react-project-one/carrito`}>
                       <button type="button" className="btn notification" data-toggle="modal" data-target="#staticBackdrop2">
                         {/* <!-- <i className="material-icons add_shopping_cart" data-target="#staticBackdrop2">&#xe854;</i> --> */}
                         <span className="material-icons sizeC">

@@ -45,7 +45,7 @@ const Item = ({product}) => {
                                     <p className="">Precio: {product.producto.precio} {product.producto.moneda}</p>
                                     <p className="" style={{marginLeft:"30px"}}>Stock: {stockDisponible}</p>
                                 </div>
-                                <Link to={`/ItemDetailContainer/${product.producto.id}`}>
+                                <Link to={`/react-project-one/ItemDetailContainer/${product.producto.id}`}>
                                     <button className="botonNow botonNow6 btnNoStyle">Comprar</button>      
                                 </Link>
                             </div>

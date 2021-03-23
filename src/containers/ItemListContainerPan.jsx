@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Link} from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
 import ItemListPan from '../components/ItemList/ItemListPan';
-
+import { Helmet } from 'react-helmet';
 
 
 
@@ -41,6 +41,9 @@ const ItemListContainerPan = () =>{
     // console.log(products)
     return(
         <>
+        <Helmet>
+            <title>SoyGlucosa | ProyectoCoder</title>
+        </Helmet>
             {load ? (
                 <div className="d-flex flex-column" style={{minHeight:"600px"}}>
                     <div className="d-flex justify-content-center" >

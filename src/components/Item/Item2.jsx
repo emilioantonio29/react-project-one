@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { GlobalContext } from "../../context/GlobalContext";
 import {Link} from 'react-router-dom';
 import swal from 'sweetalert'
-
+import { Helmet } from 'react-helmet';
 
 const Item2 = ({producto}) => {
     
@@ -117,7 +117,11 @@ const Item2 = ({producto}) => {
     }
 
     return (
+
         <div>
+            <Helmet>
+                <title>SoyGlucosa | ProyectoCoder</title>
+            </Helmet>
             <div className="d-flex flex-column">
                 <div className="d-flex justify-content-center">
                     <div className="col-md-8 d-flex justify-content-left align-items-center noPad">
@@ -127,7 +131,7 @@ const Item2 = ({producto}) => {
                         </p>
                         <p><i className="fa fa-angle-right"></i></p>
                         <p>
-                            <Link to={`/${producto.tipo}`}> <button className="btn">{producto.tipo}</button>
+                            <Link to={`/react-project-one/${producto.tipo}`}> <button className="btn">{producto.tipo}</button>
                             </Link>
                         </p>
                         <p><i className="fa fa-angle-right"></i></p>
@@ -143,7 +147,8 @@ const Item2 = ({producto}) => {
                                 <div className="card" style={{padding:"10px 0px 10px 0px"}}>
                                 <div className="row ">
                                     <div className="col-md-4 d-flex justify-content-center align-items-center flex-column">
-                                    <img src={`../imagenes/${producto.imagen}.png`} alt="" style={{marginTop:"30px"}}/>
+                                    {/* <img src={`../imagenes/${producto.imagen}.png`} alt="" style={{marginTop:"30px"}}/> */}
+                                    <img src={producto.imagen} alt="" style={{marginTop:"30px"}}/>   
                                     <p>Stock: {stockDisponible}</p>
                                     </div>
                                     <div className="col-md-8 px-3">

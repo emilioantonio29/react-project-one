@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import { getFirestore } from '../firebase';
 import ItemCartDatos from '../components/Item/ItemCartDatos';
 import swal from 'sweetalert'
+import { Helmet } from 'react-helmet';
 
 const CartContainerConfirmar = () =>{
     const {setCartIcon,dolar, getDolar,fireEnvio, setFireEnvio,fireLocalidad, setFireLocalidad,fireCP, setFireCP,fireDireccion, setFireDireccion,fireMail, setFireMail,firePhone, setFirePhone,fireName, setFireName,buyers, setBuyers,cart,setCart,firstAsync,globalTest3,globalTest4,total, setTotal,arrayCart,globalTest,render, setRender,renderFunction} = React.useContext(GlobalContext);
@@ -161,6 +162,9 @@ const CartContainerConfirmar = () =>{
 
     return(
         <>
+        <Helmet>
+            <title>SoyGlucosa | ProyectoCoder</title>
+        </Helmet>
         {showCart ? (
             <div className="d-flex flex-column">
             <div className="d-flex justify-content-center" >
@@ -450,11 +454,11 @@ const CartContainerConfirmar = () =>{
                     <div className="col-md- d-flex justify-content-right align-items-center noPad2">
                         <div className="test">
                             {/* <button className="previo hoverS">Home</button> */}
-                            <Link to={`/carritoDatos`} ><button className="previo    ">Paso Anterior</button></Link>
+                            <Link to={`/react-project-one/carritoDatos`} ><button className="previo    ">Paso Anterior</button></Link>
                             <Link to={`#`}  onMouseOver={e => e.preventDefault()}><button className="disabled " disabled>1</button></Link>
                             <Link to={`#`}  onMouseOver={e => e.preventDefault()}><button className="disabled " disabled>2</button></Link>
                             <Link to={`#`}  onMouseOver={e => e.preventDefault()}><button className="disabled activated" disabled>3</button></Link>
-                            <Link to={`/carritoConfirmarCompra`} ><button className=" comprar" onClick={fireBuy}>COMPRAR</button></Link>
+                            <Link to={`/react-project-one/carritoConfirmarCompra`} ><button className=" comprar" onClick={fireBuy}>COMPRAR</button></Link>
                         </div>
                     </div>
                 </div>

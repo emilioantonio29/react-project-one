@@ -1,8 +1,7 @@
 import * as React from 'react'; 
 import { GlobalContext } from "../../context/GlobalContext";
 import './style.css'
-
-
+import { Helmet } from 'react-helmet';
 
 const ItemCartDatos = ({productCart}) => {
     const [show, setShow] = React.useState(false);
@@ -155,6 +154,9 @@ const ItemCartDatos = ({productCart}) => {
 
     return( 
         <>
+        <Helmet>
+            <title>SoyGlucosa | ProyectoCoder</title>
+        </Helmet>
             <div className="container col-md-12">
                 <div className="table-responsive">
                     <table className="table"> 
@@ -166,7 +168,7 @@ const ItemCartDatos = ({productCart}) => {
                             <tr className="disappear1" style={{height: "100px"}}>
                                 <td className="align-middle" style={{width:"25%"}}>
                                     <div className="d-flex justify-content-left align-items-center borderImg2">
-                                        <img src={`../imagenes/logo.png`} alt="" />
+                                        <img src={productCart[7]} alt="" />
                                         {/* <div className="trashC">
                                             <div>
                                                 <button className="btnTrash test2" onClick={eliminarItem}>
