@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/react-project-one/static/css/main.45abcab1.chunk.css",
-    "main.js": "/react-project-one/static/js/main.d9b5c88c.chunk.js",
-    "main.js.map": "/react-project-one/static/js/main.d9b5c88c.chunk.js.map",
-    "runtime-main.js": "/react-project-one/static/js/runtime-main.8423b665.js",
-    "runtime-main.js.map": "/react-project-one/static/js/runtime-main.8423b665.js.map",
+    "main.js": "/react-project-one/static/js/main.c336aacc.chunk.js",
+    "main.js.map": "/react-project-one/static/js/main.c336aacc.chunk.js.map",
+    "runtime-main.js": "/react-project-one/static/js/runtime-main.225e7d6c.js",
+    "runtime-main.js.map": "/react-project-one/static/js/runtime-main.225e7d6c.js.map",
     "static/css/2.150d169a.chunk.css": "/react-project-one/static/css/2.150d169a.chunk.css",
-    "static/js/2.61d541bc.chunk.js": "/react-project-one/static/js/2.61d541bc.chunk.js",
-    "static/js/2.61d541bc.chunk.js.map": "/react-project-one/static/js/2.61d541bc.chunk.js.map",
-    "static/js/3.86ac7117.chunk.js": "/react-project-one/static/js/3.86ac7117.chunk.js",
-    "static/js/3.86ac7117.chunk.js.map": "/react-project-one/static/js/3.86ac7117.chunk.js.map",
+    "static/js/2.14144403.chunk.js": "/react-project-one/static/js/2.14144403.chunk.js",
+    "static/js/2.14144403.chunk.js.map": "/react-project-one/static/js/2.14144403.chunk.js.map",
+    "static/js/3.17718b2d.chunk.js": "/react-project-one/static/js/3.17718b2d.chunk.js",
+    "static/js/3.17718b2d.chunk.js.map": "/react-project-one/static/js/3.17718b2d.chunk.js.map",
     "index.html": "/react-project-one/index.html",
     "static/css/2.150d169a.chunk.css.map": "/react-project-one/static/css/2.150d169a.chunk.css.map",
     "static/css/main.45abcab1.chunk.css.map": "/react-project-one/static/css/main.45abcab1.chunk.css.map",
-    "static/js/2.61d541bc.chunk.js.LICENSE.txt": "/react-project-one/static/js/2.61d541bc.chunk.js.LICENSE.txt",
+    "static/js/2.14144403.chunk.js.LICENSE.txt": "/react-project-one/static/js/2.14144403.chunk.js.LICENSE.txt",
     "static/media/logo.435637db.png": "/react-project-one/static/media/logo.435637db.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.8423b665.js",
+    "static/js/runtime-main.225e7d6c.js",
     "static/css/2.150d169a.chunk.css",
-    "static/js/2.61d541bc.chunk.js",
+    "static/js/2.14144403.chunk.js",
     "static/css/main.45abcab1.chunk.css",
-    "static/js/main.d9b5c88c.chunk.js"
+    "static/js/main.c336aacc.chunk.js"
   ]
 }
